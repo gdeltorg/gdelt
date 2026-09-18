@@ -49,6 +49,8 @@ def latest_files() -> dict[str, str]:
             get(found[name], timeout=15)
         except Exception:
             found.pop(name, None)
+    if "gkg" not in found:
+        raise RuntimeError("GKG dataset is temporarily unavailable; no snapshot was generated.")
     return found
 
 
@@ -109,19 +111,23 @@ def gkg_events(url: str) -> list[dict]:
     ranked = []
     for index, row in enumerate(rows(url)):
         if index >= MAX_ROWS or len(row) < 10: break
-        article = clean(row[3]); source_name = clean(row[2]) or domain(article)
-        themes = [clean(x.split(",")[0].replace("_", " ")) for x in (row[6] or "").split(";") if x.strip()]
-        places = locations(row[7] if len(row) > 7 else "")
-        persons, orgs = clean(row[8] if len(row) > 8 else ""), clean(row[9] if len(row) > 9 else "")
+        # GKG 2.1: DATE, source common name, document URL, V2Themes,
+        # V2Locations, V2Persons and V2Organizations occupy columns 1, 3-10.
+        article = clean(row[4] if len(row) > 4 else "")
+        source_name = clean(row[3] if len(row) > 3 else "") or domain(article)
+        themes = [clean(x.split(",")[0].replace("_", " ")) for x in (row[7] or "").split(";") if x.strip()]
+        places = locations(row[8] if len(row) > 8 else "")
+        persons, orgs = clean(row[9] if len(row) > 9 else ""), clean(row[10] if len(row) > 10 else "")
         score = len(themes) * 3 + len(places) * 5 + bool(persons) * 4 + bool(orgs) * 4 + min(len(source_name), 50)
         ranked.append({"id": article or f"gkg-{index}", "url": article, "source_name": source_name,
-                       "date": row[0][:12], "score": score, "themes": themes[:20],
+                       "date": (row[1] if len(row) > 1 else row[0])[:12], "score": score, "themes": themes[:20],
                        "locations": places, "entities": {"persons": persons[:500], "organizations": orgs[:500]}})
     ranked.sort(key=lambda item: item["score"], reverse=True)
     for item in ranked[:40]:
         title, summary = page_meta(item["url"])
         item["title"] = title or item["source_name"] or "未命名报道"
         item["summary"] = summary or "该信号来自 GDELT 公共新闻数据，点击原文查看完整报道。"
+        item["source"] = item["source_name"] or domain(item["url"])
         time.sleep(.04)
     return ranked[:40]
 
@@ -135,13 +141,41 @@ def event_rows(url: str) -> list[dict]:
     return result
 
 
+def dataset_stats(url: str, date_index: int) -> dict:
+    records = 0
+    dates = Counter()
+    for row in rows(url):
+        records += 1
+        if len(row) > date_index:
+            value = clean(row[date_index])[:8]
+            if re.fullmatch(r"\d{8}", value):
+                dates[value] += 1
+    ordered = sorted(dates)
+    return {
+        "records": records,
+        "time_points": len(ordered),
+        "date_start": ordered[0] if ordered else "",
+        "date_end": ordered[-1] if ordered else "",
+        "date_counts": dict(dates),
+    }
+
+
 def snapshot(files: dict[str, str], stamp: str) -> dict:
     stories = gkg_events(files["gkg"])
     events = event_rows(files["events"])
-    datasets = {}
+    datasets = {
+        "events": dataset_stats(files["events"], 1),
+        "gkg": dataset_stats(files["gkg"], 1),
+        "mentions": dataset_stats(files["mentions"], 0),
+    }
+    for name in datasets:
+        datasets[name].update({"file": files[name].rsplit("/", 1)[-1], "status": "ready"})
+    hours = Counter()
     for name in ("events", "gkg", "mentions"):
-        datasets[name] = {"records": sum(1 for _ in rows(files[name])), "file": files[name].rsplit("/", 1)[-1], "status": "ready"}
-    hours = Counter((item["date"] or "")[:10] for item in events)
+        for key, value in datasets[name]["date_counts"].items():
+            if re.fullmatch(r"\d{8}", key):
+                hours[f"{key[:4]}-{key[4:6]}-{key[6:]}"] += value
+        datasets[name].pop("date_counts", None)
     themes = Counter(t for item in stories for t in item["themes"])
     countries = Counter(p["country"] for item in stories for p in item["locations"])
     timeline = [{"date": key, "events": value} for key, value in sorted(hours.items())]
@@ -160,9 +194,30 @@ def main() -> None:
     history = json.loads(history_file.read_text(encoding="utf-8")) if history_file.exists() else {"schema_version": "4.0", "started_at": stamp, "snapshots": []}
     history["started_at"] = history.get("started_at") or stamp
     history["snapshots"] = [x for x in history.get("snapshots", []) if x.get("id") != archive_id]
-    history["snapshots"].append({"id": archive_id, "generated_at": stamp, "file": f"archive/{archive_file.name}", "datasets": {n: payload["datasets"][n]["records"] for n in ("events", "gkg", "mentions")}, "timeline_points": len(payload["timeline"])})
+    history["snapshots"].append({
+        "id": archive_id,
+        "generated_at": stamp,
+        "file": f"archive/{archive_file.name}",
+        "datasets": {
+            n: {
+                "records": payload["datasets"][n]["records"],
+                "time_points": payload["datasets"][n]["time_points"],
+                "date_start": payload["datasets"][n]["date_start"],
+                "date_end": payload["datasets"][n]["date_end"],
+            } for n in ("events", "gkg", "mentions")
+        },
+        "timeline_points": len(payload["timeline"]),
+    })
     history["snapshots"] = history["snapshots"][-10000:]
-    history["totals"] = {n: sum(x["datasets"].get(n, 0) for x in history["snapshots"]) for n in ("events", "gkg", "mentions")}
+    history["totals"] = {
+        n: sum(
+            (x.get("datasets", {}).get(n, {}).get("records", 0)
+             if isinstance(x.get("datasets", {}).get(n), dict)
+             else x.get("datasets", {}).get(n, 0))
+            for x in history["snapshots"]
+        )
+        for n in ("events", "gkg", "mentions")
+    }
     history_file.write_text(json.dumps(history, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
