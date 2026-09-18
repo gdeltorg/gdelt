@@ -23,11 +23,22 @@
         "mentions": 2351
       },
       "timeline_points": 3
+    },
+    {
+      "id": "2026-09-18T05-15-15+00-00",
+      "generated_at": "2026-09-18T05:15:15+00:00",
+      "file": "archive/2026-09-18T05-15-15+00-00.json",
+      "datasets": {
+        "events": 982,
+        "gkg": 749,
+        "mentions": 2351
+      },
+      "timeline_points": 3
     }
   ],
   "totals": {
-    "events": 1964,
-    "gkg": 1498,
-    "mentions": 4702
+    "events": 2946,
+    "gkg": 2247,
+    "mentions": 7053
   }
 }
