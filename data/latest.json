@@ -1,6 +1,7 @@
 {
-  "generated_at": "2026-09-18T04:37:47+00:00",
-  "data_time": "2026-09-18T04:37:47+00:00",
+  "schema_version": "2.0",
+  "generated_at": "2026-09-18T04:42:54+00:00",
+  "data_time": "2026-09-18T04:42:54+00:00",
   "source": "https://data.gdeltproject.org/gdeltv2/",
   "datasets": {
     "events": {
@@ -25,7 +26,7 @@
       "source": "pasadenastarnews.com",
       "source_name": "1",
       "date": "202609180445",
-      "score": 61,
+      "score": 54,
       "themes": [
         "KILL#2014#lost#3#Chatsworth",
         "KILL#4#helicopter#3#Chatsworth",
@@ -40,15 +41,20 @@
         "KILL#3##3#Chatsworth",
         "KILL#3##3#Chatsworth"
       ],
+      "locations": [],
+      "entities": {
+        "persons": "WB_678_DIGITAL_GOVERNMENT,16438;WB_694_BROADCAST_AND_MEDIA,16438;WB_133_INFORMATION_AND_COMMUNICATION_TECHNOLOGIES,16438;TAX_MILITARY_TITLE_COMMANDER,5070;TAX_FNCACT_COMMANDER,5070;TAX_FNCACT_REPORTER,523;TAX_FNCACT_REPORTER,6038;TAX_FNCACT_REPORTER,6359;TAX_FNCACT_REPORTER,6682;TAX_FNCACT_REPORTER,",
+        "organizations": "2#Iowa, United States#US#USIA#42.0046#-93.214#IA;2#Tennessee, United States#US#USTN#35.7449#-86.7489#TN;2#California, United States#US#USCA#36.17#-119.746#CA;3#Los Angeles County, California, United States#US#USCA#34.3667#-118.201#277283;3#San Fernando Valley, California, United States#US#USCA#34.18"
+      },
       "title": "1",
-      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
     },
     {
       "url": "gdnonline.com",
       "source": "gdnonline.com",
       "source_name": "1",
       "date": "202609180445",
-      "score": 58,
+      "score": 51,
       "themes": [
         "KILL#21##4#Gaza",
         "CRISISLEX T03 DEAD#21##4#Gaza",
@@ -63,15 +69,20 @@
         "CRISISLEX T03 DEAD#8#children#4#Gaza",
         "AFFECT#45##4#Gaza"
       ],
+      "locations": [],
+      "entities": {
+        "persons": "WB_1160_SHOCKS_AND_VULNERABILITY,937;WB_695_POVERTY,937;DISPLACED,1326;TAX_FNCACT_CHILDREN,1714;TAX_FNCACT_CHILDREN,1779;TAX_FNCACT_AUTHORITIES,2232;EPU_POLICY_AUTHORITIES,2232;REFUGEES,1333;TAX_FNCACT_OFFICIAL,210;WOUND,1760;CRISISLEX_T04_INFRASTRUCTURE,391;UNGP_CRIME_VIOLENCE,2284;CRISISLEX_CRISIS",
+        "organizations": "4#Gaza, Israel (General), Israel#IS#IS00#31.4167#34.3333#-797156;1#Israel#IS#IS#31.5#34.75#IS"
+      },
       "title": "1",
-      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
     },
     {
       "url": "gdnonline.com",
       "source": "gdnonline.com",
       "source_name": "1",
       "date": "202609180445",
-      "score": 52,
+      "score": 45,
       "themes": [
         "WOUND#20##1#Russia#RS#RS#60#100#RS#209",
         "CRISISLEX CRISISLEXREC#20##1#Russia#RS#RS#60#100#RS#209",
@@ -86,15 +97,20 @@
         "WOUND#6##1#Ukraine#UP#UP#49#32#UP#2495",
         "CRISISLEX T02 INJURED#6##1#Ukraine#UP#UP#49#32#UP#2495"
       ],
+      "locations": [],
+      "entities": {
+        "persons": "TAX_FNCACT_MINISTER,751;TAX_FNCACT_EMPLOYEES,2911;TAX_ETHNICITY_BLACK,2530;LEGISLATION,1077;USPEC_POLICY1,1077;EPU_POLICY_LEGISLATION,1077;MARITIME_INCIDENT,2371;MARITIME_INCIDENT,2418;MARITIME,2371;MARITIME,2418;EPU_ECONOMY,1160;EPU_ECONOMY,4164;EPU_ECONOMY_HISTORIC,1160;EPU_ECONOMY_HISTORIC,4164;T",
+        "organizations": "1#Ukraine#UP#UP#49#32#UP;4#Kyiv, Kyyiv, Misto, Ukraine#UP#UP12#50.4333#30.5167#-1044367;4#Sumy, Sums'ka Oblast', Ukraine#UP#UP21#50.9216#34.8003#-1055659;4#Odesa, Odes'ka Oblast, Ukraine#UP#UP17#46.4639#30.7386#-1049092;4#Kremlin, Moskva, Russia#RS#RS48#55.7522#37.6156#-2960561;4#Moscow, Moskva, Rus"
+      },
       "title": "1",
-      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
     },
     {
       "url": "dailycaller.com",
       "source": "dailycaller.com",
       "source_name": "1",
       "date": "202609180445",
-      "score": 46,
+      "score": 39,
       "themes": [
         "KILL#7##3#Independence National Historical Park",
         "SEIZE#2000000##3#Philadelphia",
@@ -107,15 +123,20 @@
         "CRISISLEX T03 DEAD#5#missing women#3#Philadelphia",
         "CRISISLEX T03 DEAD#5#missing women#3#Philadelphia"
       ],
+      "locations": [],
+      "entities": {
+        "persons": "AFFECT,1811;CRIME_ILLEGAL_DRUGS,589;DRUG_TRADE,589;WB_2453_ORGANIZED_CRIME,589;WB_2433_CONFLICT_AND_VIOLENCE,589;WB_2432_FRAGILITY_CONFLICT_AND_VIOLENCE,589;WB_2456_DRUGS_AND_NARCOTICS,589;CRISISLEX_C07_SAFETY,952;TAX_FNCACT_PARK_RANGER,290;TAX_FNCACT_DEPUTY,1999;TAX_FNCACT_AGENT,647;SEIZE,1213;SEIZ",
+        "organizations": "3#Philadelphia, Pennsylvania, United States#US#USPA#39.9523#-75.1638#1209052;3#Independence National Historical Park, Pennsylvania, United States#US#USPA#39.9479#-75.148#1177725"
+      },
       "title": "1",
-      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
     },
     {
       "url": "bbc.co.uk",
       "source": "bbc.co.uk",
       "source_name": "1",
       "date": "202609180445",
-      "score": 43,
+      "score": 36,
       "themes": [
         "KIDNAP#4##1#Malawi#MI#MI#-13.5#34#MI#0",
         "AFFECT#4##1#Malawi#MI#MI#-13.5#34#MI#0",
@@ -127,15 +148,20 @@
         "KILL#4#suspected kidnappers#1#Malawi#MI#MI#-13.5#34#MI#1343",
         "CRISISLEX T03 DEAD#4#suspected kidnappers#1#Malawi#MI#MI#-13.5#34#MI#1343"
       ],
+      "locations": [],
+      "entities": {
+        "persons": "MEDIA_MSM,1073;TAX_FNCACT_DEPUTY,565;ARMEDCONFLICT,324;TAX_FNCACT_CHIEF,157;TAX_FNCACT_CHIEF,1218;AFFECT,73;TAX_FNCACT_AUTHORITIES,1691;TAX_FNCACT_AUTHORITIES,2188;TAX_FNCACT_AUTHORITIES,2971;EPU_POLICY_AUTHORITIES,1691;EPU_POLICY_AUTHORITIES,2188;EPU_POLICY_AUTHORITIES,2971;TAX_FNCACT_CHILDREN,2011",
+        "organizations": "1#Malawi#MI#MI#-13.5#34#MI;1#United Kingdom#UK#UK#54#-4#UK"
+      },
       "title": "1",
-      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
     },
     {
       "url": "macleayargus.com.au",
       "source": "macleayargus.com.au",
       "source_name": "1",
       "date": "202609180445",
-      "score": 43,
+      "score": 36,
       "themes": [
         "ARREST#4##4#Sydney",
         "SOC GENERALCRIME#4##4#Sydney",
@@ -147,15 +173,20 @@
         "SOC GENERALCRIME#4##1#Australia#AS#AS#-25#135#AS#3094",
         "CRISISLEX C07 SAFETY#4##1#Australia#AS#AS#-25#135#AS#3094"
       ],
+      "locations": [],
+      "entities": {
+        "persons": "TAX_MILITARY_TITLE_OFFICERS,3005;TAX_FNCACT_OFFICERS,3005;CRISISLEX_CRISISLEXREC,3559;CRISISLEX_CRISISLEXREC,3608;WB_696_PUBLIC_SECTOR_MANAGEMENT,1889;WB_696_PUBLIC_SECTOR_MANAGEMENT,2111;WB_840_JUSTICE,1889;WB_840_JUSTICE,2111;WB_1014_CRIMINAL_JUSTICE,1889;WB_1014_CRIMINAL_JUSTICE,2111;TAX_FNCACT_D",
+        "organizations": "4#Sydney, New South Wales, Australia#AS#AS02#-33.8833#151.217#-1603135;4#Campbelltown, New South Wales, Australia#AS#AS02#-34.0667#150.817#-1563870;4#Hurstville, New South Wales, Australia#AS#AS02#-33.9667#151.1#-1579209;1#Australia#AS#AS#-25#135#AS;4#Melbourne, Victoria, Australia#AS#AS07#-37.8167#"
+      },
       "title": "1",
-      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
     },
     {
       "url": "wellingtontimes.com.au",
       "source": "wellingtontimes.com.au",
       "source_name": "1",
       "date": "202609180445",
-      "score": 43,
+      "score": 36,
       "themes": [
         "ARREST#4##4#Sydney",
         "SOC GENERALCRIME#4##4#Sydney",
@@ -167,15 +198,20 @@
         "SOC GENERALCRIME#4##4#Campbelltown",
         "CRISISLEX C07 SAFETY#4##4#Campbelltown"
       ],
+      "locations": [],
+      "entities": {
+        "persons": "TAX_FNCACT_CHILDREN,3318;TAX_FNCACT_STUDENT,436;TAX_FNCACT_MAGISTRATE,1668;TAX_FNCACT_CRIMINALS,1752;TAX_FNCACT_CRIMINALS,2001;ARREST,27;ARREST,165;ARREST,1278;ARREST,1389;ARREST,3123;ARREST,3200;SOC_GENERALCRIME,27;SOC_GENERALCRIME,165;SOC_GENERALCRIME,1278;SOC_GENERALCRIME,1389;SOC_GENERALCRIME,31",
+        "organizations": "4#Sydney, New South Wales, Australia#AS#AS02#-33.8833#151.217#-1603135;4#Campbelltown, New South Wales, Australia#AS#AS02#-34.0667#150.817#-1563870;4#Hurstville, New South Wales, Australia#AS#AS02#-33.9667#151.1#-1579209;1#Australia#AS#AS#-25#135#AS;4#Melbourne, Victoria, Australia#AS#AS07#-37.8167#"
+      },
       "title": "1",
-      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
     },
     {
       "url": "gloucesteradvocate.com.au",
       "source": "gloucesteradvocate.com.au",
       "source_name": "1",
       "date": "202609180445",
-      "score": 43,
+      "score": 36,
       "themes": [
         "ARREST#4##4#Sydney",
         "SOC GENERALCRIME#4##4#Sydney",
@@ -187,15 +223,20 @@
         "SOC GENERALCRIME#4##4#Campbelltown",
         "CRISISLEX C07 SAFETY#4##4#Campbelltown"
       ],
+      "locations": [],
+      "entities": {
+        "persons": "TAX_FNCACT_DETECTIVES,2714;TAX_FNCACT_WOMAN,1359;MEDIA_MSM,1218;TAX_WEAPONS_GUN,385;TAX_WEAPONS_GUN,2260;SOC_POINTSOFINTEREST_POLICE_STATION,3053;UNGP_FORESTS_RIVERS_OCEANS,1954;TAX_WEAPONS_FIREARM,801;TAX_WEAPONS_FIREARM,1159;TAX_FNCACT_MAN,1315;TAX_FNCACT_MAN,1345;EDUCATION,428;SOC_POINTSOFINTERES",
+        "organizations": "4#Hurstville, New South Wales, Australia#AS#AS02#-33.9667#151.1#-1579209;4#Campbelltown, New South Wales, Australia#AS#AS02#-34.0667#150.817#-1563870;4#Sydney, New South Wales, Australia#AS#AS02#-33.8833#151.217#-1603135;1#Australia#AS#AS#-25#135#AS;4#Melbourne, Victoria, Australia#AS#AS07#-37.8167#"
+      },
       "title": "1",
-      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
     },
     {
       "url": "portnews.com.au",
       "source": "portnews.com.au",
       "source_name": "1",
       "date": "202609180445",
-      "score": 43,
+      "score": 36,
       "themes": [
         "ARREST#4##4#Sydney",
         "SOC GENERALCRIME#4##4#Sydney",
@@ -207,15 +248,20 @@
         "SOC GENERALCRIME#4##1#Australia#AS#AS#-25#135#AS#3094",
         "CRISISLEX C07 SAFETY#4##1#Australia#AS#AS#-25#135#AS#3094"
       ],
+      "locations": [],
+      "entities": {
+        "persons": "TAX_WEAPONS_GUN,385;TAX_WEAPONS_GUN,2260;SOC_POINTSOFINTEREST_POLICE_STATION,3053;MEDIA_MSM,1218;TAX_FNCACT_DETECTIVES,2714;TAX_FNCACT_WOMAN,1359;TAX_FNCACT_CRIMINAL,97;TAX_FNCACT_CRIMINAL,235;TAX_FNCACT_CRIMINAL,1049;TAX_FNCACT_CRIMINAL,2810;TAX_ETHNICITY_BLACK,2387;TAX_ETHNICITY_AUSTRALIAN,3480;TR",
+        "organizations": "4#Campbelltown, New South Wales, Australia#AS#AS02#-34.0667#150.817#-1563870;4#Sydney, New South Wales, Australia#AS#AS02#-33.8833#151.217#-1603135;4#Hurstville, New South Wales, Australia#AS#AS02#-33.9667#151.1#-1579209;1#Australia#AS#AS#-25#135#AS;4#Melbourne, Victoria, Australia#AS#AS07#-37.8167#"
+      },
       "title": "1",
-      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
     },
     {
       "url": "freepressjournal.in",
       "source": "freepressjournal.in",
       "source_name": "1",
       "date": "202609180445",
-      "score": 37,
+      "score": 30,
       "themes": [
         "ARREST#2#accused#4#Delhi",
         "SOC GENERALCRIME#2#accused#4#Delhi",
@@ -225,8 +271,388 @@
         "CRISISLEX C07 SAFETY#2##4#Ulhasnagar",
         "KILL#2#Arrested#4#Ulhasnagar"
       ],
+      "locations": [],
+      "entities": {
+        "persons": "TAX_FNCACT_MAN,744;KILL,658;CRISISLEX_CRISISLEXREC,658;CRISISLEX_T02_INJURED,658;CRISISLEX_T03_DEAD,658;WB_678_DIGITAL_GOVERNMENT,1156;WB_667_ICT_INFRASTRUCTURE,1156;WB_669_SOFTWARE_INFRASTRUCTURE,1156;WB_2945_DATABASE,1156;WB_133_INFORMATION_AND_COMMUNICATION_TECHNOLOGIES,1156;SECURITY_SERVICES,45;",
+        "organizations": "4#Delhi, Delhi, India#IN#IN07#28.6667#77.2167#-2094230;4#Ulhasnagar, Maharashtra, India#IN#IN16#19.2167#73.15#-2113727;4#New Delhi, Delhi, India#IN#IN07#28.6#77.2#-2106102"
+      },
       "title": "1",
-      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
+    },
+    {
+      "url": "bbc.co.uk",
+      "source": "bbc.co.uk",
+      "source_name": "1",
+      "date": "202609180445",
+      "score": 30,
+      "themes": [
+        "ARREST#37##1#Niger#NG#NG#16#8#NG#941",
+        "CRISISLEX C07 SAFETY#37##1#Niger#NG#NG#16#8#NG#941",
+        "KILL#37##1#Niger#NG#NG#16#8#NG#941",
+        "CRISISLEX CRISISLEXREC#37##1#Niger#NG#NG#16#8#NG#941",
+        "CRISISLEX T02 INJURED#37##1#Niger#NG#NG#16#8#NG#941",
+        "CRISISLEX T03 DEAD#37##1#Niger#NG#NG#16#8#NG#941",
+        "CRISISLEX T03 DEAD#37##1#Niger#NG#NG#16#8#NG#941"
+      ],
+      "locations": [],
+      "entities": {
+        "persons": "TAX_DISEASE_BACTERIAL,1166;TRIAL,29;TAX_DISEASE_OUTBREAK,264;TAX_DISEASE_OUTBREAK,1144;WB_635_PUBLIC_HEALTH,264;WB_635_PUBLIC_HEALTH,1144;WB_2165_HEALTH_EMERGENCIES,264;WB_2165_HEALTH_EMERGENCIES,1144;WB_2166_HEALTH_EMERGENCY_PREPAREDNESS_AND_DISASTER_RESPONSE,264;WB_2166_HEALTH_EMERGENCY_PREPAREDNE",
+        "organizations": "1#Niger#NG#NG#16#8#NG;4#Minna, Niger, Nigeria#NI#NI31#9.61389#6.55694#-2019717;1#Nigeria#NI#NI#10#8#NI"
+      },
+      "title": "1",
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
+    },
+    {
+      "url": "orlandosentinel.com",
+      "source": "orlandosentinel.com",
+      "source_name": "1",
+      "date": "202609180445",
+      "score": 27,
+      "themes": [
+        "KILL#48##1#Nigeria#NI#NI#10#8#NI#59",
+        "CRISISLEX T03 DEAD#48##1#Nigeria#NI#NI#10#8#NI#59",
+        "AFFECT#182##1#Nigeria#NI#NI#10#8#NI#416",
+        "ARREST#15##4#Odigbo",
+        "SOC GENERALCRIME#15##4#Odigbo",
+        "CRISISLEX C07 SAFETY#15##4#Odigbo"
+      ],
+      "locations": [],
+      "entities": {
+        "persons": "RURAL,801;WB_678_DIGITAL_GOVERNMENT,2997;WB_694_BROADCAST_AND_MEDIA,2997;WB_133_INFORMATION_AND_COMMUNICATION_TECHNOLOGIES,2997;KILL,88;CRISISLEX_T03_DEAD,88;SOC_POINTSOFINTEREST_HOSPITAL,514;SOC_POINTSOFINTEREST_HOSPITAL,690;SOC_POINTSOFINTEREST_HOSPITAL,1700;SOC_POINTSOFINTEREST_HOSPITAL,1874;SOC_",
+        "organizations": "4#Irele, Ondo, Nigeria#NI#NI48#6.48694#4.87001#-2012489;1#Nigeria#NI#NI#10#8#NI;4#Abuja, Abuja Federal Capital Territory, Nigeria#NI#NI11#9.08333#7.53333#-1997013;4#Odigbo, Ondo, Nigeria#NI#NI48#6.78922#4.8664#-2021774;4#Dapo, Oyo, Nigeria#NI#NI32#7.72444#3.95222#386470"
+      },
+      "title": "1",
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
+    },
+    {
+      "url": "brisbanetimes.com.au",
+      "source": "brisbanetimes.com.au",
+      "source_name": "1",
+      "date": "202609180445",
+      "score": 24,
+      "themes": [
+        "ARREST#12##4#Brisbane",
+        "SOC GENERALCRIME#12##4#Brisbane",
+        "CRISISLEX C07 SAFETY#12##4#Brisbane",
+        "KILL#15##4#Brisbane",
+        "CRISISLEX T03 DEAD#15##4#Brisbane"
+      ],
+      "locations": [],
+      "entities": {
+        "persons": "TAX_FNCACT_PSYCHIATRIST,1474;KILL,2272;CRISISLEX_T03_DEAD,2272;SOC_GENERALCRIME,49;SOC_GENERALCRIME,181;SOC_GENERALCRIME,348;SOC_GENERALCRIME,625;SOC_GENERALCRIME,2096;EPU_CATS_MIGRATION_FEAR_FEAR,49;EPU_CATS_MIGRATION_FEAR_FEAR,181;EPU_CATS_MIGRATION_FEAR_FEAR,348;EPU_CATS_MIGRATION_FEAR_FEAR,625;E",
+        "organizations": "4#Brisbane, Queensland, Australia#AS#AS04#-27.5#153.017#-1561728;4#Sunnybank, Queensland, Australia#AS#AS04#-27.5833#153.05#-1602891"
+      },
+      "title": "1",
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
+    },
+    {
+      "url": "kptv.com",
+      "source": "kptv.com",
+      "source_name": "1",
+      "date": "202609180445",
+      "score": 24,
+      "themes": [
+        "KILL#17##2#Washington",
+        "CRISISLEX T03 DEAD#17##2#Washington",
+        "ARREST#14##4#Vancouver",
+        "SOC GENERALCRIME#14##4#Vancouver",
+        "CRISISLEX C07 SAFETY#14##4#Vancouver"
+      ],
+      "locations": [],
+      "entities": {
+        "persons": "TAX_FNCACT_PROSECUTOR,4727;TAX_FNCACT_PROSECUTOR,4802;TAX_FNCACT_DRIVER,438;TAX_WEAPONS_FIREARM,4204;TRANSPARENCY,3489;UNGP_CRIME_VIOLENCE,5297;TAX_FNCACT_MAN,50;TAX_FNCACT_MAN,1570;SECURITY_SERVICES,4017;TAX_FNCACT_POLICE,4017;WB_1428_INJURY,1410;WB_1406_DISEASES,1410;WB_621_HEALTH_NUTRITION_AND_PO",
+        "organizations": "2#Washington, United States#US#USWA#47.3917#-121.571#WA;3#Clark County, Washington, United States#US#USWA#45.7998#-122.485#1531820;4#Vancouver, British Columbia, Canada#CA#CA02#49.25#-123.133#-575268;3#Ridgefield, Washington, United States#US#USWA#45.8151#-122.743#1512604"
+      },
+      "title": "1",
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
+    },
+    {
+      "url": "scoop.co.nz",
+      "source": "scoop.co.nz",
+      "source_name": "1",
+      "date": "202609180445",
+      "score": 24,
+      "themes": [
+        "KILL#25##1#New Zealand#NZ#NZ#-42#174#NZ#11437",
+        "KILL#25##1#Cuba#CU#CU#22#-79.5#CU#12181",
+        "KILL#9##1#Cuba#CU#CU#22#-79.5#CU#12465",
+        "KILL#800#fewer babies#1#New Zealand#NZ#NZ#-42#174#NZ#12684",
+        "CRISISLEX T03 DEAD#800#fewer babies#1#New Zealand#NZ#NZ#-42#174#NZ#12684"
+      ],
+      "locations": [],
+      "entities": {
+        "persons": "WB_1331_HEALTH_TECHNOLOGIES,3838;WB_1331_HEALTH_TECHNOLOGIES,4214;WB_1331_HEALTH_TECHNOLOGIES,4544;WB_1350_PHARMACEUTICALS,3838;WB_1350_PHARMACEUTICALS,4214;WB_1350_PHARMACEUTICALS,4544;CRISISLEX_CRISISLEXREC,1499;CRISISLEX_CRISISLEXREC,1912;CRISISLEX_CRISISLEXREC,3369;WB_1305_HEALTH_SERVICES_DELIVE",
+        "organizations": "4#Havana, Ciudad De La Habana, Cuba#CU#CU02#23.1319#-82.3642#-1628751;1#Hungary#HU#HU#47#20#HU;1#Paraguay#PA#PA#-22.993333#-57.996389#PA;1#New Zealand#NZ#NZ#-42#174#NZ;1#Macedonia#MK#MK#41.833333#22#MK;2#New York, United States#US#USNY#42.1497#-74.9384#NY;1#Australia#AS#AS#-25#135#AS;1#Canada#CA#CA#"
+      },
+      "title": "1",
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
+    },
+    {
+      "url": "imemc.org",
+      "source": "imemc.org",
+      "source_name": "1",
+      "date": "202609180445",
+      "score": 24,
+      "themes": [
+        "KIDNAP#2014##1#Israel#IS#IS#31.5#34.75#IS#1056",
+        "ARREST#39#Society said#1#Israel#IS#IS#31.5#34.75#IS#4673",
+        "ARREST#39##1#Israel#IS#IS#31.5#34.75#IS#4673",
+        "KIDNAP#39##1#Israel#IS#IS#31.5#34.75#IS#4862",
+        "ARREST#5#Palestinian women journalists#4#Ramallah"
+      ],
+      "locations": [],
+      "entities": {
+        "persons": "EPU_POLICY_POLITICAL,65;EPU_POLICY_POLITICAL,841;EPU_POLICY_POLITICAL,1019;EPU_POLICY_POLITICAL,3023;UNGP_CRIME_VIOLENCE,2864;UNGP_CRIME_VIOLENCE,4995;POLITICAL_PRISONER,74;POLITICAL_PRISONER,850;EPU_ECONOMY_HISTORIC,1843;ECON_DEBT,1400;ECON_DEBT,1650;ECON_DEBT,2984;TAX_FNCACT_WORKERS,4493;TAX_FNCAC",
+        "organizations": "1#Gaza Strip#GZ#GZ#31.425074#34.373398#GZ;1#Israel#IS#IS#31.5#34.75#IS;4#Gaza, Israel (General), Israel#IS#IS00#31.4167#34.3333#-797156;1#West Bank#WE#WE#31.666667#35.25#WE;4#Ramallah, West Bank (General), West Bank#WE#WE00#31.9026#35.1955#-795956;4#Ramla, Hamerkaz, Israel#IS#IS02#31.9253#34.8669#-7"
+      },
+      "title": "1",
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
+    },
+    {
+      "url": "dailykos.com",
+      "source": "dailykos.com",
+      "source_name": "1",
+      "date": "202609180445",
+      "score": 21,
+      "themes": [
+        "KILL#2014##3#Elon",
+        "CRISISLEX CRISISLEXREC#2014##3#Elon",
+        "CRISISLEX T03 DEAD#2014##3#Elon",
+        "CRISISLEX T03 DEAD#2014##3#Elon"
+      ],
+      "locations": [],
+      "entities": {
+        "persons": "WB_698_TRADE,4350;TAX_FNCACT_OFFICIALS,509;EPU_CATS_MIGRATION_FEAR_FEAR,737;EPU_CATS_MIGRATION_FEAR_FEAR,3694;EPU_CATS_MIGRATION_FEAR_FEAR,4059;EPU_CATS_MIGRATION_FEAR_FEAR,5157;ENV_COAL,7481;SOC_GENERALCRIME,6189;TAX_FNCACT_EXECUTIVE,4142;GENERAL_GOVERNMENT,1167;GENERAL_GOVERNMENT,4012;GENERAL_GOVE",
+        "organizations": "2#Kansas, United States#US#USKS#38.5111#-96.8005#KS;3#Elon, Iowa, United States#US#USIA#43.2641#-91.324#464536;1#Iran#IR#IR#32#53#IR;2#Iowa, United States#US#USIA#42.0046#-93.214#IA;1#United States#US#US#39.828175#-98.5795#US;2#Nebraska, United States#US#USNE#41.1289#-98.2883#NE"
+      },
+      "title": "1",
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
+    },
+    {
+      "url": "heraldglobe.com",
+      "source": "heraldglobe.com",
+      "source_name": "1",
+      "date": "202609180445",
+      "score": 21,
+      "themes": [
+        "WOUND#10#civilians#1#Russia#RS#RS#60#100#RS#4416",
+        "CRISISLEX CRISISLEXREC#10#civilians#1#Russia#RS#RS#60#100#RS#4416",
+        "CRISISLEX C03 WELLBEING HEALTH#10#civilians#1#Russia#RS#RS#60#100#RS#4416",
+        "CRISISLEX T02 INJURED#10#civilians#1#Russia#RS#RS#60#100#RS#4416"
+      ],
+      "locations": [],
+      "entities": {
+        "persons": "TAX_FNCACT_CHILDREN,4468;TAX_ETHNICITY_UKRAINIAN,237;TAX_ETHNICITY_UKRAINIAN,4064;TAX_WORLDLANGUAGES_UKRAINIAN,237;TAX_WORLDLANGUAGES_UKRAINIAN,4064;SCIENCE,1566;SOC_INNOVATION,1566;TAX_ETHNICITY_RUSSIAN,4285;TAX_ETHNICITY_RUSSIAN,4339;TAX_ETHNICITY_RUSSIAN,4699;TAX_WORLDLANGUAGES_RUSSIAN,4285;TAX_W",
+        "organizations": "4#Kyiv, Kyyiv, Misto, Ukraine#UP#UP12#50.4333#30.5167#-1044367;4#Brussels, Bruxelles-Capitale, Belgium#BE#BE11#50.8333#4.33333#-1955538;1#Russia#RS#RS#60#100#RS;1#Ukraine#UP#UP#49#32#UP;2#New York, United States#US#USNY#42.1497#-74.9384#NY;1#Iran#IR#IR#32#53#IR;4#Moscow, Moskva, Russia#RS#RS48#55.75"
+      },
+      "title": "1",
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
+    },
+    {
+      "url": "bicesteradvertiser.net",
+      "source": "bicesteradvertiser.net",
+      "source_name": "1",
+      "date": "202609180445",
+      "score": 21,
+      "themes": [
+        "AFFECT#256##4#Bicester",
+        "REFUGEES#256##4#Bicester",
+        "EPU CATS MIGRATION FEAR MIGRATION#256##4#Bicester",
+        "REFUGEES#256##4#Bicester"
+      ],
+      "locations": [],
+      "entities": {
+        "persons": "CRISISLEX_CRISISLEXREC,690;WB_168_ROADS_AND_HIGHWAYS,1584;WB_1809_HIGHWAYS,1584;WB_1803_TRANSPORT_INFRASTRUCTURE,1584;CRISISLEX_C05_NEED_OF_SHELTERS,165;USPEC_POLITICS_GENERAL1,513;USPEC_POLITICS_GENERAL1,2839;GENERAL_GOVERNMENT,1138;GENERAL_GOVERNMENT,2160;GENERAL_GOVERNMENT,2601;GENERAL_GOVERNMENT",
+        "organizations": "4#Bicester, Oxfordshire, United Kingdom#UK#UKK2#51.9#-1.15#-2589863;5#Oxfordshire, Oxfordshire, United Kingdom#UK#UKK2#51.7823#-1.31405#-2604914;4#Kidlington, Oxfordshire, United Kingdom#UK#UKK2#51.8167#-1.28333#-2599905"
+      },
+      "title": "1",
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
+    },
+    {
+      "url": "kxly.com",
+      "source": "kxly.com",
+      "source_name": "1",
+      "date": "202609180445",
+      "score": 20,
+      "themes": [
+        "ARREST#19##0#######174",
+        "SOC GENERALCRIME#19##0#######174",
+        "CRISISLEX C07 SAFETY#19##0#######174",
+        "ARREST#3#warrants#0#######570",
+        "CRISISLEX CRISISLEXREC#3#warrants#0#######570"
+      ],
+      "locations": [],
+      "entities": {
+        "persons": "TAX_FNCACT_DETECTIVES,313;WB_678_DIGITAL_GOVERNMENT,795;WB_694_BROADCAST_AND_MEDIA,795;WB_133_INFORMATION_AND_COMMUNICATION_TECHNOLOGIES,795;WB_696_PUBLIC_SECTOR_MANAGEMENT,543;WB_840_JUSTICE,543;EPU_CATS_REGULATION,716;WB_135_TRANSPORT,246;CRM_ARSON,419;TAX_FNCACT_MARSHALS,48;TAX_FNCACT_MARSHALS,18",
+        "organizations": ""
+      },
+      "title": "1",
+      "summary": "该条信号来自 GDELT 公共新闻数据，点击查看原文。"
     }
-  ]
+  ],
+  "facets": {
+    "countries": [],
+    "themes": [
+      {
+        "name": "KILL#3##3#Chatsworth",
+        "count": 9
+      },
+      {
+        "name": "ARREST#4##4#Sydney",
+        "count": 6
+      },
+      {
+        "name": "SOC GENERALCRIME#4##4#Sydney",
+        "count": 6
+      },
+      {
+        "name": "CRISISLEX C07 SAFETY#4##4#Sydney",
+        "count": 6
+      },
+      {
+        "name": "AFFECT#45##4#Gaza",
+        "count": 2
+      },
+      {
+        "name": "CRISISLEX T03 DEAD#8#children#4#Gaza",
+        "count": 2
+      },
+      {
+        "name": "CRISISLEX T03 DEAD#5#missing women#3#Philadelphia",
+        "count": 2
+      },
+      {
+        "name": "CRISISLEX T03 DEAD#4#suspected kidnappers#1#Malawi#MI#MI#-13.5#34#MI#0",
+        "count": 2
+      },
+      {
+        "name": "ARREST#4##1#Australia#AS#AS#-25#135#AS#137",
+        "count": 2
+      },
+      {
+        "name": "SOC GENERALCRIME#4##1#Australia#AS#AS#-25#135#AS#137",
+        "count": 2
+      },
+      {
+        "name": "CRISISLEX C07 SAFETY#4##1#Australia#AS#AS#-25#135#AS#137",
+        "count": 2
+      },
+      {
+        "name": "ARREST#4##1#Australia#AS#AS#-25#135#AS#3094",
+        "count": 2
+      },
+      {
+        "name": "SOC GENERALCRIME#4##1#Australia#AS#AS#-25#135#AS#3094",
+        "count": 2
+      },
+      {
+        "name": "CRISISLEX C07 SAFETY#4##1#Australia#AS#AS#-25#135#AS#3094",
+        "count": 2
+      },
+      {
+        "name": "ARREST#4##4#Campbelltown",
+        "count": 2
+      },
+      {
+        "name": "SOC GENERALCRIME#4##4#Campbelltown",
+        "count": 2
+      },
+      {
+        "name": "CRISISLEX C07 SAFETY#4##4#Campbelltown",
+        "count": 2
+      },
+      {
+        "name": "CRISISLEX T03 DEAD#37##1#Niger#NG#NG#16#8#NG#941",
+        "count": 2
+      },
+      {
+        "name": "CRISISLEX T03 DEAD#2014##3#Elon",
+        "count": 2
+      },
+      {
+        "name": "REFUGEES#256##4#Bicester",
+        "count": 2
+      },
+      {
+        "name": "KILL#2014#lost#3#Chatsworth",
+        "count": 1
+      },
+      {
+        "name": "KILL#4#helicopter#3#Chatsworth",
+        "count": 1
+      },
+      {
+        "name": "CRISISLEX T03 DEAD#4#helicopter#3#Chatsworth",
+        "count": 1
+      },
+      {
+        "name": "KILL#21##4#Gaza",
+        "count": 1
+      },
+      {
+        "name": "CRISISLEX T03 DEAD#21##4#Gaza",
+        "count": 1
+      },
+      {
+        "name": "KILL#2000000##1#Israel#IS#IS#31.5#34.75#IS#490",
+        "count": 1
+      },
+      {
+        "name": "AFFECT#110##1#Israel#IS#IS#31.5#34.75#IS#749",
+        "count": 1
+      },
+      {
+        "name": "CRISISLEX T02 INJURED#110##1#Israel#IS#IS#31.5#34.75#IS#749",
+        "count": 1
+      },
+      {
+        "name": "KILL#8#children#4#Gaza",
+        "count": 1
+      },
+      {
+        "name": "CRISISLEX CRISISLEXREC#8#children#4#Gaza",
+        "count": 1
+      },
+      {
+        "name": "CRISISLEX T02 INJURED#8#children#4#Gaza",
+        "count": 1
+      },
+      {
+        "name": "WOUND#20##1#Russia#RS#RS#60#100#RS#209",
+        "count": 1
+      },
+      {
+        "name": "CRISISLEX CRISISLEXREC#20##1#Russia#RS#RS#60#100#RS#209",
+        "count": 1
+      },
+      {
+        "name": "CRISISLEX C03 WELLBEING HEALTH#20##1#Russia#RS#RS#60#100#RS#209",
+        "count": 1
+      },
+      {
+        "name": "CRISISLEX T02 INJURED#20##1#Russia#RS#RS#60#100#RS#209",
+        "count": 1
+      },
+      {
+        "name": "WOUND#20##4#Kyiv",
+        "count": 1
+      },
+      {
+        "name": "CRISISLEX T02 INJURED#20##4#Kyiv",
+        "count": 1
+      },
+      {
+        "name": "WOUND#3#crew#1#Ukraine#UP#UP#49#32#UP#2428",
+        "count": 1
+      },
+      {
+        "name": "CRISISLEX CRISISLEXREC#3#crew#1#Ukraine#UP#UP#49#32#UP#2428",
+        "count": 1
+      },
+      {
+        "name": "CRISISLEX C03 WELLBEING HEALTH#3#crew#1#Ukraine#UP#UP#49#32#UP#2428",
+        "count": 1
+      }
+    ]
+  }
 }
