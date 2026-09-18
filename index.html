@@ -9,7 +9,7 @@
 <body>
   <header class="top"><div class="shell nav">
     <a class="logo" href="./"><b>GDELT</b><span>GLOBAL EVENT DESK</span></a>
-    <nav><a href="#briefing">今日简报</a><a href="articles.html">全网阅读 ↗</a><a href="#timeline">专门时间线</a><a href="data.html">三库数据 ↗</a></nav>
+    <nav><a href="#briefing">今日简报</a><a href="#capabilities">能力地图</a><a href="articles.html">全网阅读 ↗</a><a href="data.html">三库数据 ↗</a></nav>
   </div></header>
 
   <main class="shell">
@@ -48,6 +48,18 @@
     <section class="panel history-panel" id="history"><div class="section-head"><div><p class="eyebrow">ARCHIVE / FROM NOW ON</p><h2>历史记录</h2></div><span id="history-meta">—</span></div>
       <div class="table-wrap"><table><thead><tr><th>快照时间</th><th>Events</th><th>GKG</th><th>Mentions</th><th>时间点</th><th>原始快照</th></tr></thead><tbody id="history-list"></tbody></table></div>
       <p class="notice">历史从系统首次成功运行开始累计。每次运行保留三库行数、覆盖时间点和原始快照；页面展示摘要，原始 JSON 可按需打开。</p>
+    </section>
+    <section class="panel capability-panel" id="capabilities"><div class="section-head"><div><p class="eyebrow">GDELT CAPABILITY MAP</p><h2>能力地图</h2></div><a href="capabilities.html">查看完整能力说明 ↗</a></div>
+      <div class="capability-grid">
+        <a class="capability live-cap" href="data.html"><b>01 · 三大实时库</b><strong>Events · GKG · Mentions</strong><span>事件、知识图谱、新闻提及与可追溯快照</span></a>
+        <a class="capability" href="articles.html"><b>02 · 全网阅读</b><strong>DOC / Article Index</strong><span>文章、博客、来源、主题、地点与原文入口</span></a>
+        <a class="capability" href="capabilities.html#geo"><b>03 · 地理与地图</b><strong>GEO / GeoJSON</strong><span>国家、城市、地点、来源国与地理热度</span></a>
+        <a class="capability" href="capabilities.html#visual"><b>04 · 图片与视觉</b><strong>VGKG / Image Signals</strong><span>图片标签、OCR、人物、视觉叙事与图像线索</span></a>
+        <a class="capability" href="capabilities.html#broadcast"><b>05 · 电视与视频</b><strong>TV-GKG / Broadcast</strong><span>电视字幕、广播主题与可回放时间码</span></a>
+        <a class="capability" href="capabilities.html#narrative"><b>06 · 叙事与情绪</b><strong>GCAM / Tone</strong><span>主题、实体、引用、语气、情绪与关系网络</span></a>
+        <a class="capability" href="capabilities.html#language"><b>07 · 跨语言</b><strong>Translingual</strong><span>跨语言新闻统一检索与机器翻译元数据</span></a>
+        <a class="capability" href="capabilities.html#history"><b>08 · 历史与回放</b><strong>GDELT 1.0 / Replay</strong><span>历史档案、时间回放、趋势和周期比较</span></a>
+      </div>
     </section>
   </main>
 
