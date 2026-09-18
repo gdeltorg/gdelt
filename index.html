@@ -59,7 +59,7 @@
     const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const fmt=x=>Number(x||0).toLocaleString('zh-CN');
     const safe=x=>{try{const u=new URL(x);return /^https?:$/.test(u.protocol)?u.href:''}catch{return''}};
-    const date=x=>{if(!x)return'—';const s=String(x);const m=s.match(/^(\d{4})(\d{2})(\d{2})(\d{2})?(\d{2})?/);return m?`${m[1]}-${m[2]}-${m[3]}${m[4]?` ${m[4]}:${m[5]||'00'}`:''}`:s.replace('T',' ').replace('+00:00',' UTC')};
+    const date=x=>{if(!x)return'—';const s=String(x);const m=s.match(/^(\d{4})(\d{2})(\d{2})(\d{2})?(\d{2})?/);return m?`${m[1]}-${m[2]}-${m[3]}${m[4]?` ${m[4]}:${m[5]||'00'}`:''} UTC`:s.replace('T',' ').replace('+00:00',' UTC').replace(/ UTC UTC$/,' UTC')};
     let latest={},history={},stories=[];
     function source(x){return x.source_name||x.source||'未知出处'}
     function card(x,i){const href=safe(x.url);return `<article class="story" data-i="${i}"><div class="story-index">${String(i+1).padStart(2,'0')}</div><div><div class="meta"><b>${esc(source(x))}</b><span>${date(x.date)}</span><span>影响分 ${fmt(x.score)}</span></div><h3>${href?`<a href="${href}" target="_blank" rel="noopener">${esc(x.title||'未命名报道')} ↗</a>`:esc(x.title||'未命名报道')}</h3><p class="summary">${esc(x.summary||'暂无摘要；打开原文查看报道。')}</p><div class="story-foot">${x.locations?.slice(0,4).map(p=>`<button class="place" data-place="${esc(p.name)}">${esc(p.name)} · ${esc(p.country)}</button>`).join('')||'<span class="muted">地点待补充</span>'}</div><div class="tags">${(x.themes||[]).slice(0,5).map(t=>`<button data-theme="${esc(t)}">${esc(t)}</button>`).join('')}</div></div></article>`}
