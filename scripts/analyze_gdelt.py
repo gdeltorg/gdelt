@@ -77,10 +77,6 @@ def locations(value: str) -> list[dict[str, str]]:
         parts = item.split("#")
         if len(parts) < 3: continue
         name, country = clean(parts[1]), clean(parts[2])
-        if len(parts) >= 5 and parts[4].strip():
-            country = clean(parts[4])
-        if name.isupper() and len(name) <= 20 and " " not in name:
-            continue
         if name and country and (name, country) not in seen:
             result.append({"name": name, "country": country})
             seen.add((name, country))
@@ -115,15 +111,15 @@ def gkg_events(url: str) -> list[dict]:
     ranked = []
     for index, row in enumerate(rows(url)):
         if index >= MAX_ROWS or len(row) < 10: break
-        # GKG 2.1: DATE, source common name, document URL, V2Themes,
-        # V2Locations, V2Persons and V2Organizations are columns 0, 2, 3,
-        # 7, 9, 11 and 13 respectively.
-        article = clean(row[3] if len(row) > 3 else "")
-        source_name = clean(row[2] if len(row) > 2 else "") or domain(article)
-        themes = [clean(x.split(",")[0].replace("_", " ")) for x in (row[7] or "").split(";") if x.strip()]
-        places = locations(row[9] if len(row) > 9 else "")
-        persons = clean(row[11] if len(row) > 11 else "")
-        orgs = clean(row[13] if len(row) > 13 else "")
+        # GKG 2.1 starts with GKGRECORDID. The readable fields are:
+        # DATE=1, SourceCommonName=3, DocumentIdentifier=4,
+        # V2Themes=8, V2Locations=10, V2Persons=12, V2Organizations=14.
+        article = clean(row[4] if len(row) > 4 else "")
+        source_name = clean(row[3] if len(row) > 3 else "") or domain(article)
+        themes = [clean(x.split(",")[0].replace("_", " ")) for x in (row[8] or "").split(";") if x.strip()]
+        places = locations(row[10] if len(row) > 10 else "")
+        persons = clean(row[12] if len(row) > 12 else "")
+        orgs = clean(row[14] if len(row) > 14 else "")
         score = len(themes) * 3 + len(places) * 5 + bool(persons) * 4 + bool(orgs) * 4 + min(len(source_name), 50)
         ranked.append({"id": article or f"gkg-{index}", "url": article, "source_name": source_name,
                        "date": (row[1] if len(row) > 1 else row[0])[:12], "score": score, "themes": themes[:20],
