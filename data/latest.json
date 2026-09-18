@@ -1,119 +1,140 @@
 {
-  "generated_at": "2026-09-18T04:22:38+00:00",
-  "data_time": "2026-09-18T04:22:38+00:00",
+  "generated_at": "2026-09-18T04:37:47+00:00",
+  "data_time": "2026-09-18T04:37:47+00:00",
   "source": "https://data.gdeltproject.org/gdeltv2/",
   "datasets": {
     "events": {
-      "records": 795,
+      "records": 578,
       "status": "ready",
-      "file": "20260918043000.export.CSV.zip"
+      "file": "20260918044500.export.CSV.zip"
     },
     "gkg": {
-      "records": 722,
+      "records": 627,
       "status": "ready",
-      "file": "20260918043000.gkg.csv.zip"
+      "file": "20260918044500.gkg.csv.zip"
     },
     "mentions": {
-      "records": 1801,
+      "records": 1462,
       "status": "ready",
-      "file": "20260918043000.mentions.CSV.zip"
+      "file": "20260918044500.mentions.CSV.zip"
     }
   },
   "top_news": [
     {
-      "url": "troyrecord.com",
-      "title": "1",
-      "source": "troyrecord.com",
+      "url": "pasadenastarnews.com",
+      "source": "pasadenastarnews.com",
       "source_name": "1",
-      "date": "202609180430",
-      "score": 178,
+      "date": "202609180445",
+      "score": 61,
       "themes": [
-        "ARREST#12##4#Petersburg",
-        "SOC GENERALCRIME#12##4#Petersburg",
-        "CRISISLEX C07 SAFETY#12##4#Petersburg",
-        "ARREST#3##4#Petersburg",
-        "SOC GENERALCRIME#3##4#Petersburg",
-        "CRISISLEX C07 SAFETY#3##4#Petersburg",
-        "ARREST#4##4#Petersburg",
-        "SOC GENERALCRIME#4##4#Petersburg",
-        "CRISISLEX C07 SAFETY#4##4#Petersburg",
-        "ARREST#8##4#Petersburg",
-        "SOC GENERALCRIME#8##4#Petersburg",
-        "CRISISLEX C07 SAFETY#8##4#Petersburg"
-      ]
+        "KILL#2014#lost#3#Chatsworth",
+        "KILL#4#helicopter#3#Chatsworth",
+        "CRISISLEX T03 DEAD#4#helicopter#3#Chatsworth",
+        "KILL#3##3#Chatsworth",
+        "KILL#3##3#Chatsworth",
+        "KILL#3##3#Chatsworth",
+        "KILL#3##3#Chatsworth",
+        "KILL#3##3#Chatsworth",
+        "KILL#3##3#Chatsworth",
+        "KILL#3##3#Chatsworth",
+        "KILL#3##3#Chatsworth",
+        "KILL#3##3#Chatsworth"
+      ],
+      "title": "1",
+      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
     },
     {
-      "url": "businessday.co.za",
-      "title": "1",
-      "source": "businessday.co.za",
+      "url": "gdnonline.com",
+      "source": "gdnonline.com",
       "source_name": "1",
-      "date": "202609180430",
-      "score": 76,
+      "date": "202609180445",
+      "score": 58,
       "themes": [
-        "KILL#49##4#Johannesburg",
-        "CRISISLEX CRISISLEXREC#49##4#Johannesburg",
-        "CRISISLEX T03 DEAD#49##4#Johannesburg",
-        "CRISISLEX T03 DEAD#49##4#Johannesburg",
-        "KILL#3##4#Johannesburg",
-        "CRISISLEX CRISISLEXREC#3##4#Johannesburg",
-        "CRISISLEX T03 DEAD#3##4#Johannesburg",
-        "CRISISLEX T03 DEAD#3##4#Johannesburg",
-        "KILL#18##4#Johannesburg",
-        "CRISISLEX CRISISLEXREC#18##4#Johannesburg",
-        "CRISISLEX T03 DEAD#18##4#Johannesburg",
-        "CRISISLEX T03 DEAD#18##4#Johannesburg"
-      ]
+        "KILL#21##4#Gaza",
+        "CRISISLEX T03 DEAD#21##4#Gaza",
+        "AFFECT#45##4#Gaza",
+        "KILL#2000000##1#Israel#IS#IS#31.5#34.75#IS#490",
+        "AFFECT#110##1#Israel#IS#IS#31.5#34.75#IS#749",
+        "CRISISLEX T02 INJURED#110##1#Israel#IS#IS#31.5#34.75#IS#749",
+        "KILL#8#children#4#Gaza",
+        "CRISISLEX CRISISLEXREC#8#children#4#Gaza",
+        "CRISISLEX T02 INJURED#8#children#4#Gaza",
+        "CRISISLEX T03 DEAD#8#children#4#Gaza",
+        "CRISISLEX T03 DEAD#8#children#4#Gaza",
+        "AFFECT#45##4#Gaza"
+      ],
+      "title": "1",
+      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
     },
     {
-      "url": "nypost.com",
-      "title": "1",
-      "source": "nypost.com",
+      "url": "gdnonline.com",
+      "source": "gdnonline.com",
       "source_name": "1",
-      "date": "202609180430",
-      "score": 74,
+      "date": "202609180445",
+      "score": 52,
       "themes": [
-        "KILL#5##0#######261",
-        "KILL#5##0#######261",
-        "CRISISLEX T03 DEAD#5##0#######261",
-        "KILL#141527179##0#######352",
-        "KILL#5##0#######352",
-        "CRISISLEX T03 DEAD#5##0#######352",
-        "KILL#141527134#Pastor Jimmy Rocha prays#0#######885",
-        "KILL#5##0#######885",
-        "CRISISLEX T03 DEAD#5##0#######885",
-        "KILL#141527095##0#######1147",
-        "KILL#5##0#######1147",
-        "CRISISLEX T03 DEAD#5##0#######1147"
-      ]
+        "WOUND#20##1#Russia#RS#RS#60#100#RS#209",
+        "CRISISLEX CRISISLEXREC#20##1#Russia#RS#RS#60#100#RS#209",
+        "CRISISLEX C03 WELLBEING HEALTH#20##1#Russia#RS#RS#60#100#RS#209",
+        "CRISISLEX T02 INJURED#20##1#Russia#RS#RS#60#100#RS#209",
+        "WOUND#20##4#Kyiv",
+        "CRISISLEX T02 INJURED#20##4#Kyiv",
+        "WOUND#3#crew#1#Ukraine#UP#UP#49#32#UP#2428",
+        "CRISISLEX CRISISLEXREC#3#crew#1#Ukraine#UP#UP#49#32#UP#2428",
+        "CRISISLEX C03 WELLBEING HEALTH#3#crew#1#Ukraine#UP#UP#49#32#UP#2428",
+        "CRISISLEX T02 INJURED#3#crew#1#Ukraine#UP#UP#49#32#UP#2428",
+        "WOUND#6##1#Ukraine#UP#UP#49#32#UP#2495",
+        "CRISISLEX T02 INJURED#6##1#Ukraine#UP#UP#49#32#UP#2495"
+      ],
+      "title": "1",
+      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
     },
     {
-      "url": "winnipegfreepress.com",
-      "title": "1",
-      "source": "winnipegfreepress.com",
+      "url": "dailycaller.com",
+      "source": "dailycaller.com",
       "source_name": "1",
-      "date": "202609180430",
-      "score": 70,
+      "date": "202609180445",
+      "score": 46,
       "themes": [
-        "AFFECT#4##1#Russia#RS#RS#60#100#RS#4596",
-        "KILL#2#riders#1#Ukraine#UP#UP#49#32#UP#5921",
-        "KILL#2#charges#2#Arizona",
-        "KILL#3##2#Minnesota",
-        "KILL#3##2#Minnesota",
-        "KILL#3##2#Minnesota",
-        "CRISISLEX CRISISLEXREC#3##2#Minnesota",
-        "CRISISLEX T01 CAUTION ADVICE#3##2#Minnesota",
-        "CRISISLEX T03 DEAD#3##2#Minnesota",
-        "CRISISLEX T03 DEAD#3##2#Minnesota",
-        "KILL#3##3#Grand Canyon",
-        "KILL#3##3#Grand Canyon"
-      ]
+        "KILL#7##3#Independence National Historical Park",
+        "SEIZE#2000000##3#Philadelphia",
+        "KILL#82##3#Philadelphia",
+        "CRISISLEX T03 DEAD#82##3#Philadelphia",
+        "AFFECT#5##3#Philadelphia",
+        "KILL#5#missing women#3#Philadelphia",
+        "CRISISLEX CRISISLEXREC#5#missing women#3#Philadelphia",
+        "CRISISLEX T02 INJURED#5#missing women#3#Philadelphia",
+        "CRISISLEX T03 DEAD#5#missing women#3#Philadelphia",
+        "CRISISLEX T03 DEAD#5#missing women#3#Philadelphia"
+      ],
+      "title": "1",
+      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
     },
     {
-      "url": "merimbulanewsweekly.com.au",
-      "title": "1",
-      "source": "merimbulanewsweekly.com.au",
+      "url": "bbc.co.uk",
+      "source": "bbc.co.uk",
       "source_name": "1",
-      "date": "202609180430",
+      "date": "202609180445",
+      "score": 43,
+      "themes": [
+        "KIDNAP#4##1#Malawi#MI#MI#-13.5#34#MI#0",
+        "AFFECT#4##1#Malawi#MI#MI#-13.5#34#MI#0",
+        "KILL#4#suspected kidnappers#1#Malawi#MI#MI#-13.5#34#MI#0",
+        "CRISISLEX CRISISLEXREC#4#suspected kidnappers#1#Malawi#MI#MI#-13.5#34#MI#0",
+        "CRISISLEX T02 INJURED#4#suspected kidnappers#1#Malawi#MI#MI#-13.5#34#MI#0",
+        "CRISISLEX T03 DEAD#4#suspected kidnappers#1#Malawi#MI#MI#-13.5#34#MI#0",
+        "CRISISLEX T03 DEAD#4#suspected kidnappers#1#Malawi#MI#MI#-13.5#34#MI#0",
+        "KILL#4#suspected kidnappers#1#Malawi#MI#MI#-13.5#34#MI#1343",
+        "CRISISLEX T03 DEAD#4#suspected kidnappers#1#Malawi#MI#MI#-13.5#34#MI#1343"
+      ],
+      "title": "1",
+      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
+    },
+    {
+      "url": "macleayargus.com.au",
+      "source": "macleayargus.com.au",
+      "source_name": "1",
+      "date": "202609180445",
       "score": 43,
       "themes": [
         "ARREST#4##4#Sydney",
@@ -125,14 +146,55 @@
         "ARREST#4##1#Australia#AS#AS#-25#135#AS#3094",
         "SOC GENERALCRIME#4##1#Australia#AS#AS#-25#135#AS#3094",
         "CRISISLEX C07 SAFETY#4##1#Australia#AS#AS#-25#135#AS#3094"
-      ]
+      ],
+      "title": "1",
+      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
     },
     {
-      "url": "goulburnpost.com.au",
-      "title": "1",
-      "source": "goulburnpost.com.au",
+      "url": "wellingtontimes.com.au",
+      "source": "wellingtontimes.com.au",
       "source_name": "1",
-      "date": "202609180430",
+      "date": "202609180445",
+      "score": 43,
+      "themes": [
+        "ARREST#4##4#Sydney",
+        "SOC GENERALCRIME#4##4#Sydney",
+        "CRISISLEX C07 SAFETY#4##4#Sydney",
+        "ARREST#4##4#Sydney",
+        "SOC GENERALCRIME#4##4#Sydney",
+        "CRISISLEX C07 SAFETY#4##4#Sydney",
+        "ARREST#4##4#Campbelltown",
+        "SOC GENERALCRIME#4##4#Campbelltown",
+        "CRISISLEX C07 SAFETY#4##4#Campbelltown"
+      ],
+      "title": "1",
+      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
+    },
+    {
+      "url": "gloucesteradvocate.com.au",
+      "source": "gloucesteradvocate.com.au",
+      "source_name": "1",
+      "date": "202609180445",
+      "score": 43,
+      "themes": [
+        "ARREST#4##4#Sydney",
+        "SOC GENERALCRIME#4##4#Sydney",
+        "CRISISLEX C07 SAFETY#4##4#Sydney",
+        "ARREST#4##4#Sydney",
+        "SOC GENERALCRIME#4##4#Sydney",
+        "CRISISLEX C07 SAFETY#4##4#Sydney",
+        "ARREST#4##4#Campbelltown",
+        "SOC GENERALCRIME#4##4#Campbelltown",
+        "CRISISLEX C07 SAFETY#4##4#Campbelltown"
+      ],
+      "title": "1",
+      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
+    },
+    {
+      "url": "portnews.com.au",
+      "source": "portnews.com.au",
+      "source_name": "1",
+      "date": "202609180445",
       "score": 43,
       "themes": [
         "ARREST#4##4#Sydney",
@@ -144,81 +206,27 @@
         "ARREST#4##1#Australia#AS#AS#-25#135#AS#3094",
         "SOC GENERALCRIME#4##1#Australia#AS#AS#-25#135#AS#3094",
         "CRISISLEX C07 SAFETY#4##1#Australia#AS#AS#-25#135#AS#3094"
-      ]
+      ],
+      "title": "1",
+      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
     },
     {
-      "url": "batemansbaypost.com.au",
-      "title": "1",
-      "source": "batemansbaypost.com.au",
+      "url": "freepressjournal.in",
+      "source": "freepressjournal.in",
       "source_name": "1",
-      "date": "202609180430",
-      "score": 43,
+      "date": "202609180445",
+      "score": 37,
       "themes": [
-        "ARREST#4##4#Sydney",
-        "SOC GENERALCRIME#4##4#Sydney",
-        "CRISISLEX C07 SAFETY#4##4#Sydney",
-        "ARREST#4##1#Australia#AS#AS#-25#135#AS#137",
-        "SOC GENERALCRIME#4##1#Australia#AS#AS#-25#135#AS#137",
-        "CRISISLEX C07 SAFETY#4##1#Australia#AS#AS#-25#135#AS#137",
-        "ARREST#4##1#Australia#AS#AS#-25#135#AS#3094",
-        "SOC GENERALCRIME#4##1#Australia#AS#AS#-25#135#AS#3094",
-        "CRISISLEX C07 SAFETY#4##1#Australia#AS#AS#-25#135#AS#3094"
-      ]
-    },
-    {
-      "url": "muswellbrookchronicle.com.au",
+        "ARREST#2#accused#4#Delhi",
+        "SOC GENERALCRIME#2#accused#4#Delhi",
+        "CRISISLEX C07 SAFETY#2#accused#4#Delhi",
+        "ARREST#2##4#Ulhasnagar",
+        "SOC GENERALCRIME#2##4#Ulhasnagar",
+        "CRISISLEX C07 SAFETY#2##4#Ulhasnagar",
+        "KILL#2#Arrested#4#Ulhasnagar"
+      ],
       "title": "1",
-      "source": "muswellbrookchronicle.com.au",
-      "source_name": "1",
-      "date": "202609180430",
-      "score": 43,
-      "themes": [
-        "ARREST#4##4#Sydney",
-        "SOC GENERALCRIME#4##4#Sydney",
-        "CRISISLEX C07 SAFETY#4##4#Sydney",
-        "ARREST#4##1#Australia#AS#AS#-25#135#AS#137",
-        "SOC GENERALCRIME#4##1#Australia#AS#AS#-25#135#AS#137",
-        "CRISISLEX C07 SAFETY#4##1#Australia#AS#AS#-25#135#AS#137",
-        "ARREST#4##1#Australia#AS#AS#-25#135#AS#3094",
-        "SOC GENERALCRIME#4##1#Australia#AS#AS#-25#135#AS#3094",
-        "CRISISLEX C07 SAFETY#4##1#Australia#AS#AS#-25#135#AS#3094"
-      ]
-    },
-    {
-      "url": "redstate.com",
-      "title": "1",
-      "source": "redstate.com",
-      "source_name": "1",
-      "date": "202609180430",
-      "score": 40,
-      "themes": [
-        "KILL#3##1#United States#US#US#39.828175#-98.5795#US#4074",
-        "CRISISLEX T03 DEAD#3##1#United States#US#US#39.828175#-98.5795#US#4074",
-        "PROTEST#8#jurors#1#United States#US#US#39.828175#-98.5795#US#4498",
-        "MOVEMENT GENERAL#8#jurors#1#United States#US#US#39.828175#-98.5795#US#4498",
-        "TAX FNCACT ACTIVISTS#8#jurors#1#United States#US#US#39.828175#-98.5795#US#4498",
-        "PROTEST#8##1#United States#US#US#39.828175#-98.5795#US#4562",
-        "MOVEMENT GENERAL#8##1#United States#US#US#39.828175#-98.5795#US#4562",
-        "TAX FNCACT ACTIVISTS#8##1#United States#US#US#39.828175#-98.5795#US#4562"
-      ]
-    },
-    {
-      "url": "kuow.org",
-      "title": "1",
-      "source": "kuow.org",
-      "source_name": "1",
-      "date": "202609180430",
-      "score": 40,
-      "themes": [
-        "ARREST#2014##1#Kenya#KE#KE#1#38#KE#1146",
-        "CRISISLEX C07 SAFETY#2014##1#Kenya#KE#KE#1#38#KE#1146",
-        "ARREST#10##1#Kenya#KE#KE#1#38#KE#2126",
-        "SOC GENERALCRIME#10##1#Kenya#KE#KE#1#38#KE#2126",
-        "CRISISLEX C07 SAFETY#10##1#Kenya#KE#KE#1#38#KE#2126",
-        "AFFECT#2026##1#Kenya#KE#KE#1#38#KE#2972",
-        "REFUGEES#2026##1#Kenya#KE#KE#1#38#KE#2972",
-        "EPU CATS MIGRATION FEAR MIGRATION#2026##1#Kenya#KE#KE#1#38#KE#2972"
-      ]
+      "summary": "GDELT 已发现该报道；原文摘要由来源网站提供。"
     }
   ]
 }
