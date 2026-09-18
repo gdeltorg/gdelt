@@ -50,25 +50,34 @@ def clean_theme(value):
     return re.sub(r'\s*\([^)]*\)', '', value).strip()
 
 
+def host(value):
+    return re.sub(r'^https?://', '', value).split('/')[0]
+
+
 def rank_news(gkg_url):
     ranked = []
     for idx, row in enumerate(iter_rows(gkg_url)):
-        if idx >= 50000 or len(row) < 11:
+        if idx >= 50000 or len(row) < 10:
             break
-        themes_field = row[7] if len(row) > 7 else ''
+        # GKG 2.1: date, collection, source name, document URL, counts,
+        # v2 counts, themes, locations, persons, organisations, tone...
+        source_name = row[2].strip() if len(row) > 2 else ''
+        document_url = row[3].strip() if len(row) > 3 else ''
+        themes_field = row[6] if len(row) > 6 else ''
+        locations = row[7] if len(row) > 7 else ''
         persons = row[8] if len(row) > 8 else ''
         orgs = row[9] if len(row) > 9 else ''
-        places = row[10] if len(row) > 10 else ''
         themes = [clean_theme(item.split(',')[0]) for item in themes_field.split(';') if item.strip()]
-        entity_count = sum(bool(v) for v in (persons, orgs, places))
-        score = len(themes) * 3 + entity_count * 5 + min(len(row[4]), 50)
+        entity_count = sum(bool(v) for v in (locations, persons, orgs))
+        score = len(themes) * 3 + entity_count * 5 + min(len(source_name), 50)
         ranked.append({
-            'url': row[5],
-            'title': row[5],
-            'source': row[4],
-            'date': row[0][:12],
+            'url': document_url,
+            'title': source_name or host(document_url),
+            'source': document_url,
+            'source_name': source_name,
+            'date': row[0][:12] if row else '',
             'score': score,
-            'themes': themes
+            'themes': themes[:12]
         })
     ranked.sort(key=lambda x: x['score'], reverse=True)
     return ranked[:10]
@@ -78,16 +87,13 @@ def main():
     files = discover_latest_files()
     stamp = datetime.now(timezone.utc).isoformat(timespec='seconds')
     payload = {'generated_at': stamp, 'data_time': stamp, 'source': BASE, 'datasets': {}}
-
     for name in ('events', 'gkg', 'mentions'):
         payload['datasets'][name] = {
             'records': count_records(files[name]),
             'status': 'ready',
             'file': files[name].rsplit('/', 1)[-1]
         }
-
     payload['top_news'] = rank_news(files['gkg'])
-
     with open('data/latest.json', 'w', encoding='utf-8') as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
 

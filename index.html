@@ -1,24 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>gdelt</title>
-    <meta name="description" content="gdelt project page" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <main class="container">
-      <div class="card">
-        <p class="eyebrow">Repository</p>
-        <h1>gdelt</h1>
-        <p class="subtitle">
-          这是一个 GitHub Pages 示例页面，已挂载到当前仓库。
-        </p>
-        <div class="actions">
-          <a href="https://github.com/gdeltorg/gdelt" target="_blank" rel="noreferrer">查看仓库</a>
-        </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GDELT 全球新闻与事件实时概览">
+  <title>GDELT 全球新闻概览</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div>
+        <p class="eyebrow">GDELT MONITOR</p>
+        <h1>全球新闻与事件概览</h1>
+        <p class="lede">基于 GDELT 2.1 数据的自动更新快照</p>
       </div>
-    </main>
-  </body>
+      <a class="source-link" href="https://www.gdeltproject.org/" target="_blank" rel="noopener">GDELT Project ↗</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="status-row" aria-live="polite">
+      <span class="status-dot"></span>
+      <span id="status">正在加载数据…</span>
+      <span class="separator">·</span>
+      <span id="updated">—</span>
+    </section>
+
+    <section class="stats-grid" aria-label="数据统计">
+      <article class="stat-card"><span class="stat-label">EVENTS</span><strong id="events">—</strong><small>事件记录</small></article>
+      <article class="stat-card"><span class="stat-label">GKG</span><strong id="gkg">—</strong><small>全球知识图谱</small></article>
+      <article class="stat-card"><span class="stat-label">MENTIONS</span><strong id="mentions">—</strong><small>媒体提及</small></article>
+    </section>
+
+    <section class="content-grid">
+      <div class="panel news-panel">
+        <div class="panel-heading">
+          <div><p class="eyebrow">TOP STORIES</p><h2>热门新闻</h2></div>
+          <span id="news-count" class="count">—</span>
+        </div>
+        <div id="news" class="news-list"><div class="loading">正在读取新闻…</div></div>
+      </div>
+
+      <aside class="panel meta-panel">
+        <p class="eyebrow">SNAPSHOT</p>
+        <h2>数据快照</h2>
+        <dl>
+          <div><dt>数据时间</dt><dd id="data-time">—</dd></div>
+          <div><dt>生成时间</dt><dd id="generated-at">—</dd></div>
+          <div><dt>数据源</dt><dd><a id="data-source" href="https://data.gdeltproject.org/gdeltv2/" target="_blank" rel="noopener">GDELT v2 ↗</a></dd></div>
+        </dl>
+        <p class="hint">页面会随着仓库中的 <code>data/latest.json</code> 更新而更新。</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="wrap footer"><span>Built with GitHub Pages</span><a href="https://github.com/gdeltorg/gdelt" target="_blank" rel="noopener">查看源代码 ↗</a></footer>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const number = (value) => Number(value || 0).toLocaleString('zh-CN');
+    const date = (value) => value ? new Date(value).toLocaleString('zh-CN', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'UTC' }) + ' UTC' : '—';
+    const safeUrl = (value) => {
+      try { const url = new URL(value); return /^https?:$/.test(url.protocol) ? url.href : ''; } catch { return ''; }
+    };
+    const fallbackTitle = (item) => {
+      if (item.title && !item.title.includes('#')) return item.title;
+      if (item.source) return item.source.replace(/^https?:\/\//, '').split('/')[0];
+      return '未命名新闻';
+    };
+    async function load() {
+      try {
+        const response = await fetch('data/latest.json? v=' + Date.now());
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        const data = await response.json();
+        $('events').textContent = number(data.datasets?.events?.records);
+        $('gkg').textContent = number(data.datasets?.gkg?.records);
+        $('mentions').textContent = number(data.datasets?.mentions?.records);
+        $('updated').textContent = '更新于 ' + date(data.generated_at);
+        $('data-time').textContent = date(data.data_time);
+        $('generated-at').textContent = date(data.generated_at);
+        $('data-source').href = data.source || $('data-source').href;
+        const stories = Array.isArray(data.top_news) ? data.top_news : [];
+        $('news-count').textContent = stories.length + ' 条';
+        $('news').innerHTML = stories.length ? stories.map((item, index) => {
+          const url = safeUrl(item.source || item.url);
+          const title = fallbackTitle(item);
+          return `<article class="story"><span class="rank">${String(index + 1).padStart(2, '0')}</span><div><h3>${url ? `<a href="${url}" target="_blank" rel="noopener">${title}</a>` : title}</h3><p>${item.source ? item.source.replace(/^https?:\/\//, '').split('/')[0] : 'GDELT'} <span>·</span> ${item.date || '—'} <span>·</span> score ${item.score || 0}</p></div></article>`;
+        }).join('') : '<div class="loading">暂无新闻数据</div>';
+        $('status').textContent = '数据已加载';
+      } catch (error) {
+        $('status').textContent = '数据加载失败';
+        $('news').innerHTML = '<div class="error">无法读取 data/latest.json。请检查 GitHub Pages 部署状态。</div>';
+        console.error(error);
+      }
+    }
+    load();
+  </script>
+</body>
 </html>
