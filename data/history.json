@@ -1,0 +1,33 @@
+{
+  "schema_version": "4.0",
+  "started_at": "2026-09-18T05:08:19+00:00",
+  "snapshots": [
+    {
+      "id": "2026-09-18T05-08-19+00-00",
+      "generated_at": "2026-09-18T05:08:19+00:00",
+      "file": "archive/2026-09-18T05-08-19+00-00.json",
+      "datasets": {
+        "events": 982,
+        "gkg": 749,
+        "mentions": 2351
+      },
+      "timeline_points": 3
+    },
+    {
+      "id": "2026-09-18T05-11-00+00-00",
+      "generated_at": "2026-09-18T05:11:00+00:00",
+      "file": "archive/2026-09-18T05-11-00+00-00.json",
+      "datasets": {
+        "events": 982,
+        "gkg": 749,
+        "mentions": 2351
+      },
+      "timeline_points": 3
+    }
+  ],
+  "totals": {
+    "events": 1964,
+    "gkg": 1498,
+    "mentions": 4702
+  }
+}

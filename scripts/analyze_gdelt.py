@@ -21,7 +21,7 @@ from urllib.request import Request, urlopen
 BASE = "https://data.gdeltproject.org/gdeltv2/"
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-ARCHIVES = DATA / "archives"
+ARCHIVE = DATA / "archive"
 UA = "gdeltorg-signal-feed/1.0"
 MAX_ROWS = 100_000
 
@@ -41,8 +41,14 @@ def latest_files() -> dict[str, str]:
         if lower.endswith(".export.csv.zip"): found["events"] = url
         elif lower.endswith(".gkg.csv.zip"): found["gkg"] = url
         elif lower.endswith(".mentions.csv.zip"): found["mentions"] = url
-    missing = {"events", "gkg", "mentions"} - found.keys()
-    if missing: raise RuntimeError(f"Missing datasets: {sorted(missing)}")
+    missing = {"events", "mentions"} - found.keys()
+    if missing:
+        raise RuntimeError(f"Missing required datasets: {sorted(missing)}")
+    for name in list(found):
+        try:
+            get(found[name], timeout=15)
+        except Exception:
+            found.pop(name, None)
     return found
 
 
@@ -146,15 +152,15 @@ def snapshot(files: dict[str, str], stamp: str) -> dict:
 
 def main() -> None:
     files = latest_files(); stamp = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
-    payload = snapshot(files, stamp); DATA.mkdir(exist_ok=True); ARCHIVES.mkdir(exist_ok=True)
+    payload = snapshot(files, stamp); DATA.mkdir(exist_ok=True); ARCHIVE.mkdir(exist_ok=True)
     (DATA / "latest.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    archive_id = stamp.replace(":", "-"); archive_file = ARCHIVES / f"{archive_id}.json"
+    archive_id = stamp.replace(":", "-"); archive_file = ARCHIVE / f"{archive_id}.json"
     archive_file.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     history_file = DATA / "history.json"
     history = json.loads(history_file.read_text(encoding="utf-8")) if history_file.exists() else {"schema_version": "4.0", "started_at": stamp, "snapshots": []}
     history["started_at"] = history.get("started_at") or stamp
     history["snapshots"] = [x for x in history.get("snapshots", []) if x.get("id") != archive_id]
-    history["snapshots"].append({"id": archive_id, "generated_at": stamp, "file": f"archives/{archive_file.name}", "datasets": {n: payload["datasets"][n]["records"] for n in ("events", "gkg", "mentions")}, "timeline_points": len(payload["timeline"])})
+    history["snapshots"].append({"id": archive_id, "generated_at": stamp, "file": f"archive/{archive_file.name}", "datasets": {n: payload["datasets"][n]["records"] for n in ("events", "gkg", "mentions")}, "timeline_points": len(payload["timeline"])})
     history["snapshots"] = history["snapshots"][-10000:]
     history["totals"] = {n: sum(x["datasets"].get(n, 0) for x in history["snapshots"]) for n in ("events", "gkg", "mentions")}
     history_file.write_text(json.dumps(history, ensure_ascii=False, indent=2), encoding="utf-8")
