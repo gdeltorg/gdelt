@@ -107,6 +107,17 @@ def page_meta(url: str) -> tuple[str, str]:
         return "", ""
 
 
+def is_editorial_story(item: dict) -> bool:
+    title = clean(item.get("title", "")).lower()
+    url = item.get("url", "").lower()
+    blocked = (
+        "copyright", "terms of service", "terms and conditions",
+        "privacy policy", "cookie policy", "accessibility",
+        "site map", "sitemap", "login", "subscribe",
+    )
+    return bool(item.get("url")) and not any(word in title or word in url for word in blocked)
+
+
 def gkg_events(url: str) -> list[dict]:
     ranked = []
     for index, row in enumerate(rows(url)):
@@ -125,13 +136,18 @@ def gkg_events(url: str) -> list[dict]:
                        "date": (row[1] if len(row) > 1 else row[0])[:12], "score": score, "themes": themes[:20],
                        "locations": places, "entities": {"persons": persons[:500], "organizations": orgs[:500]}})
     ranked.sort(key=lambda item: item["score"], reverse=True)
-    for item in ranked[:40]:
+    selected = []
+    for item in ranked[:120]:
         title, summary = page_meta(item["url"])
         item["title"] = title or item["source_name"] or "未命名报道"
         item["summary"] = summary or "该信号来自 GDELT 公共新闻数据，点击原文查看完整报道。"
         item["source"] = item["source_name"] or domain(item["url"])
+        if is_editorial_story(item):
+            selected.append(item)
+        if len(selected) >= 40:
+            break
         time.sleep(.04)
-    return ranked[:40]
+    return selected
 
 
 def event_rows(url: str) -> list[dict]:
