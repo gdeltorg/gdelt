@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>全网阅读索引 · GDELT</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top"><div class="shell nav"><a class="logo" href="./"><b>GDELT</b><span>GLOBAL READING INDEX</span></a><nav><a href="./">编辑台</a><a href="data.html">三库数据室</a></nav></div></header>
+  <main class="shell">
+    <section class="data-hero"><p class="eyebrow">OPEN WEB READING / GKG DOCUMENT INDEX</p><h1>全网阅读索引</h1><p class="dek">当前 GKG 快照中的文章与博客文档索引。首页负责精选，本文页负责检索、筛选和按需打开原文。</p><p id="status" class="muted">正在读取文章索引…</p></section>
+    <section class="panel index-tools"><div class="section-head"><div><p class="eyebrow">SEARCH THE CORPUS</p><h2>近万篇文档索引</h2></div><span id="count">—</span></div><div class="index-controls"><input id="query" placeholder="搜索标题、出处、主题、地点、URL…"><select id="sort"><option value="score">影响分最高</option><option value="date">最新优先</option><option value="source">按出处</option></select></div><p class="notice">这是 GDELT 对公开网页的索引，不等同于逐篇全文阅读；原文按需打开。当前快照最多保留 10,000 条文档索引。</p></section>
+    <section id="list" class="article-list"><div class="empty">正在加载…</div></section>
+    <div class="pager"><button id="prev">上一页</button><span id="page">—</span><button id="next">下一页</button></div>
+  </main>
+  <footer class="shell footer"><span>GDELT GKG · 公开网页索引 · 原文按需打开</span><a href="./">返回观察台 ↗</a></footer>
+  <script>
+    const $=x=>document.getElementById(x),esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),fmt=x=>Number(x||0).toLocaleString('zh-CN'),safe=x=>{try{const u=new URL(x);return /^https?:$/.test(u.protocol)?u.href:''}catch{return''}},date=x=>{const m=String(x||'').match(/^(\d{4})(\d{2})(\d{2})(\d{2})?(\d{2})?/);return m?`${m[1]}-${m[2]}-${m[3]}${m[4]?` ${m[4]}:${m[5]||'00'}`:''}`:String(x||'—')};
+    let all=[],page=0,size=50;
+    function render(){const q=$('query').value.toLowerCase(),s=$('sort').value;let list=all.filter(x=>!q||JSON.stringify(x).toLowerCase().includes(q));list.sort((a,b)=>s==='date'?String(b.date).localeCompare(String(a.date)):s==='source'?String(a.source_name).localeCompare(String(b.source_name)):b.score-a.score);const pages=Math.max(1,Math.ceil(list.length/size));page=Math.min(page,pages-1);const shown=list.slice(page*size,(page+1)*size);$('count').textContent=`${fmt(list.length)} / ${fmt(all.length)} 条文档`;$('page').textContent=`第 ${page+1} / ${pages} 页`;$('prev').disabled=page===0;$('next').disabled=page>=pages-1;$('list').innerHTML=shown.length?shown.map(x=>{const href=safe(x.url);return`<article class="article-row"><div class="article-score">${fmt(x.score)}</div><div><div class="meta"><b>${esc(x.source_name||x.source||'未知出处')}</b><span>${date(x.date)}</span><span>${(x.locations||[]).slice(0,2).map(p=>esc(p.name)).join(' · ')}</span></div><h2>${href?`<a href="${href}" target="_blank" rel="noopener">${esc(x.title||'未命名文档')} ↗</a>`:esc(x.title||'未命名文档')}</h2><p>${esc(x.summary||'GDELT GKG 文档索引；打开原文查看完整内容。')}</p><div class="tags">${(x.themes||[]).slice(0,5).map(t=>`<span class="column">${esc(t)}</span>`).join('')}</div></div></article>`}).join(''):'<div class="empty">没有匹配文档。</div>'}
+    async function load(){try{const d=await (await fetch('data/latest.json?v='+Date.now())).json();all=d.articles||[];$('status').textContent=`快照 ${date(d.generated_at)} · 数据日 ${d.current_day||'—'} · 已索引 ${fmt(all.length)} 条`;render()}catch(e){$('status').textContent='无法读取文章索引';console.error(e)}}
+    $('query').oninput=()=>{page=0;render()};$('sort').onchange=()=>{page=0;render()};$('prev').onclick=()=>{page--;render()};$('next').onclick=()=>{page++;render()};load();
+  </script>
+</body>
+</html>

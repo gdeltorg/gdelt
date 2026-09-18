@@ -24,6 +24,7 @@ DATA = ROOT / "data"
 ARCHIVE = DATA / "archive"
 UA = "gdeltorg-signal-feed/1.0"
 MAX_ROWS = 100_000
+ARTICLE_INDEX_LIMIT = 10_000
 
 
 def get(url: str, timeout: int = 90) -> bytes:
@@ -118,7 +119,7 @@ def is_editorial_story(item: dict) -> bool:
     return bool(item.get("url")) and not any(word in title or word in url for word in blocked)
 
 
-def gkg_events(url: str) -> list[dict]:
+def gkg_events(url: str) -> tuple[list[dict], list[dict]]:
     ranked = []
     for index, row in enumerate(rows(url)):
         if index >= MAX_ROWS or len(row) < 10: break
@@ -147,7 +148,20 @@ def gkg_events(url: str) -> list[dict]:
         if len(selected) >= 40:
             break
         time.sleep(.04)
-    return selected
+    by_url = {item["url"]: item for item in selected if item.get("url")}
+    for item in ranked:
+        readable = by_url.get(item.get("url", ""))
+        if readable:
+            item.update({
+                "title": readable["title"],
+                "summary": readable["summary"],
+                "source": readable["source"],
+            })
+        else:
+            item["title"] = item["source_name"] or domain(item["url"]) or "未命名文档"
+            item["summary"] = "GDELT GKG 文档索引；打开原文查看完整内容。"
+            item["source"] = item["source_name"] or domain(item["url"])
+    return selected, ranked[:ARTICLE_INDEX_LIMIT]
 
 
 def event_rows(url: str) -> list[dict]:
@@ -181,7 +195,7 @@ def dataset_stats(url: str, date_index: int, current_day: str) -> dict:
 
 
 def snapshot(files: dict[str, str], stamp: str) -> dict:
-    stories = gkg_events(files["gkg"])
+    stories, articles = gkg_events(files["gkg"])
     events = event_rows(files["events"])
     current_day = stamp[:10]
     datasets = {
@@ -202,6 +216,7 @@ def snapshot(files: dict[str, str], stamp: str) -> dict:
     timeline = [{"date": key, "events": value} for key, value in sorted(hours.items())]
     return {"schema_version": "4.1", "generated_at": stamp, "data_time": stamp, "current_day": current_day, "source": BASE,
             "datasets": datasets, "events": events[:5000], "top_news": stories,
+            "articles": articles,
             "timeline": timeline, "facets": {"themes": [{"name": k, "count": v} for k, v in themes.most_common(80)], "countries": [{"name": k, "count": v} for k, v in countries.most_common()]}}
 
 
