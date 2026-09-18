@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>视频研判 · 全球事件观察台</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top"><div class="shell nav"><a class="logo" href="./"><b>GDELT</b><span>VIDEO INTELLIGENCE</span></a><nav><a href="./">编辑台</a><a href="articles.html">全网阅读</a><a href="capabilities.html">能力地图</a><a href="data.html">数据支撑</a></nav></div></header>
+  <main class="shell">
+    <section class="data-hero video-hero">
+      <p class="eyebrow">SECONDARY MODULE / VIDEO INTELLIGENCE</p>
+      <h1>看见画面<br><em>听见现场</em></h1>
+      <p class="dek">把视频拆成可检索、可回放、可核验的证据轨：字幕与画面文字、语音识别、屏幕 OCR、说话人、关键帧和时间码。GDELT 的电视数据用于全球语境，视频分析轨用于逐段核查。</p>
+      <div class="video-note"><b>时间统一使用 UTC</b><span>每条转写或 OCR 结果都保留原始时间码，点击证据可回到视频位置。</span></div>
+    </section>
+
+    <section class="video-grid">
+      <article class="video-card video-card-main"><p class="eyebrow">01 · TEXT TRACK</p><h2>字幕与画面文字</h2><p>读取内嵌字幕、外挂字幕和画面中的标题条、台标、弹幕、演示文稿与滚动字幕。区分“字幕轨”和“屏幕 OCR”，避免把机器识别结果冒充原文。</p><div class="video-tags"><span>字幕</span><span>Screen OCR</span><span>Logo / Lower Third</span></div></article>
+      <article class="video-card"><p class="eyebrow">02 · VOICE</p><h2>语音识别 ASR</h2><p>按时间码生成转写，标注语言、置信度、说话人和重叠发言；支持从转写命中专题、人物、地点和事件线索。</p><div class="video-tags"><span>Transcription</span><span>Speaker</span><span>Confidence</span></div></article>
+      <article class="video-card"><p class="eyebrow">03 · EVIDENCE</p><h2>逐秒证据轨</h2><p>关键帧、语音、OCR 与 TV-GKG 主题在同一时间线上对齐。预览用于发现线索，原始视频与人工复核才是最终依据。</p><div class="video-tags"><span>Timecode</span><span>Keyframe</span><span>Review</span></div></article>
+    </section>
+
+    <section class="panel video-workbench">
+      <div class="section-head"><div><p class="eyebrow">VIDEO EVIDENCE WORKBENCH</p><h2>视频证据工作台</h2></div><span class="availability planned">分析接口待接入</span></div>
+      <div class="video-flow">
+        <div><b>① 视频来源</b><span>公开 URL / TV-GKG 回放 / 用户授权文件</span></div>
+        <div><b>② 多轨分析</b><span>ASR 语音识别 · 字幕抽取 · 屏幕 OCR · 关键帧</span></div>
+        <div><b>③ 事件关联</b><span>人物、地点、组织、主题与 GDELT 三库证据</span></div>
+        <div><b>④ 可核验输出</b><span>UTC 时间码 · 原文片段 · 置信度 · 人工复核状态</span></div>
+      </div>
+      <form class="video-form" onsubmit="return false">
+        <label>视频或回放地址<input type="url" placeholder="https://…"></label>
+        <button type="button" disabled>提交分析（接口接入后开放）</button>
+      </form>
+      <p class="notice">当前 GitHub Pages 版本先展示数据结构与核验规范，不会在浏览器中伪造转写结果，也不会绕过版权、登录或访问控制抓取视频。接入后端分析服务时，输出应保留模型、版本、语言、置信度和原始时间码。</p>
+    </section>
+
+    <section class="panel methodology video-boundary"><p class="eyebrow">SOURCE BOUNDARIES</p><h2>数据边界与来源说明</h2><p>TV-GKG 提供电视新闻的字幕、主题、情绪和时间码等结构化信号，但不是 GDELT 托管的全球视频档案。ASR 与屏幕 OCR 属于本台可扩展的视频处理层；结果必须标注机器生成、来源地址和 UTC 时间码，并与原始视频人工比对。</p><a href="capabilities.html#broadcast">返回电视与广播能力说明 ↗</a></section>
+  </main>
+  <footer class="shell footer"><span>视频证据层 · 字幕 · ASR · Screen OCR · Keyframes</span><a href="./">返回全球观察台 ↗</a></footer>
+</body>
+</html>
