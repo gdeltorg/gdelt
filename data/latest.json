@@ -1,0 +1,11 @@
+{
+  "generated_at": null,
+  "data_time": null,
+  "source": "https://data.gdeltproject.org/gdeltv2/",
+  "datasets": {
+    "events": {"records": 0, "status": "waiting"},
+    "gkg": {"records": 0, "status": "waiting"},
+    "mentions": {"records": 0, "status": "waiting"}
+  },
+  "top_news": []
+}
