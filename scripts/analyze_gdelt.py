@@ -159,7 +159,7 @@ def event_rows(url: str) -> list[dict]:
     return result
 
 
-def dataset_stats(url: str, date_index: int) -> dict:
+def dataset_stats(url: str, date_index: int, current_day: str) -> dict:
     records = 0
     dates = Counter()
     for row in rows(url):
@@ -174,6 +174,8 @@ def dataset_stats(url: str, date_index: int) -> dict:
         "time_points": len(ordered),
         "date_start": ordered[0] if ordered else "",
         "date_end": ordered[-1] if ordered else "",
+        "current_day": current_day,
+        "current_records": dates.get(current_day.replace("-", ""), 0),
         "date_counts": dict(dates),
     }
 
@@ -181,10 +183,11 @@ def dataset_stats(url: str, date_index: int) -> dict:
 def snapshot(files: dict[str, str], stamp: str) -> dict:
     stories = gkg_events(files["gkg"])
     events = event_rows(files["events"])
+    current_day = stamp[:10]
     datasets = {
-        "events": dataset_stats(files["events"], 1),
-        "gkg": dataset_stats(files["gkg"], 1),
-        "mentions": dataset_stats(files["mentions"], 0),
+        "events": dataset_stats(files["events"], 1, current_day),
+        "gkg": dataset_stats(files["gkg"], 1, current_day),
+        "mentions": dataset_stats(files["mentions"], 2, current_day),
     }
     for name in datasets:
         datasets[name].update({"file": files[name].rsplit("/", 1)[-1], "status": "ready"})
@@ -197,7 +200,7 @@ def snapshot(files: dict[str, str], stamp: str) -> dict:
     themes = Counter(t for item in stories for t in item["themes"])
     countries = Counter(p["country"] for item in stories for p in item["locations"])
     timeline = [{"date": key, "events": value} for key, value in sorted(hours.items())]
-    return {"schema_version": "4.0", "generated_at": stamp, "data_time": stamp, "source": BASE,
+    return {"schema_version": "4.1", "generated_at": stamp, "data_time": stamp, "current_day": current_day, "source": BASE,
             "datasets": datasets, "events": events[:5000], "top_news": stories,
             "timeline": timeline, "facets": {"themes": [{"name": k, "count": v} for k, v in themes.most_common(80)], "countries": [{"name": k, "count": v} for k, v in countries.most_common()]}}
 
@@ -215,6 +218,7 @@ def main() -> None:
     history["snapshots"].append({
         "id": archive_id,
         "generated_at": stamp,
+        "current_day": payload["current_day"],
         "file": f"archive/{archive_file.name}",
         "datasets": {
             n: {
@@ -222,6 +226,7 @@ def main() -> None:
                 "time_points": payload["datasets"][n]["time_points"],
                 "date_start": payload["datasets"][n]["date_start"],
                 "date_end": payload["datasets"][n]["date_end"],
+                "current_records": payload["datasets"][n]["current_records"],
             } for n in ("events", "gkg", "mentions")
         },
         "timeline_points": len(payload["timeline"]),
