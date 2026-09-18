@@ -1,10 +1,73 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GDELT Signal Feed</title><link rel="stylesheet" href="styles.css"></head>
-<body><header class="top"><div class="shell nav"><a class="logo" href="./"><b>GDELT</b><span>ADVANCED SIGNAL FEED</span></a><nav><a href="#timeline">时间线</a><a href="#feed">信号流</a><a href="data/history.json" target="_blank">历史 JSON ↗</a></nav></div></header><main class="shell"><section class="hero"><div><p class="eyebrow">GLOBAL EVENT INTELLIGENCE / GDELT 2.1</p><h1>全球事件信号流</h1><p>跨 Events、GKG、Mentions 的可追溯新闻与事件观察台。</p></div><div class="stamp"><b id="status">● LOADING</b><span id="updated">—</span></div></section><section class="metrics"><div><small>EVENTS</small><strong id="events">—</strong><span>当前快照行数</span></div><div><small>GKG</small><strong id="gkg">—</strong><span>当前快照行数</span></div><div><small>MENTIONS</small><strong id="mentions">—</strong><span>当前快照行数</span></div><div><small>HISTORY</small><strong id="snapshots">—</strong><span>历史快照数量</span></div></section><section id="timeline" class="panel"><div class="section-head"><div><p class="eyebrow">EVENT TIMELINE</p><h2>事件时间线</h2></div><span id="timeline-label">—</span></div><input id="time" type="range" min="0" max="0" value="0"><div id="timeline-bars" class="timeline-bars"></div></section><section id="feed" class="workspace"><aside class="panel filters"><p class="eyebrow">CONTROL ROOM</p><h2>筛选器</h2><input id="query" placeholder="标题、来源、主题、地点…"><select id="country"><option value="">全部地区</option></select><select id="theme"><option value="">全部主题</option></select><select id="sort"><option value="score">评分最高</option><option value="date">最新优先</option></select><p class="hint">单击新闻：打开详情抽屉。双击新闻：打开完整事件线。地点单击预览 Wikipedia，双击新标签页打开。</p></aside><section class="panel feed"><div class="section-head"><div><p class="eyebrow">SIGNAL FEED</p><h2>热门专题信号</h2></div><span id="result">—</span></div><div id="news"><div class="empty">正在加载…</div></div></section></section></main><aside id="drawer" class="drawer" hidden><button id="close">×</button><p class="eyebrow">EVENT PREVIEW</p><h2 id="d-title">—</h2><p id="d-summary">—</p><div id="d-meta"></div><a id="d-source" target="_blank">打开原文 ↗</a><div id="d-line" class="mini-line"></div></aside><footer class="shell footer">GDELT 2.1 · 历史从首次成功运行开始累计 · <a href="https://www.gdeltproject.org/" target="_blank">官方数据出处 ↗</a></footer><script>
-const $=x=>document.getElementById(x),esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),fmt=x=>Number(x||0).toLocaleString('zh-CN'),safe=x=>{try{let u=new URL(x);return /^https?:$/.test(u.protocol)?u.href:''}catch{return''}},date=x=>x?x.replace(/(\d{4})(\d\d)(\d\d)(\d\d)(\d\d).*/,'$1-$2-$3 $4:$5'):x||'—';let d={},stories=[];
-function render(){let q=$('query').value.toLowerCase(),c=$('country').value,t=$('theme').value,s=$('sort').value;let list=stories.filter(x=>(!q||JSON.stringify(x).toLowerCase().includes(q))&&(!c||x.locations.some(p=>p.country===c))&&(!t||x.themes.includes(t))).sort((a,b)=>s==='date'?b.date.localeCompare(a.date):b.score-a.score);$('result').textContent=`${list.length} / ${stories.length}`;$('news').innerHTML=list.length?list.map((x,i)=>`<article class="story" data-i="${stories.indexOf(x)}"><span class="rank">${String(i+1).padStart(2,'0')}</span><div><div class="meta"><b>${esc(x.source_name)}</b><span>${date(x.date)}</span><span>SCORE ${fmt(x.score)}</span></div><h3>${esc(x.title)}</h3><p class="summary">${esc(x.summary)}</p><div class="places">${x.locations.map(p=>`<span class="place" data-place="${esc(p.name)}" data-country="${esc(p.country)}">${esc(p.name)} · ${esc(p.country)}</span>`).join('')}</div><div class="tags">${x.themes.slice(0,7).map(v=>`<span>${esc(v)}</span>`).join('')}</div></div></article>`).join(''):'<div class="empty">没有匹配信号。</div>'}
-function drawer(x){$('drawer').hidden=false;$('d-title').textContent=x.title;$('d-summary').textContent=x.summary;$('d-meta').innerHTML=`${esc(x.source_name)} · ${date(x.date)} · score ${fmt(x.score)}<br>${x.themes.slice(0,8).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}`;$('d-source').href=safe(x.url)||'#';$('d-line').innerHTML=`<h3>事件线索</h3><div>${date(x.date)} · GKG 发现新闻信号</div>${x.locations.map(p=>`<div>地点：${esc(p.name)} / ${esc(p.country)}</div>`).join('')}<div>来源：${esc(x.source_name)}</div>`}
-function setup(){let tl=d.timeline||[];$('time').max=Math.max(0,tl.length-1);$('time').value=Math.max(0,tl.length-1);$('time').oninput=()=>{$('timeline-label').textContent=tl[$('time').value]?.date||'—'};$('time').oninput();$('timeline-bars').innerHTML=tl.slice(-80).map(x=>`<i style="height:${Math.max(5,Math.min(100,x.events/Math.max(...tl.map(v=>v.events))*100))}%" title="${x.date}: ${x.events}"></i>`).join('')}
-async function load(){try{const latestRes=await fetch('data/latest.json?v='+Date.now());if(!latestRes.ok)throw new Error('latest.json not found');d=await latestRes.json();let h={snapshots:[]};try{const historyRes=await fetch('data/history.json?v='+Date.now());if(historyRes.ok)h=await historyRes.json();}catch(_){h={snapshots:[]};}stories=d.top_news||[];$('events').textContent=fmt(d.datasets?.events?.records);$('gkg').textContent=fmt(d.datasets?.gkg?.records);$('mentions').textContent=fmt(d.datasets?.mentions?.records);$('snapshots').textContent=fmt(h.snapshots?.length||0);$('updated').textContent=d.generated_at;$('status').textContent='● READY';for(let p of (d.facets?.countries||[]))$('country').insertAdjacentHTML('beforeend',`<option value="${esc(p.name)}">${esc(p.name)} (${p.count})</option>`);for(let p of (d.facets?.themes||[]))$('theme').insertAdjacentHTML('beforeend',`<option value="${esc(p.name)}">${esc(p.name)} (${p.count})</option>`);setup();render()}catch(e){$('status').textContent='● ERROR';$('news').innerHTML='<div class="empty">无法读取数据文件。</div>';console.error(e)}}
-$('query').oninput=render;$('country').onchange=render;$('theme').onchange=render;$('sort').onchange=render;$('close').onclick=()=>$('drawer').hidden=true;$('news').onclick=e=>{let card=e.target.closest('.story');if(card)drawer(stories[Number(card.dataset.i)])};$('news').ondblclick=e=>{let card=e.target.closest('.story');if(card)window.open('event.html?id='+encodeURIComponent(stories[Number(card.dataset.i)].id),'_blank')};load();
-</script></body></html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GDELT · 全球事件观察台</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top"><div class="shell nav">
+    <a class="logo" href="./"><b>GDELT</b><span>GLOBAL EVENT DESK</span></a>
+    <nav><a href="#briefing">今日简报</a><a href="#timeline">专门时间线</a><a href="#history">历史记录</a><a href="data/latest.json" target="_blank">原始数据 ↗</a></nav>
+  </div></header>
+
+  <main class="shell">
+    <section class="hero" id="briefing">
+      <div><p class="eyebrow">WORLD EVENT INTELLIGENCE / GDELT 2.1</p>
+        <h1>全球事件<br><em>观察台</em></h1>
+        <p class="dek">把 Events、GKG、Mentions 三库信号整理成可读、可追溯的中文专题。</p>
+      </div>
+      <div class="stamp"><span id="status">● 正在连接</span><b id="updated">—</b><small>数据快照时间</small></div>
+    </section>
+
+    <section class="metrics">
+      <article><small>EVENTS · 事件库</small><strong id="events">—</strong><span id="events-detail">行 · — 个时间点</span></article>
+      <article><small>GKG · 知识图谱</small><strong id="gkg">—</strong><span id="gkg-detail">行 · — 个时间点</span></article>
+      <article><small>MENTIONS · 提及库</small><strong id="mentions">—</strong><span id="mentions-detail">行 · — 个时间点</span></article>
+      <article class="accent"><small>历史快照</small><strong id="snapshots">—</strong><span id="coverage">从首次成功运行开始累计</span></article>
+    </section>
+
+    <section class="desk-grid">
+      <section class="panel lead-panel"><div class="section-head"><div><p class="eyebrow">EDITOR'S DESK</p><h2>热门专题</h2></div><span id="result">—</span></div><div id="lead-news"><div class="empty">正在整理最新信号…</div></div></section>
+      <aside class="panel filters"><div class="section-head"><div><p class="eyebrow">CONTROL ROOM</p><h2>筛选</h2></div><button id="reset">重置</button></div>
+        <label>全文检索<input id="query" placeholder="标题、出处、主题、地点…"></label>
+        <label>地区<select id="country"><option value="">全部地区</option></select></label>
+        <label>主题<select id="theme"><option value="">全部主题</option></select></label>
+        <label>排序<select id="sort"><option value="score">编辑评分最高</option><option value="date">最新优先</option></select></label>
+        <p class="tip"><b>阅读方式</b>单击卡片打开新闻预览；双击卡片打开完整事件线。原始 Events/GKG/Mentions 数据始终保留，可按需打开核查。</p>
+      </aside>
+    </section>
+
+    <section class="panel timeline-panel" id="timeline"><div class="section-head"><div><p class="eyebrow">CHRONOLOGY DESK</p><h2>专门时间线</h2></div><span id="timeline-label">—</span></div>
+      <div class="timeline-summary" id="timeline-summary">跨三库的事件密度、快照覆盖与数据更新时间。</div>
+      <input id="time" type="range" min="0" max="0" value="0"><div id="timeline-bars" class="timeline-bars"></div><div id="timeline-ticks" class="timeline-ticks"></div>
+    </section>
+
+    <section class="panel history-panel" id="history"><div class="section-head"><div><p class="eyebrow">ARCHIVE / FROM NOW ON</p><h2>历史记录</h2></div><span id="history-meta">—</span></div>
+      <div class="table-wrap"><table><thead><tr><th>快照时间</th><th>Events</th><th>GKG</th><th>Mentions</th><th>时间点</th><th>原始快照</th></tr></thead><tbody id="history-list"></tbody></table></div>
+      <p class="notice">历史从系统首次成功运行开始累计。每次运行保留三库行数、覆盖时间点和原始快照；页面展示摘要，原始 JSON 可按需打开。</p>
+    </section>
+  </main>
+
+  <aside id="drawer" class="drawer" hidden><button id="close" class="close">×</button><p class="eyebrow">NEWS PREVIEW / 新闻预览</p><div id="drawer-body"></div></aside>
+  <footer class="shell footer"><span>GDELT Events · GKG · Mentions · 可追溯事件观察台</span><a href="https://www.gdeltproject.org/" target="_blank">官方数据出处 ↗</a></footer>
+
+  <script>
+    const $=id=>document.getElementById(id);
+    const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const fmt=x=>Number(x||0).toLocaleString('zh-CN');
+    const safe=x=>{try{const u=new URL(x);return /^https?:$/.test(u.protocol)?u.href:''}catch{return''}};
+    const date=x=>{if(!x)return'—';const s=String(x);const m=s.match(/^(\d{4})(\d{2})(\d{2})(\d{2})?(\d{2})?/);return m?`${m[1]}-${m[2]}-${m[3]}${m[4]?` ${m[4]}:${m[5]||'00'}`:''}`:s.replace('T',' ').replace('+00:00',' UTC')};
+    let latest={},history={},stories=[];
+    function source(x){return x.source_name||x.source||'未知出处'}
+    function card(x,i){const href=safe(x.url);return `<article class="story" data-i="${i}"><div class="story-index">${String(i+1).padStart(2,'0')}</div><div><div class="meta"><b>${esc(source(x))}</b><span>${date(x.date)}</span><span>影响分 ${fmt(x.score)}</span></div><h3>${href?`<a href="${href}" target="_blank" rel="noopener">${esc(x.title||'未命名报道')} ↗</a>`:esc(x.title||'未命名报道')}</h3><p class="summary">${esc(x.summary||'暂无摘要；打开原文查看报道。')}</p><div class="story-foot">${x.locations?.slice(0,4).map(p=>`<button class="place" data-place="${esc(p.name)}">${esc(p.name)} · ${esc(p.country)}</button>`).join('')||'<span class="muted">地点待补充</span>'}</div><div class="tags">${(x.themes||[]).slice(0,5).map(t=>`<button data-theme="${esc(t)}">${esc(t)}</button>`).join('')}</div></div></article>`}
+    function render(){const q=$('query').value.toLowerCase(),c=$('country').value,t=$('theme').value,s=$('sort').value;const list=stories.filter(x=>(!q||JSON.stringify(x).toLowerCase().includes(q))&&(!c||x.locations?.some(p=>p.country===c))&&(!t||x.themes?.includes(t))).sort((a,b)=>s==='date'?String(b.date).localeCompare(String(a.date)):b.score-a.score);$('result').textContent=`${list.length} / ${stories.length} 条可读信号`;$('lead-news').innerHTML=list.length?list.map((x,i)=>card(x,stories.indexOf(x))).join(''):'<div class="empty">没有匹配的专题信号。</div>'}
+    function openDrawer(x){const href=safe(x.url);$('drawer-body').innerHTML=`<h2>${esc(x.title||'未命名报道')}</h2><p class="drawer-summary">${esc(x.summary||'暂无摘要')}</p><div class="drawer-meta"><b>${esc(source(x))}</b><span>${date(x.date)}</span><span>影响分 ${fmt(x.score)}</span></div><h3>事件线索</h3><ol class="eventline"><li><b>${date(x.date)}</b><span>GKG 发现新闻信号<small>${esc(source(x))}</small></span></li>${(x.locations||[]).slice(0,8).map(p=>`<li><b>地点</b><span>${esc(p.name)}<small>${esc(p.country)}</small></span></li>`).join('')}<li><b>支撑</b><span>Events / GKG / Mentions<small>原始三库数据可在页面底部打开</small></span></li></ol>${href?`<a class="source-link" target="_blank" rel="noopener" href="${href}">阅读原始报道 ↗</a>`:''}`;$('drawer').hidden=false}
+    function timeline(){const tl=latest.timeline||[];const max=Math.max(1,...tl.map(x=>x.events||0));$('time').max=Math.max(0,tl.length-1);$('time').value=Math.max(0,tl.length-1);$('timeline-bars').innerHTML=tl.slice(-100).map(x=>`<i style="height:${Math.max(6,(x.events||0)/max*100)}%" title="${x.date} · ${x.events} 条 Events"></i>`).join('');const show=()=>{$('timeline-label').textContent=tl[$('time').value]?.date||'—'};$('time').oninput=show;show();$('timeline-ticks').innerHTML=tl.slice(-8).map(x=>`<span>${esc(x.date)}<b>${fmt(x.events)}</b></span>`).join('')}
+    function dataset(id,name){const x=latest.datasets?.[name]||{};$(id).textContent=fmt(x.records);$(`${id}-detail`).textContent=`${fmt(x.records)} 行 · ${fmt(x.time_points)} 个时间点`}
+    async function load(){try{const r=await fetch('data/latest.json?v='+Date.now());if(!r.ok)throw Error('latest.json');latest=await r.json();try{const h=await fetch('data/history.json?v='+Date.now());history=h.ok?await h.json():{snapshots:[]}}catch{history={snapshots:[]}}stories=latest.top_news||[];dataset('events','events');dataset('gkg','gkg');dataset('mentions','mentions');$('snapshots').textContent=fmt(history.snapshots?.length);$('updated').textContent=date(latest.generated_at);$('status').textContent='● LIVE / 已连接';$('coverage').textContent=`历史累计 ${fmt(history.snapshots?.length)} 个快照`;const countries=[...new Set(stories.flatMap(x=>(x.locations||[]).map(p=>p.country)))].sort();$('country').innerHTML='<option value="">全部地区</option>'+countries.map(x=>`<option>${esc(x)}</option>`).join('');$('theme').innerHTML='<option value="">全部主题</option>'+(latest.facets?.themes||[]).slice(0,80).map(x=>`<option value="${esc(x.name)}">${esc(x.name)} (${x.count})</option>`).join('');timeline();render();$('history-meta').textContent=`${fmt(history.snapshots?.length)} 个快照 · 三库可追溯`;$('history-list').innerHTML=(history.snapshots||[]).slice().reverse().map(x=>`<tr><td>${date(x.generated_at||x.at)}</td><td>${fmt(x.datasets?.events?.records??x.datasets?.events)}</td><td>${fmt(x.datasets?.gkg?.records??x.datasets?.gkg)}</td><td>${fmt(x.datasets?.mentions?.records??x.datasets?.mentions)}</td><td>${fmt(x.timeline_points||0)}</td><td><a target="_blank" href="data/${esc(x.file)}">JSON ↗</a></td></tr>`).join('')}catch(e){$('status').textContent='● ERROR';$('lead-news').innerHTML='<div class="empty">无法加载最新数据，请稍后刷新。</div>';console.error(e)}}
+    $('query').oninput=render;$('country').onchange=render;$('theme').onchange=render;$('sort').onchange=render;$('reset').onclick=()=>{$('query').value='';$('country').value='';$('theme').value='';render()};$('close').onclick=()=>$('drawer').hidden=true;$('drawer').onclick=e=>{if(e.target===$('drawer'))$('drawer').hidden=true};$('lead-news').onclick=e=>{const theme=e.target.closest('[data-theme]');if(theme){$('theme').value=theme.dataset.theme;render();return}const place=e.target.closest('.place');if(place){openDrawer(stories[Number(e.target.closest('.story').dataset.i)]);return}const a=e.target.closest('a');if(a)return;const cardEl=e.target.closest('.story');if(cardEl)openDrawer(stories[Number(cardEl.dataset.i)])};$('lead-news').ondblclick=e=>{if(e.target.closest('a,.place,[data-theme]'))return;const c=e.target.closest('.story');if(c)window.open(`event.html?id=${encodeURIComponent(stories[Number(c.dataset.i)].id)}`,'_blank')};load();
+  </script>
+</body>
+</html>

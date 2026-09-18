@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>事件完整时间线 · GDELT</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top"><div class="shell nav"><a class="logo" href="./"><b>GDELT</b><span>EVENT DOSSIER</span></a><nav><a href="./">返回观察台</a></nav></div></header>
+  <main class="shell dossier"><p class="eyebrow">FULL EVENT LINE / 完整事件线</p><div id="content"><div class="empty">正在读取事件档案…</div></div></main>
+  <script>
+    const $=x=>document.getElementById(x),esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),safe=x=>{try{const u=new URL(x);return /^https?:$/.test(u.protocol)?u.href:''}catch{return''}},date=x=>{if(!x)return'—';const m=String(x).match(/^(\d{4})(\d{2})(\d{2})(\d{2})?(\d{2})?/);return m?`${m[1]}-${m[2]}-${m[3]}${m[4]?` ${m[4]}:${m[5]||'00'}`:''}`:String(x).replace('T',' ')};
+    async function load(){try{const id=new URLSearchParams(location.search).get('id');const data=await (await fetch('data/latest.json?v='+Date.now())).json();const e=(data.top_news||[]).find(x=>x.id===id)||(data.top_news||[])[0];if(!e)throw Error('event not found');const href=safe(e.url);$('content').innerHTML=`<h1>${esc(e.title||'未命名报道')}</h1><p class="dek">${esc(e.summary||'暂无摘要')}</p><div class="drawer-meta"><b>${esc(e.source_name||e.source||'未知出处')}</b><span>${date(e.date)}</span><span>影响分 ${e.score||0}</span></div><section class="panel"><h2>事件完整时间线</h2><ol class="eventline"><li><b>${date(e.date)}</b><span>新闻信号进入 GKG<small>${esc(e.source_name||'未知出处')} · ${esc(e.title||'')}</small></span></li>${(e.locations||[]).map(p=>`<li><b>地点识别</b><span>${esc(p.name)}<small>${esc(p.country)}</small></span></li>`).join('')}<li><b>三库支撑</b><span>Events · GKG · Mentions<small>本事件来自当前快照，原始数据可从观察台底部打开</small></span></li></ol>${href?`<a class="source-link" target="_blank" rel="noopener" href="${href}">阅读原始报道 ↗</a>`:''}</section><section class="panel"><h2>主题与实体</h2><div class="tags">${(e.themes||[]).map(t=>`<span class="tags button">${esc(t)}</span>`).join('')}</div>${e.entities?.persons?`<p class="notice">人物：${esc(e.entities.persons)}</p>`:''}${e.entities?.organizations?`<p class="notice">机构：${esc(e.entities.organizations)}</p>`:''}</section>`}catch(err){$('content').innerHTML='<div class="empty">找不到该事件档案。</div>';console.error(err)}}load();
+  </script>
+</body>
+</html>
