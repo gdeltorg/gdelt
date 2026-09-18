@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GDELT 能力地图 · 全球事件观察台</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top"><div class="shell nav"><a class="logo" href="./"><b>GDELT</b><span>CAPABILITY MAP</span></a><nav><a href="./">编辑台</a><a href="articles.html">全网阅读</a><a href="data.html">三库数据室</a></nav></div></header>
+  <main class="shell">
+    <section class="data-hero"><p class="eyebrow">OFFICIAL ECOSYSTEM / 能力地图</p><h1>不止三大库</h1><p class="dek">GDELT 是一套全球新闻、事件、知识图谱、地理、图像、电视和情绪分析基础设施。首页只放入口；本页区分实时数据、实时 API、延迟数据和衍生能力。</p></section>
+    <section class="capability-detail-grid">
+      <article class="capability-detail"><p class="eyebrow">01 · LIVE DATASETS</p><h2>Events · GKG · Mentions</h2><p>三大实时数据流：事件行为与参与者、知识图谱实体与主题、同一事件在新闻中的传播提及。当前站点保存快照、行数、时间点和原始文件。</p><div class="availability ready">当前站点已接入</div><a href="data.html">打开三库数据室 ↗</a></article>
+      <article class="capability-detail"><p class="eyebrow">02 · DOCUMENT SEARCH</p><h2>DOC 全文检索</h2><p>按关键词、来源、语言、国家、时间、图片和媒体语气检索文章，支持文章列表、媒体量时间线和 tone 时间线。</p><div class="availability api">官方实时 API</div><a href="https://api.gdeltproject.org/api/v2/doc/doc" target="_blank">打开 DOC API ↗</a></article>
+      <article class="capability-detail" id="geo"><p class="eyebrow">03 · GEOGRAPHY</p><h2>GEO 地理与地图</h2><p>从新闻中的国家、城市、行政区和地点构建地理热度、来源国对比与 GeoJSON 地图。地图表示媒体提及，不必然等于事件发生地。</p><div class="availability api">官方实时 API</div><a href="https://api.gdeltproject.org/api/v2/geo/geo" target="_blank">打开 GEO API ↗</a></article>
+      <article class="capability-detail" id="visual"><p class="eyebrow">04 · VISUAL NARRATIVES</p><h2>VGKG 图片与视觉</h2><p>处理图片中的对象、活动、OCR、Logo、人脸、面部语气、SafeSearch、颜色与视觉地理。适合作为图片线索和视觉专题，不替代人工核验。</p><div class="availability planned">可扩展模块</div><a href="https://blog.gdeltproject.org/gdelt-visual-knowledge-graph-vgkg-v1-0-available/" target="_blank">查看 VGKG 说明 ↗</a></article>
+      <article class="capability-detail" id="broadcast"><p class="eyebrow">05 · BROADCAST</p><h2>TV-GKG 电视与视频</h2><p>美国电视新闻字幕的主题、情绪、地理和叙事趋势，并可通过时间码回放 Internet Archive 片段。通常存在约 48 小时延迟，不是 GDELT 托管的全球视频库。</p><div class="availability delayed">每日更新 · 有延迟</div><a href="https://blog.gdeltproject.org/announcing-the-american-television-global-knowledge-graph-tv-gkg/" target="_blank">查看 TV-GKG 说明 ↗</a></article>
+      <article class="capability-detail" id="narrative"><p class="eyebrow">06 · NARRATIVE & EMOTION</p><h2>GCAM · Tone · Network</h2><p>从 GKG 的主题、实体、引用、AllNames、数量和 GCAM 维度构建语气、情绪、叙事、实体关系和来源网络。网络图与综合评分属于本台衍生视图。</p><div class="availability derived">衍生分析能力</div><a href="https://blog.gdeltproject.org/introducing-the-global-content-analysis-measures-gcam/" target="_blank">查看 GCAM 说明 ↗</a></article>
+      <article class="capability-detail" id="language"><p class="eyebrow">07 · TRANSLINGUAL</p><h2>跨语言新闻</h2><p>GDELT Translingual 将多语言新闻纳入统一的事件和知识图谱处理，适合做跨语言主题、国家和来源比较；机器翻译应标注为机器处理结果。</p><div class="availability derived">处理层能力</div><a href="https://blog.gdeltproject.org/gdelt-translingual-translating-the-planet/" target="_blank">查看 Translingual 说明 ↗</a></article>
+      <article class="capability-detail" id="history"><p class="eyebrow">08 · HISTORY & REPLAY</p><h2>历史档案与时间回放</h2><p>GDELT 1.0 提供更长历史跨度；本台从首次成功运行开始保存 2.1 快照。可做周期对比、事件密度回放和趋势复盘，但快照累计不是跨期唯一记录数。</p><div class="availability ready">当前站点已接入部分</div><a href="data.html">查看历史统计 ↗</a></article>
+    </section>
+    <section class="panel methodology"><p class="eyebrow">IMPORTANT DISTINCTIONS</p><h2>数据边界</h2><p>Events、GKG、Mentions、VGKG 和 GDELT 1.0 是数据集；DOC 和 GEO 主要是实时查询 API；TV-GKG 是有延迟的电视字幕数据；文章正文、出版商图片、广播视频和音频不应被描述为 GDELT 托管的完整归档。</p></section>
+  </main>
+  <footer class="shell footer"><span>能力目录基于 GDELT 官方数据说明、代码本和 API 文档</span><a href="https://www.gdeltproject.org/" target="_blank">GDELT 官方站 ↗</a></footer>
+</body>
+</html>
