@@ -3951,11 +3951,41 @@
         }
       },
       "timeline_points": 4
+    },
+    {
+      "id": "2026-09-19T21-42-55+00-00",
+      "generated_at": "2026-09-19T21:42:55+00:00",
+      "current_day": "2026-09-19",
+      "file": "archive/2026-09-19T21-42-55+00-00.json",
+      "datasets": {
+        "events": {
+          "records": 272,
+          "time_points": 3,
+          "date_start": "20260912",
+          "date_end": "20260919",
+          "current_records": 269
+        },
+        "gkg": {
+          "records": 469,
+          "time_points": 1,
+          "date_start": "20260919",
+          "date_end": "20260919",
+          "current_records": 469
+        },
+        "mentions": {
+          "records": 1936,
+          "time_points": 1,
+          "date_start": "20260919",
+          "date_end": "20260919",
+          "current_records": 1936
+        }
+      },
+      "timeline_points": 3
     }
   ],
   "totals": {
-    "events": 123085,
-    "gkg": 117505,
-    "mentions": 350881
+    "events": 123357,
+    "gkg": 117974,
+    "mentions": 352817
   }
 }
