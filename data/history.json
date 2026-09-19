@@ -2391,11 +2391,41 @@
         }
       },
       "timeline_points": 3
+    },
+    {
+      "id": "2026-09-19T07-31-02+00-00",
+      "generated_at": "2026-09-19T07:31:02+00:00",
+      "current_day": "2026-09-19",
+      "file": "archive/2026-09-19T07-31-02+00-00.json",
+      "datasets": {
+        "events": {
+          "records": 542,
+          "time_points": 4,
+          "date_start": "20250919",
+          "date_end": "20260919",
+          "current_records": 526
+        },
+        "gkg": {
+          "records": 657,
+          "time_points": 1,
+          "date_start": "20260919",
+          "date_end": "20260919",
+          "current_records": 657
+        },
+        "mentions": {
+          "records": 1973,
+          "time_points": 1,
+          "date_start": "20260919",
+          "date_end": "20260919",
+          "current_records": 1973
+        }
+      },
+      "timeline_points": 4
     }
   ],
   "totals": {
-    "events": 87353,
-    "gkg": 82710,
-    "mentions": 246671
+    "events": 87895,
+    "gkg": 83367,
+    "mentions": 248644
   }
 }
