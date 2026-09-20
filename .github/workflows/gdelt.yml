@@ -28,6 +28,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Generate latest snapshot and append history
+        continue-on-error: true
         run: python scripts/analyze_gdelt.py
       - name: Generate TV-GKG video statistics
         env:
