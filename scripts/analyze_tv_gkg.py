@@ -87,11 +87,12 @@ def latest_archive_videos(limit: int = 2000) -> list[dict]:
             "extraction_methods": ["Internet Archive tvnews 目录"] + (["Archive 页面字幕/ASR 摘要"] if transcript else []),
             "text_sources": [page_url] if transcript else [],
             "extraction_status": {
-                "caption": "available" if transcript else "catalog_only",
-                "asr": "available" if transcript else "not_in_catalog",
+                "caption": "archive_snippet" if transcript else "catalog_only",
+                "asr": "not_verified",
                 "ocr": "not_in_catalog",
                 "lip_reading": "not_supported",
             },
+            "transcript_source_type": "Archive 页面公开文字片段" if transcript else "",
             "replay_url": f"https://archive.org/details/{identifier}",
             "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
             "transcript_text": transcript[:12000],
@@ -139,8 +140,9 @@ def enrich_broadcasts(items: list[dict]) -> None:
             {"label": "Internet Archive 原片", "url": item["source_url"]},
         ] + gdelt_links(keywords)
         item["extraction_methods"] = item.get("extraction_methods", []) + ["Archive 页面字幕/ASR 摘要"]
-        item["extraction_status"]["caption"] = "available"
-        item["extraction_status"]["asr"] = "available"
+        item["extraction_status"]["caption"] = "archive_snippet"
+        item["extraction_status"]["asr"] = "not_verified"
+        item["transcript_source_type"] = "Archive 页面公开文字片段"
         item["model_analysis"] = {
             "provider": "archive_transcript",
             "judgment": "可优先核验",
