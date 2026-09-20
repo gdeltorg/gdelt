@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import csv
+from concurrent.futures import ThreadPoolExecutor
 import gzip
+import html
 import io
 import json
 import os
@@ -21,9 +23,9 @@ OUTPUT = ROOT / "data" / "video.json"
 UA = "gdeltorg-video-dashboard/1.0"
 
 
-def get(url: str) -> bytes:
+def get(url: str, timeout: int = 90) -> bytes:
     request = Request(url, headers={"User-Agent": UA})
-    with urlopen(request, timeout=90) as response:
+    with urlopen(request, timeout=timeout) as response:
         return response.read()
 
 
@@ -34,7 +36,11 @@ def latest_archive_videos(limit: int = 100) -> list[dict]:
     )
     payload = json.loads(get(ARCHIVE_SEARCH + params).decode("utf-8"))
     result = []
-    for doc in payload.get("response", {}).get("docs", []):
+    docs = payload.get("response", {}).get("docs", [])
+    identifiers = [clean(doc.get("identifier", "")) for doc in docs]
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        snippets = list(pool.map(lambda value: archive_snippet(f"https://archive.org/details/{value}") if value else "", identifiers))
+    for doc, transcript in zip(docs, snippets):
         identifier = clean(doc.get("identifier", ""))
         if not identifier:
             continue
@@ -43,15 +49,21 @@ def latest_archive_videos(limit: int = 100) -> list[dict]:
         date = clean(doc.get("date", ""))
         program = title.split(" : ")[0].strip() if " : " in title else title
         human_title = f"{source}《{program}》电视节目（{date[:10] or '日期未知'}）"
+        page_url = f"https://archive.org/details/{identifier}"
+        if transcript:
+            human_title = transcript.split(". ", 1)[0].strip()[:180]
+        summary = " ".join(transcript.split()[:70]) + ("…" if len(transcript.split()) > 70 else "") if transcript else (
+            "节目级摘要："
+            f"{source} 的《{program}》于 {date or '未知时间'} 进入电视档案。"
+            "公开页面暂未取得可读字幕正文，需打开原片核验。"
+        )
         result.append({
             "id": identifier,
             "title": title,
             "title_candidate": human_title,
             "human_title": human_title,
-            "summary": "该条目来自 Internet Archive 最新电视目录。公开目录未提供可读取的逐段 ASR/字幕正文，因此暂不能从文本确认具体新闻标题。",
-            "human_summary": "节目级摘要："
-                f"{source} 的《{program}》于 {date or '未知时间'} 进入电视档案。"
-                "具体新闻内容需等待公开字幕/ASR 或打开原片人工核验。",
+            "summary": summary,
+            "human_summary": summary,
             "model_analysis": {
                 "provider": "not_configured",
                 "judgment": "信息不足，暂不判定新闻价值",
@@ -61,21 +73,42 @@ def latest_archive_videos(limit: int = 100) -> list[dict]:
             "source": source,
             "source_url": f"https://archive.org/details/{identifier}",
             "date": date,
-            "keywords": [],
+            "keywords": extract_keywords(transcript),
             "themes": [],
             "countries": [],
-            "extraction_methods": ["Internet Archive tvnews 目录"],
-            "text_sources": [],
+            "extraction_methods": ["Internet Archive tvnews 目录"] + (["Archive 页面字幕/ASR 摘要"] if transcript else []),
+            "text_sources": [page_url] if transcript else [],
             "extraction_status": {
-                "caption": "catalog_only",
-                "asr": "not_in_catalog",
+                "caption": "available" if transcript else "catalog_only",
+                "asr": "available" if transcript else "not_in_catalog",
                 "ocr": "not_in_catalog",
                 "lip_reading": "not_supported",
             },
             "replay_url": f"https://archive.org/details/{identifier}",
             "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+            "transcript_text": transcript[:12000],
+            "transcript_source": page_url if transcript else "",
         })
     return result
+
+
+def archive_snippet(url: str) -> str:
+    try:
+        page = get(url, timeout=20).decode("utf-8", "replace")
+    except (HTTPError, URLError, TimeoutError):
+        return ""
+    match = re.search(r'<div class="snippet">\s*<div class="snipin[^>]*>(.*?)</div>', page, re.S)
+    if not match:
+        return ""
+    return clean(html.unescape(re.sub(r"<[^>]+>", " ", match.group(1))))
+
+
+def extract_keywords(text: str, limit: int = 12) -> list[str]:
+    if not text:
+        return []
+    stop = {"the", "and", "that", "this", "with", "from", "have", "they", "were", "about", "your", "what", "will", "you"}
+    words = re.findall(r"[A-Za-z][A-Za-z'-]{3,}", text.lower())
+    return [word for word, _ in Counter(word for word in words if word not in stop).most_common(limit)]
 
 
 def latest_file() -> tuple[str, str]:
@@ -141,7 +174,8 @@ def jev_api_score(item: dict, api_key: str) -> tuple[int, str, list[str], float 
         f"Broadcast: {item['title']}; source: {item['source']}; UTC: {item['date']}; "
         f"TV-GKG themes: {', '.join(item['themes']) or 'none'}; "
         f"locations: {', '.join(item['countries']) or 'none'}; Tone: {item['tone']}; "
-        f"Archive replay available: {'yes' if item['replay_url'] else 'no'}."
+        f"Archive replay available: {'yes' if item['replay_url'] else 'no'}; "
+        f"transcript excerpt: {item.get('transcript_text', '')[:5000]}"
     )
     body = {
         "state": state,
