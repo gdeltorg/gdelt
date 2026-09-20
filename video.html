@@ -71,7 +71,7 @@
       </div>
       <div class="tv-api-panel">
         <div class="section-head"><div><p class="eyebrow">OFFICIAL LIVE QUERY</p><h3>电视内容检索与视觉分析</h3></div><span class="availability api">GDELT API</span></div>
-        <p class="muted">直接调用 GDELT 官方 TV 2.0 / TVAI：字幕关键词、频道趋势、ASR、屏幕 OCR 和视觉概念。查询结果在官方 API 页面打开。</p>
+        <p class="muted">直接调用 GDELT 官方 TV 2.0 / TV 2.0 AI API：普通 TV 2.0 检索字幕关键词、频道趋势和片段；TVAI 进一步提供 ASR、屏幕文字 OCR、视觉标签和自然语言实体图谱分析。查询结果在官方 API 页面打开。</p>
         <div class="tv-query">
           <label>字幕关键词或 TV 查询<input id="tv-query" type="search" value="climate" placeholder='例如 "climate" station:KGO'></label>
           <label>频道（可选）<input id="tv-station" type="text" placeholder="KGO / KPIX / KNTV"></label>
@@ -80,6 +80,7 @@
           <button id="tvai-search" type="button">TVAI 视觉检索</button>
         </div>
         <p class="notice">TVAI 查询示例：<code>visual:"POLICE"</code>、<code>ocr:"GAS PRICES"</code>、<code>asr:"climate"</code>。官方接口会按其数据范围和延迟返回结果。</p>
+        <div class="video-ai-capabilities"><span>ASR 自动转写</span><span>Caption NLP 实体图谱</span><span>屏幕 OCR</span><span>Visual Labels</span><span>频道 / 节目 / 趋势</span></div>
       </div>
       <div id="transcript" class="transcript"><p class="empty">加载视频后导入 SRT/VTT，字幕会按时间码显示并可点击跳转。</p></div>
       <p class="notice">使用方法：① 选择本地视频，或填入允许跨域的公开视频 URL；② 选择对应的 SRT/VTT 字幕；③ 在字幕列表点击时间码回放、输入关键词检索，必要时导出截帧和证据 JSON。统计只基于当前视频、字幕和本页操作记录；ASR/OCR 需要明确接入模型或受控后端，页面不会伪造识别结果。</p>
