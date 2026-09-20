@@ -41,6 +41,12 @@ jobs:
             echo 'No changes.'
           else
             git commit -m 'Update current TV video snapshot'
+            git fetch origin main
+            if ! git rebase origin/main; then
+              git checkout --theirs data/video.json
+              git add data/video.json
+              GIT_EDITOR=true git rebase --continue
+            fi
             git push
             echo 'changed=true' >> "$GITHUB_OUTPUT"
           fi
