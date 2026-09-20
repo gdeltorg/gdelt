@@ -10,6 +10,7 @@ import io
 import json
 import os
 import re
+from urllib.parse import quote_plus
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -50,6 +51,8 @@ def latest_archive_videos(limit: int = 100) -> list[dict]:
         program = title.split(" : ")[0].strip() if " : " in title else title
         human_title = f"{source}《{program}》电视节目（{date[:10] or '日期未知'}）"
         page_url = f"https://archive.org/details/{identifier}"
+        raw_transcript = transcript
+        transcript = usable_transcript(transcript)
         if transcript:
             human_title = transcript.split(". ", 1)[0].strip()[:180]
         summary = " ".join(transcript.split()[:70]) + ("…" if len(transcript.split()) > 70 else "") if transcript else (
@@ -66,14 +69,15 @@ def latest_archive_videos(limit: int = 100) -> list[dict]:
             "human_summary": summary,
             "model_analysis": {
                 "provider": "not_configured",
-                "judgment": "信息不足，暂不判定新闻价值",
-                "confidence": 0.0,
-                "basis": "当前只有 Archive 目录元数据，没有公开 ASR/字幕正文。",
+                "judgment": "可优先核验" if transcript else "信息不足，暂不判定新闻价值",
+                "confidence": 0.35 if transcript else 0.0,
+                "basis": "依据 Archive 页面字幕/ASR 摘要和关键词，仍需打开原片核验。" if transcript else "当前只有 Archive 目录元数据，没有公开 ASR/字幕正文。",
             },
             "source": source,
             "source_url": f"https://archive.org/details/{identifier}",
             "date": date,
             "keywords": extract_keywords(transcript),
+            "related_links": gdelt_links(extract_keywords(transcript)),
             "themes": [],
             "countries": [],
             "extraction_methods": ["Internet Archive tvnews 目录"] + (["Archive 页面字幕/ASR 摘要"] if transcript else []),
@@ -87,6 +91,7 @@ def latest_archive_videos(limit: int = 100) -> list[dict]:
             "replay_url": f"https://archive.org/details/{identifier}",
             "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
             "transcript_text": transcript[:12000],
+            "transcript_text_raw": raw_transcript[:12000],
             "transcript_source": page_url if transcript else "",
         })
     return result
@@ -101,6 +106,35 @@ def archive_snippet(url: str) -> str:
     if not match:
         return ""
     return clean(html.unescape(re.sub(r"<[^>]+>", " ", match.group(1))))
+
+
+def usable_transcript(text: str) -> str:
+    """Reject audio-stage directions that cannot support a news summary."""
+    cleaned = clean(text)
+    cleaned = re.sub(r"\[[^\]]{1,120}\]", " ", cleaned)
+    words = re.findall(r"[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ'-]{2,}", cleaned)
+    return cleaned if len(words) >= 8 else ""
+
+
+def gdelt_links(keywords: list[str]) -> list[dict[str, str]]:
+    if not keywords:
+        return []
+    query = " ".join(keywords[:5])
+    encoded = quote_plus(query)
+    return [
+        {
+            "label": "GDELT TV 片段",
+            "url": f"https://api.gdeltproject.org/api/v2/tv/tv?format=html&mode=clipgallery&query={encoded}",
+        },
+        {
+            "label": "GDELT 新闻/GKG",
+            "url": f"https://api.gdeltproject.org/api/v2/doc/doc?format=html&mode=artlist&query={encoded}",
+        },
+        {
+            "label": "GDELT 事件",
+            "url": f"https://api.gdeltproject.org/api/v2/events/events?format=html&query={encoded}",
+        },
+    ]
 
 
 def extract_keywords(text: str, limit: int = 12) -> list[str]:
