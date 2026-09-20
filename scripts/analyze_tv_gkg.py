@@ -66,6 +66,7 @@ def build() -> dict:
     tone_total = 0.0
     tone_count = 0
     broadcasts = []
+    tone_buckets: Counter[str] = Counter()
     reader = csv.reader(io.TextIOWrapper(rows, encoding="utf-8", errors="replace"), delimiter="\t")
     for row in reader:
         if len(row) < 16:
@@ -76,17 +77,23 @@ def build() -> dict:
         themes.update(names(row[8]))
         countries.update(locations(row[10]))
         try:
-            tone_total += float(row[15].split(",")[0])
+            tone = float(row[15].split(",")[0])
+            tone_total += tone
             tone_count += 1
+            tone_buckets["positive" if tone > 2 else "negative" if tone < -2 else "neutral"] += 1
         except (ValueError, IndexError):
             pass
-        if len(broadcasts) < 20:
+        if len(broadcasts) < 100:
             identifier = clean(row[4])
+            title = re.sub(r"^\d{8}_\d{6}_", "", identifier).replace("_", " ").strip() or source
             broadcasts.append({
                 "id": identifier,
+                "title": title,
                 "source": source,
                 "date": clean(row[1]),
                 "themes": names(row[8], 8),
+                "countries": locations(row[10])[:8],
+                "tone": round(tone, 3) if tone_count and row[15] else None,
                 "replay_url": f"https://archive.org/details/{identifier}" if identifier else "",
             })
     sources = len(source_counts)
@@ -107,10 +114,12 @@ def build() -> dict:
         "records": records,
         "sources": sources,
         "average_tone": round(tone_total / tone_count, 3) if tone_count else None,
+        "tone_buckets": [{"name": name, "count": count} for name, count in tone_buckets.items()],
         "top_sources": [{"name": name, "count": count} for name, count in source_counts.most_common(15)],
         "top_themes": [{"name": name, "count": count} for name, count in themes.most_common(20)],
         "top_countries": [{"name": name, "count": count} for name, count in countries.most_common(20)],
         "broadcasts": broadcasts,
+        "news_items": broadcasts,
         "latest_file": url,
     }
 
