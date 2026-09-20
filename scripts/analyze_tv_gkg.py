@@ -89,6 +89,7 @@ def latest_archive_videos(limit: int = 2000) -> list[dict]:
             "extraction_status": {
                 "caption": "archive_snippet" if transcript else "catalog_only",
                 "asr": "not_verified",
+                "text": "available" if transcript else "unavailable",
                 "ocr": "not_in_catalog",
                 "lip_reading": "not_supported",
             },
@@ -142,6 +143,7 @@ def enrich_broadcasts(items: list[dict]) -> None:
         item["extraction_methods"] = item.get("extraction_methods", []) + ["Archive 页面字幕/ASR 摘要"]
         item["extraction_status"]["caption"] = "archive_snippet"
         item["extraction_status"]["asr"] = "not_verified"
+        item["extraction_status"]["text"] = "available"
         item["transcript_source_type"] = "Archive 页面公开文字片段"
         item["model_analysis"] = {
             "provider": "archive_transcript",
