@@ -15,6 +15,7 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 BASE = "https://data.gdeltproject.org/gdeltv2_iatelevision/"
+ARCHIVE_SEARCH = "https://archive.org/advancedsearch.php"
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "data" / "video.json"
 UA = "gdeltorg-video-dashboard/1.0"
@@ -24,6 +25,44 @@ def get(url: str) -> bytes:
     request = Request(url, headers={"User-Agent": UA})
     with urlopen(request, timeout=90) as response:
         return response.read()
+
+
+def latest_archive_videos(limit: int = 100) -> list[dict]:
+    params = (
+        "?q=collection%3Atvnews&fl%5B%5D=identifier&fl%5B%5D=title&fl%5B%5D=date"
+        f"&sort%5B%5D=date+desc&rows={limit}&output=json"
+    )
+    payload = json.loads(get(ARCHIVE_SEARCH + params).decode("utf-8"))
+    result = []
+    for doc in payload.get("response", {}).get("docs", []):
+        identifier = clean(doc.get("identifier", ""))
+        if not identifier:
+            continue
+        source = identifier.split("_", 1)[0]
+        title = clean(doc.get("title", "")) or identifier.replace("_", " ")
+        date = clean(doc.get("date", ""))
+        result.append({
+            "id": identifier,
+            "title": title,
+            "title_candidate": title,
+            "summary": "Internet Archive 最新电视档案条目；当前目录结果未包含逐段 ASR/OCR 文本。",
+            "source": source,
+            "source_url": f"https://archive.org/details/{identifier}",
+            "date": date,
+            "keywords": [],
+            "themes": [],
+            "countries": [],
+            "extraction_methods": ["Internet Archive tvnews 目录"],
+            "extraction_status": {
+                "caption": "catalog_only",
+                "asr": "not_in_catalog",
+                "ocr": "not_in_catalog",
+                "lip_reading": "not_supported",
+            },
+            "replay_url": f"https://archive.org/details/{identifier}",
+            "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+        })
+    return result
 
 
 def latest_file() -> tuple[str, str]:
@@ -141,6 +180,7 @@ def metadata_summary(source: str, themes: list[str], countries: list[str], tone:
 def build() -> dict:
     url, data_day = latest_file()
     generated = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    latest_videos = latest_archive_videos()
     rows = gzip.GzipFile(fileobj=io.BytesIO(get(url)))
     records = sources = 0
     source_counts: Counter[str] = Counter()
@@ -228,6 +268,9 @@ def build() -> dict:
         "top_countries": [{"name": name, "count": count} for name, count in countries.most_common(20)],
         "broadcasts": broadcasts,
         "news_items": broadcasts,
+        "latest_videos": latest_videos,
+        "latest_video_source": "https://archive.org/advancedsearch.php?q=collection%3Atvnews&sort%5B%5D=date+desc",
+        "latest_video_day": latest_videos[0]["date"][:10] if latest_videos else None,
         "latest_file": url,
         "latest_available_note": "当前官方 TV-GKG 文件的最新可取得日期；不代表今天已完成电视处理。",
         "extraction_catalog": {
