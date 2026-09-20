@@ -76,6 +76,12 @@
           <div><b id="tv-day">—</b><span>数据日期</span></div>
         </div>
         <div class="tv-gkg-columns"><div><h4>热门主题</h4><ol id="tv-themes"><li>加载中…</li></ol></div><div><h4>节目与回放</h4><ol id="tv-broadcasts"><li>加载中…</li></ol></div></div>
+        <div class="news-rules">
+          <div class="section-head"><div><p class="eyebrow">RULE-BASED NEWS VIEWS</p><h3>视频新闻统计规则</h3></div><label class="rule-select">统计规则<select id="news-rule"><option value="themes">按主题频次：视频主要在说什么</option><option value="sources">按频道覆盖：哪些频道在说</option><option value="countries">按国家/地区：涉及哪些地方</option><option value="broadcasts">按节目回放：逐条核验原片</option></select></label></div>
+          <p id="news-rule-explanation" class="muted">按 TV-GKG 主题出现次数排序；次数是字幕知识图谱记录数，不是独立新闻篇数。</p>
+          <div id="news-rule-list" class="news-rule-list"><p class="empty">加载统计中…</p></div>
+        </div>
+        <div class="live-trending"><span class="eyebrow">TV 2.0 LIVE STATUS</span><span id="live-trending-status">正在读取实时电视趋势…</span></div>
       </div>
       <div class="tv-api-panel">
         <div class="section-head"><div><p class="eyebrow">OFFICIAL LIVE QUERY</p><h3>电视内容检索与视觉分析</h3></div><span class="availability api">GDELT API</span></div>
@@ -211,12 +217,46 @@
           $('tv-broadcasts').innerHTML = (data.broadcasts || []).slice(0, 8).map(item => `<li>${item.replay_url ? `<a href="${escapeHtml(item.replay_url)}" target="_blank" rel="noopener">${escapeHtml(item.source || item.id)}</a>` : escapeHtml(item.source || item.id)}<small>${escapeHtml(item.date || '')}</small></li>`).join('') || '<li>暂无回放</li>';
           $('tv-gkg-status').textContent = data.freshness === 'current' ? `官方快照 · ${data.data_day}` : `历史快照 · ${data.data_day} · 延迟 ${data.lag_days ?? '未知'} 天`;
           $('tv-gkg-status').className = `availability ${data.freshness === 'current' ? 'ready' : 'delayed'}`;
+          window.videoNewsStats = data;
+          renderNewsRule();
         } catch (error) {
           $('tv-gkg-status').textContent = '官方快照暂不可用';
           console.error('TV-GKG snapshot failed', error);
         }
       };
+      const ruleConfig = {
+        themes: { explanation: '按 TV-GKG 主题出现次数排序；次数是字幕知识图谱记录数，不是独立新闻篇数。', key: 'top_themes', label: '主题' },
+        sources: { explanation: '按广播来源记录数排序，用于比较哪些频道/来源覆盖更多；不等于收视率。', key: 'top_sources', label: '来源' },
+        countries: { explanation: '按字幕地点字段中的国家/地区出现次数排序；媒体提及不必然等于事件发生地。', key: 'top_countries', label: '国家/地区' },
+        broadcasts: { explanation: '按广播记录列出可回放节目；点击条目到 Internet Archive 做人工核验。', key: 'broadcasts', label: '节目' }
+      };
+      const renderNewsRule = () => {
+        const rule = $('news-rule').value;
+        const config = ruleConfig[rule];
+        const data = window.videoNewsStats || {};
+        const items = (data[config.key] || []).slice(0, 12);
+        $('news-rule-explanation').textContent = config.explanation;
+        $('news-rule-list').innerHTML = items.length ? items.map((item, index) => {
+          const name = item.name || item.source || item.id || '未命名节目';
+          const count = item.count == null ? '' : `<b>${Number(item.count).toLocaleString()}</b>`;
+          const link = item.replay_url ? `<a href="${escapeHtml(item.replay_url)}" target="_blank" rel="noopener">${escapeHtml(name)}</a>` : `<span>${escapeHtml(name)}</span>`;
+          return `<div class="news-rule-row"><i>${index + 1}</i>${link}${count}${item.date ? `<small>${escapeHtml(item.date)}</small>` : ''}</div>`;
+        }).join('') : '<p class="empty">该规则暂无可用数据。</p>';
+      };
+      $('news-rule').onchange = renderNewsRule;
       renderTvGkg();
+      fetch('https://api.gdeltproject.org/api/v2/tv/tv?format=json&mode=trendingtopics', { cache: 'no-store' }).then(response => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      }).then(data => {
+        const topics = data.OverallTrendingTopics || [];
+        $('live-trending-status').textContent = topics.length
+          ? `官方生成时间 ${data['DateGenerated:'] || '未知'} · 当前热门主题 ${topics.length} 条`
+          : `官方生成时间 ${data['DateGenerated:'] || '未知'} · 当前暂无可返回的热门主题`;
+      }).catch(error => {
+        $('live-trending-status').textContent = '实时电视趋势暂不可用';
+        console.error('TV trending request failed', error);
+      });
       const openTvQuery = (base, mode, query) => {
         const url = new URL(base);
         url.searchParams.set('format', 'html');
