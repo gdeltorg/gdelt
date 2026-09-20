@@ -122,8 +122,25 @@ def jev_api_score(item: dict, api_key: str) -> tuple[int, str, list[str], float 
     return score, label, [f"Jev 判断：{label}"], confidence
 
 
+def metadata_headline(source: str, themes: list[str], countries: list[str]) -> str:
+    signals = themes[:2] + countries[:1]
+    return f"{source} 电视广播：{'、'.join(signals)}" if signals else f"{source} 电视广播主题候选"
+
+
+def metadata_summary(source: str, themes: list[str], countries: list[str], tone: float | None) -> str:
+    parts = [f"该条 {source} 广播记录由 TV-GKG 字幕知识图谱提取"]
+    if themes:
+        parts.append(f"主题信号包括 {'、'.join(themes[:5])}")
+    if countries:
+        parts.append(f"涉及地点字段包括 {'、'.join(countries[:3])}")
+    if tone is not None:
+        parts.append(f"Tone 为 {tone:.2f}")
+    return "；".join(parts) + "。这是一条机器生成摘要，需打开原片核验。"
+
+
 def build() -> dict:
     url, data_day = latest_file()
+    generated = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     rows = gzip.GzipFile(fileobj=io.BytesIO(get(url)))
     records = sources = 0
     source_counts: Counter[str] = Counter()
@@ -155,15 +172,29 @@ def build() -> dict:
         if len(broadcasts) < 100:
             identifier = clean(row[4])
             title = re.sub(r"^\d{8}_\d{6}_", "", identifier).replace("_", " ").strip() or source
+            item_themes = names(row[8], 8)
+            item_countries = locations(row[10])[:8]
             item = {
                 "id": identifier,
                 "title": title,
+                "title_candidate": metadata_headline(source, item_themes, item_countries),
+                "summary": metadata_summary(source, item_themes, item_countries, tone),
                 "source": source,
+                "source_url": f"https://archive.org/details/{identifier}" if identifier else "",
                 "date": clean(row[1]),
-                "themes": names(row[8], 8),
-                "countries": locations(row[10])[:8],
+                "themes": item_themes,
+                "countries": item_countries,
+                "keywords": item_themes + [country for country in item_countries if country not in item_themes],
+                "extraction_methods": ["TV-GKG 字幕主题"],
+                "extraction_status": {
+                    "caption": "available_metadata",
+                    "asr": "not_in_snapshot",
+                    "ocr": "not_in_snapshot",
+                    "lip_reading": "not_supported",
+                },
                 "tone": round(tone, 3) if tone_count and row[15] else None,
                 "replay_url": f"https://archive.org/details/{identifier}" if identifier else "",
+                "generated_at": generated,
             }
             if jev_key:
                 try:
@@ -175,7 +206,6 @@ def build() -> dict:
                 item["jev_score"], item["jev_label"], item["jev_reasons"] = jev_score(item)
             broadcasts.append(item)
     sources = len(source_counts)
-    generated = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     try:
         lag_days = (datetime.now(timezone.utc).date() - datetime.strptime(data_day, "%Y%m%d").date()).days
     except ValueError:
@@ -200,6 +230,12 @@ def build() -> dict:
         "news_items": broadcasts,
         "latest_file": url,
         "latest_available_note": "当前官方 TV-GKG 文件的最新可取得日期；不代表今天已完成电视处理。",
+        "extraction_catalog": {
+            "caption": "TV-GKG 字幕主题与节目元数据",
+            "asr": "TVAI ASR 或用户导入字幕后可用",
+            "ocr": "TVAI OCR 或本地/后端视频引擎后可用",
+            "lip_reading": "当前未接入；不能从 TV-GKG 推断口型内容",
+        },
         "jev_provider": jev_provider,
         "jev_source": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
     }
