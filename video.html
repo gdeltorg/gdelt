@@ -66,6 +66,13 @@
         <div><b id="stat-matches">0</b><span>当前命中</span></div>
         <div><b id="stat-frames">0</b><span>已截帧</span></div>
       </div>
+      <div class="transcript-insights" aria-live="polite">
+        <div class="section-head"><div><p class="eyebrow">ASR / CAPTION NEWS EXTRACTION</p><h3>从字幕提取新闻标题与统计</h3></div><span class="availability api">机器候选 · 需核验</span></div>
+        <p class="muted">标题候选、关键词和频次只根据当前导入的 ASR/SRT/VTT 文本生成，不代表官方标题，也不等于事实判断。</p>
+        <div class="headline-candidate"><span>标题候选</span><b id="derived-headline">导入字幕后生成</b></div>
+        <div class="subtitle-insight-grid"><div><b id="subtitle-unique-terms">0</b><span>关键词数</span></div><div><b id="subtitle-sentences">0</b><span>候选句数</span></div><div><b id="subtitle-coverage-time">—</b><span>文本时长</span></div></div>
+        <div id="subtitle-topics" class="video-tags"><span>暂无关键词统计</span></div>
+      </div>
       <div class="tv-gkg-panel">
         <div class="section-head"><div><p class="eyebrow">OFFICIAL GDELT TV-GKG</p><h3>全球电视视频统计</h3></div><span id="tv-gkg-status" class="availability delayed">读取最新可用快照…</span></div>
         <p class="muted">这里显示 GDELT 已分析的电视新闻字幕数据，不是当前浏览器上传视频的统计。点击节目可打开 Internet Archive 原始回放。</p>
@@ -156,6 +163,31 @@
         $('stat-words').textContent = words.toLocaleString();
         $('stat-matches').textContent = matches ?? cues.length;
         $('stat-frames').textContent = evidence.frames.length;
+        renderSubtitleInsights();
+      };
+      const stopWords = new Set('a an and are as at be been but by for from had has have he her his i in into is it its me more my not of on or our she so that the their them they this to was we were will with you your about after all also can did do does during each few how if just may most no only other over same some than then there these those very what when where which who why would'.split(' '));
+      const wordsFrom = text => text.toLowerCase().match(/[a-z][a-z'-]{2,}|[\u3400-\u9fff]{2,}/g) || [];
+      const renderSubtitleInsights = () => {
+        const cues = evidence.subtitles;
+        if (!cues.length) {
+          $('derived-headline').textContent = '导入字幕后生成';
+          $('subtitle-unique-terms').textContent = '0';
+          $('subtitle-sentences').textContent = '0';
+          $('subtitle-coverage-time').textContent = '—';
+          $('subtitle-topics').innerHTML = '<span>暂无关键词统计</span>';
+          return;
+        }
+        const text = cues.map(item => item.text).join(' ');
+        const counts = new Map();
+        wordsFrom(text).forEach(word => { if (!stopWords.has(word)) counts.set(word, (counts.get(word) || 0) + 1); });
+        const topics = [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12);
+        const candidate = cues.slice(0, 5).map(item => item.text.trim()).join(' ').replace(/\s+/g, ' ');
+        const headline = candidate.length > 150 ? `${candidate.slice(0, 147).replace(/[,.!?;:]+$/, '')}…` : candidate;
+        $('derived-headline').textContent = headline || '无法从字幕生成候选标题';
+        $('subtitle-unique-terms').textContent = counts.size.toLocaleString();
+        $('subtitle-sentences').textContent = cues.length.toLocaleString();
+        $('subtitle-coverage-time').textContent = formatDuration(cues.reduce((total, item) => total + Math.max(0, item.end - item.start), 0));
+        $('subtitle-topics').innerHTML = topics.length ? topics.map(([word, count]) => `<span>${escapeHtml(word)} <b>${count}</b></span>`).join('') : '<span>暂无可统计关键词</span>';
       };
       const loadVideo = (src, name) => {
         if (objectUrl) URL.revokeObjectURL(objectUrl);
