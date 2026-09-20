@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>视频新闻 · GDELT</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top"><div class="shell nav"><a class="logo" href="./video.html"><b>GDELT</b><span>VIDEO NEWS</span></a><nav><a href="video.html">视频研判</a><a href="video-review.html">JEV 评估</a><a href="data.html">数据支撑</a></nav></div></header>
+  <main class="shell">
+    <section class="data-hero"><p class="eyebrow">VIDEO NEWS / HUMAN-READABLE VIEW</p><h1>视频里的新闻</h1><p class="dek">把最新电视档案整理成可阅读的新闻卡片：人类可读标题、字幕摘要、关键词、提取方式、模型研判和原片证据。</p><p id="status" class="muted">正在读取最新视频…</p></section>
+    <section class="panel video-news-controls"><div class="section-head"><div><p class="eyebrow">LATEST ARCHIVE RECORDS</p><h2>最新视频新闻</h2></div><label>筛选<input id="filter" type="search" placeholder="频道、标题或关键词…"></label></div><p class="notice">标题和摘要优先来自 Archive 页面字幕/ASR 摘要；没有文本的记录只显示节目级信息。模型研判必须以可取得的文本或元数据为依据，不替代人工核验。</p></section>
+    <section id="items" class="video-news-cards"><div class="empty">加载中…</div></section>
+  </main>
+  <footer class="shell footer"><span>视频新闻 · 字幕/ASR 摘要 · 来源和时间可核验</span><a href="video.html">返回视频研判 ↗</a></footer>
+  <script>
+    const $=id=>document.getElementById(id), esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])), date=x=>String(x||'—').replace('T',' ').replace('+00:00',' UTC');
+    let records=[];
+    const matches=(item,q)=>!q||[item.human_title,item.title,item.source,item.human_summary,item.summary,(item.keywords||[]).join(' ')].join(' ').toLowerCase().includes(q);
+    const render=()=>{const q=$('filter').value.trim().toLowerCase();const rows=records.filter(item=>matches(item,q));$('items').innerHTML=rows.map(item=>{const status=item.extraction_status||{};const methods=(item.extraction_methods||[]).map(x=>'<span>'+esc(x)+'</span>').join('');const keywords=(item.keywords||[]).slice(0,14).map(x=>'<span>'+esc(x)+'</span>').join('');const analysis=item.model_analysis||{};const transcript=item.transcript_text?'<details><summary>查看字幕/ASR 原文（截取）</summary><p class="transcript-excerpt">'+esc(item.transcript_text)+'</p></details>':'';return `<article class="video-news-card"><div class="video-news-card-head"><div><p class="eyebrow">${esc(item.source||'unknown')} · ${esc(date(item.date))}</p><h2>${esc(item.human_title||item.title_candidate||item.title||item.id)}</h2></div><span class="news-confidence">${esc(analysis.judgment||'未运行')}</span></div><p class="news-summary">${esc(item.human_summary||item.summary||'暂无摘要')}</p><div class="video-news-meta"><span>生成：${esc(date(item.generated_at))}</span><span>ASR：${status.asr==='available'?'已获取':'未获取'}</span><span>OCR：${status.ocr==='available'?'已获取':'未获取'}</span><span>口型：${status.lip_reading==='available'?'已获取':'未接入'}</span></div><div class="video-tags">${methods||'<span>暂无提取轨</span>'}${keywords}</div>${transcript}<div class="video-news-actions">${item.replay_url?'<a class="archive-button" href="'+esc(item.replay_url)+'" target="_blank" rel="noopener">打开原片 ↗</a>':''}<a class="archive-link" href="video-review.html">查看 JEV 评估 ↗</a></div></article>`}).join('')||'<div class="empty">没有匹配的视频新闻。</div>'};
+    $('filter').oninput=render;
+    fetch('data/video.json?v='+Date.now()).then(r=>r.json()).then(data=>{records=data.latest_videos||[];$('status').textContent=`最新视频：${data.latest_video_day||'—'} · ${records.length} 条 · 来源：Internet Archive tvnews · 生成：${date(data.generated_at)}`;render()}).catch(e=>{$('status').textContent='无法读取最新视频';console.error(e)});
+  </script>
+</body>
+</html>
