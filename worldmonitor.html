@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>World Monitor · 外部实时态势</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top"><div class="shell nav"><a class="logo" href="./"><b>GDELT</b><span>THIRD-LEVEL INTELLIGENCE</span></a><nav><a href="./">返回首页</a><a href="capabilities.html">能力地图</a><a href="data.html">三库数据室</a></nav></div></header>
+  <main class="shell">
+    <section class="data-hero worldmonitor-hero">
+      <p class="eyebrow">EXTERNAL LIVE LAYER / 三级页面</p>
+      <h1>World Monitor</h1>
+      <p class="dek">把船舶、航空、市场、基础设施、网络和地缘政治信号放在同一张实时态势图中。它是外部开源情报工具，与本站 GDELT Events、GKG、Mentions 数据分开标注。</p>
+      <div class="worldmonitor-actions"><a class="worldmonitor-button" href="https://www.worldmonitor.app/dashboard" target="_blank" rel="noopener">打开实时态势图 ↗</a><a class="worldmonitor-text-link" href="https://github.com/koala73/worldmonitor" target="_blank" rel="noopener">查看开源项目 ↗</a></div>
+    </section>
+
+    <section class="worldmonitor-grid">
+      <article class="worldmonitor-card worldmonitor-card-main">
+        <p class="eyebrow">LIVE DASHBOARD / 实时看板</p>
+        <h2>打开 World Monitor</h2>
+        <p>实时地图、信号聚合和预警视图由 World Monitor 官方站点提供。为避免缓存或复制外部数据，本站只提供入口，不对外部指标做二次存储。</p>
+        <iframe class="worldmonitor-frame" src="https://www.worldmonitor.app/dashboard" title="World Monitor 实时态势图" loading="lazy"></iframe>
+        <p class="worldmonitor-fallback">如果浏览器禁止嵌入，请使用上方“打开实时态势图”在新标签页查看。</p>
+      </article>
+      <aside class="worldmonitor-card">
+        <p class="eyebrow">EVIDENCE ROUTES / 证据路径</p>
+        <h2>从问题进入</h2>
+        <a class="worldmonitor-route" href="https://www.worldmonitor.app/crises/" target="_blank" rel="noopener"><b>01 · 验证突发事件</b><span>危机追踪、日期指标和引用上下文</span><strong>↗</strong></a>
+        <a class="worldmonitor-route" href="https://www.worldmonitor.app/chokepoints/" target="_blank" rel="noopener"><b>02 · 检查关键航道</b><span>船流、阻断状态和风险变化</span><strong>↗</strong></a>
+        <a class="worldmonitor-route" href="https://www.worldmonitor.app/countries/" target="_blank" rel="noopener"><b>03 · 解释国家风险</b><span>政治、安全、经济和韧性信号</span><strong>↗</strong></a>
+        <a class="worldmonitor-route" href="https://www.worldmonitor.app/sources/" target="_blank" rel="noopener"><b>04 · 查看来源目录</b><span>提供者、数据来源和方法说明</span><strong>↗</strong></a>
+      </aside>
+    </section>
+
+    <section class="panel worldmonitor-boundary">
+      <p class="eyebrow">DATA BOUNDARY / 数据边界</p>
+      <h2>与 GDELT 的关系</h2>
+      <div class="worldmonitor-boundary-grid">
+        <p><b>本站 GDELT 层</b><br>Events、GKG、Mentions、DOC 和电视视频页面继续使用本站快照与云端 GitHub Actions 生成的数据。</p>
+        <p><b>外部 World Monitor 层</b><br>实时地图、船舶、航空、市场、基础设施和网络信号由 <a href="https://www.worldmonitor.app/" target="_blank" rel="noopener">worldmonitor.app</a> 提供，更新时间和口径以其页面为准。</p>
+        <p><b>核查建议</b><br>同一事件可先在 World Monitor 查看实时态势，再回到本站通过事件、知识图谱、提及和视频页面核对媒体证据。</p>
+      </div>
+    </section>
+  </main>
+  <footer class="shell footer"><span>World Monitor 外部实时态势入口 · GDELT 证据链</span><a href="https://www.worldmonitor.app/" target="_blank" rel="noopener">访问官方站点 ↗</a></footer>
+</body>
+</html>
