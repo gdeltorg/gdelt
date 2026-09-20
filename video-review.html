@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JEV 视频价值评估 · GDELT</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top"><div class="shell nav"><a class="logo" href="./video.html"><b>GDELT</b><span>JEV VIDEO REVIEW</span></a><nav><a href="video.html">视频研判</a><a href="data.html">数据支撑</a></nav></div></header>
+  <main class="shell">
+    <section class="data-hero"><p class="eyebrow">JEV / JUDGED EVIDENCE VALUE</p><h1>哪些视频值得看</h1><p class="dek">对 GDELT TV-GKG 的每条广播记录提供可解释的优先级判断。JEV 不是事实真伪判断，也不是人工编辑推荐；它只帮助你决定先看哪些视频。</p><p id="status" class="muted">正在读取最新可用 TV-GKG…</p></section>
+    <section class="panel review-controls"><div class="section-head"><div><p class="eyebrow">EXPLAINABLE RANKING</p><h2>评估规则</h2></div><label>排序<select id="sort"><option value="score">JEV 分数</option><option value="date">时间最新</option><option value="source">频道</option></select></label></div><p class="notice">配置 <code>JEV_LIVE_EVAL=1</code> 和 <code>TYPESAFE_API_KEY</code> 时，数据任务使用 <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank" rel="noopener">TypeSafe Jev ↗</a> 的结构化概率判断；否则使用页面标明的可解释本地回退规则。两者都只表示优先观看，不是真伪判断。</p></section>
+    <section id="items" class="review-list"><div class="empty">加载中…</div></section>
+  </main>
+  <footer class="shell footer"><span>JEV 仅用于视频核验优先级，不替代人工判断</span><a href="video.html">返回视频研判 ↗</a></footer>
+  <script>
+    const $=id=>document.getElementById(id), esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])), date=x=>{const m=String(x||'').match(/^(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})/);return m?`${m[1]}-${m[2]}-${m[3]} ${m[4]}:${m[5]} UTC`:String(x||'—')};
+    let records=[];
+    const render=()=>{const mode=$('sort').value;const rows=[...records].sort((a,b)=>mode==='date'?String(b.date).localeCompare(String(a.date)):mode==='source'?String(a.source).localeCompare(String(b.source)):Number(b.jev_score)-Number(a.jev_score));$('items').innerHTML=rows.map(item=>{const tags=(item.themes||[]).slice(0,6).map(x=>'<span>'+esc(x)+'</span>').join('');const reasons=(item.jev_reasons||[]).map(x=>'<em>'+esc(x)+'</em>').join('')||'基础信号有限';const replay=item.replay_url?'<a class="archive-button" href="'+esc(item.replay_url)+'" target="_blank" rel="noopener">回放 ↗</a>':'';return `<article class="review-card"><div class="review-score"><b>${Number(item.jev_score||0)}</b><span>JEV</span></div><div class="review-main"><div class="review-title"><h2>${esc(item.title||item.id)}</h2><strong class="jev-${item.jev_label==='值得看'?'high':item.jev_label==='可选'?'mid':'low'}">${esc(item.jev_label||'未评估')}</strong></div><p class="review-meta">${esc(item.source||'unknown')} · ${date(item.date)} · Tone ${item.tone==null?'—':Number(item.tone).toFixed(2)}</p><div class="video-tags">${tags}</div><p class="review-reasons">${reasons}</p></div>${replay}</article>`}).join('')||'<div class="empty">没有可评估的视频记录。</div>'};
+    $('sort').onchange=render;fetch('data/video.json?v='+Date.now()).then(r=>r.json()).then(data=>{records=data.news_items||[];$('status').textContent=`最新可用 TV-GKG：${data.data_day} · ${records.length} 条广播记录 · ${data.latest_available_note} · JEV 来源：${data.jev_provider==='typesafe_jev'?'TypeSafe Jev':'本地可解释回退'}`;render()}).catch(e=>{$('status').textContent='无法读取视频统计';console.error(e)});
+  </script>
+</body>
+</html>
