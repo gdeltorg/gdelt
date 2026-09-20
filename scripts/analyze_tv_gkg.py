@@ -30,16 +30,18 @@ def get(url: str, timeout: int = 90) -> bytes:
         return response.read()
 
 
-def latest_archive_videos(limit: int = 100) -> list[dict]:
+def latest_archive_videos(limit: int = 2000) -> list[dict]:
+    day = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    query = quote_plus(f"collection:tvnews AND date:[{day} TO {day}]")
     params = (
-        "?q=collection%3Atvnews&fl%5B%5D=identifier&fl%5B%5D=title&fl%5B%5D=date"
+        f"?q={query}&fl%5B%5D=identifier&fl%5B%5D=title&fl%5B%5D=date"
         f"&sort%5B%5D=date+desc&rows={limit}&output=json"
     )
     payload = json.loads(get(ARCHIVE_SEARCH + params).decode("utf-8"))
     result = []
     docs = payload.get("response", {}).get("docs", [])
     identifiers = [clean(doc.get("identifier", "")) for doc in docs]
-    with ThreadPoolExecutor(max_workers=8) as pool:
+    with ThreadPoolExecutor(max_workers=24) as pool:
         snippets = list(pool.map(lambda value: archive_snippet(f"https://archive.org/details/{value}") if value else "", identifiers))
     for doc, transcript in zip(docs, snippets):
         identifier = clean(doc.get("identifier", ""))
@@ -51,6 +53,7 @@ def latest_archive_videos(limit: int = 100) -> list[dict]:
         program = title.split(" : ")[0].strip() if " : " in title else title
         human_title = f"{source}《{program}》电视节目（{date[:10] or '日期未知'}）"
         page_url = f"https://archive.org/details/{identifier}"
+        visual_url = f"https://visualexplorer.gdeltproject.org/tvv?id={quote_plus(identifier)}"
         raw_transcript = transcript
         transcript = usable_transcript(transcript)
         if transcript:
@@ -75,6 +78,7 @@ def latest_archive_videos(limit: int = 100) -> list[dict]:
             },
             "source": source,
             "source_url": f"https://archive.org/details/{identifier}",
+            "visual_explorer_url": visual_url,
             "date": date,
             "keywords": extract_keywords(transcript),
             "related_links": gdelt_links(extract_keywords(transcript)),
@@ -93,8 +97,56 @@ def latest_archive_videos(limit: int = 100) -> list[dict]:
             "transcript_text": transcript[:12000],
             "transcript_text_raw": raw_transcript[:12000],
             "transcript_source": page_url if transcript else "",
+            "source_links": [
+                {"label": "GDELT Visual Explorer", "url": visual_url},
+                {"label": "Internet Archive 原片", "url": page_url},
+            ] + gdelt_links(extract_keywords(transcript)),
         })
     return result
+
+
+def enrich_broadcasts(items: list[dict]) -> None:
+    """Fetch Archive page transcript snippets for every TV-GKG broadcast candidate."""
+    with ThreadPoolExecutor(max_workers=12) as pool:
+        snippets = list(pool.map(
+            lambda item: archive_snippet(item["source_url"]) if item.get("source_url") else "",
+            items,
+        ))
+    for item, raw_transcript in zip(items, snippets):
+        transcript = usable_transcript(raw_transcript)
+        if not transcript:
+            item["transcript_text_raw"] = raw_transcript[:12000]
+            item["related_links"] = []
+            item["visual_explorer_url"] = f"https://visualexplorer.gdeltproject.org/tvv?id={quote_plus(item['id'])}"
+            item["source_links"] = [
+                {"label": "GDELT Visual Explorer", "url": item["visual_explorer_url"]},
+                {"label": "Internet Archive 原片", "url": item["source_url"]},
+            ]
+            continue
+        keywords = extract_keywords(transcript)
+        item["human_title"] = transcript.split(". ", 1)[0].strip()[:180]
+        item["title_candidate"] = item["human_title"]
+        item["human_summary"] = " ".join(transcript.split()[:70]) + ("…" if len(transcript.split()) > 70 else "")
+        item["summary"] = item["human_summary"]
+        item["keywords"] = keywords + [x for x in item.get("keywords", []) if x not in keywords][:8]
+        item["related_links"] = gdelt_links(keywords)
+        item["transcript_text"] = transcript[:12000]
+        item["transcript_text_raw"] = raw_transcript[:12000]
+        item["transcript_source"] = item["source_url"]
+        item["visual_explorer_url"] = f"https://visualexplorer.gdeltproject.org/tvv?id={quote_plus(item['id'])}"
+        item["source_links"] = [
+            {"label": "GDELT Visual Explorer", "url": item["visual_explorer_url"]},
+            {"label": "Internet Archive 原片", "url": item["source_url"]},
+        ] + gdelt_links(keywords)
+        item["extraction_methods"] = item.get("extraction_methods", []) + ["Archive 页面字幕/ASR 摘要"]
+        item["extraction_status"]["caption"] = "available"
+        item["extraction_status"]["asr"] = "available"
+        item["model_analysis"] = {
+            "provider": "archive_transcript",
+            "judgment": "可优先核验",
+            "confidence": 0.35,
+            "basis": "依据 Archive 页面字幕/ASR 摘要和 TV-GKG 主题，仍需打开原片核验。",
+        }
 
 
 def archive_snippet(url: str) -> str:
@@ -306,8 +358,8 @@ def build() -> dict:
             tone_buckets["positive" if tone > 2 else "negative" if tone < -2 else "neutral"] += 1
         except (ValueError, IndexError):
             pass
-        if len(broadcasts) < 100:
-            identifier = clean(row[4])
+        identifier = clean(row[4])
+        if identifier:
             title = re.sub(r"^\d{8}_\d{6}_", "", identifier).replace("_", " ").strip() or source
             item_themes = names(row[8], 8)
             item_countries = locations(row[10])[:8]
@@ -342,6 +394,7 @@ def build() -> dict:
             else:
                 item["jev_score"], item["jev_label"], item["jev_reasons"] = jev_score(item)
             broadcasts.append(item)
+    enrich_broadcasts(broadcasts)
     sources = len(source_counts)
     try:
         lag_days = (datetime.now(timezone.utc).date() - datetime.strptime(data_day, "%Y%m%d").date()).days
