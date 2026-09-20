@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-20T06:48:23+00:00",
+  "generated_at": "2026-09-20T07:11:08+00:00",
   "source": "https://data.gdeltproject.org/gdeltv2_iatelevision/",
   "source_label": "GDELT TV-GKG / Internet Archive Television News Archive",
   "data_day": "20230324",
@@ -263,7 +263,16 @@
         "GM"
       ],
       "tone": -4.854,
-      "replay_url": "https://archive.org/details/DW_20230324_000000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_000000_DW_News",
+      "jev_score": 96,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "Tone 信号显著",
+        "主要电视来源"
+      ]
     },
     {
       "id": "KGO_20230324_000000_ABC7_News_500PM",
@@ -284,7 +293,13 @@
         "US"
       ],
       "tone": -2.242,
-      "replay_url": "https://archive.org/details/KGO_20230324_000000_ABC7_News_500PM"
+      "replay_url": "https://archive.org/details/KGO_20230324_000000_ABC7_News_500PM",
+      "jev_score": 73,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高"
+      ]
     },
     {
       "id": "KRON_20230324_000000_KRON_4_News_at_5pm",
@@ -306,7 +321,13 @@
         "CH"
       ],
       "tone": -1.564,
-      "replay_url": "https://archive.org/details/KRON_20230324_000000_KRON_4_News_at_5pm"
+      "replay_url": "https://archive.org/details/KRON_20230324_000000_KRON_4_News_at_5pm",
+      "jev_score": 75,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高"
+      ]
     },
     {
       "id": "ALJAZ_20230324_000000_News",
@@ -334,7 +355,15 @@
         "ID"
       ],
       "tone": -1.602,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_000000_News"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_000000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_000200_The_Day",
@@ -362,7 +391,15 @@
         "UP"
       ],
       "tone": -0.816,
-      "replay_url": "https://archive.org/details/DW_20230324_000200_The_Day"
+      "replay_url": "https://archive.org/details/DW_20230324_000200_The_Day",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_000000_News",
@@ -390,7 +427,15 @@
         "RP"
       ],
       "tone": -2.138,
-      "replay_url": "https://archive.org/details/RT_20230324_000000_News"
+      "replay_url": "https://archive.org/details/RT_20230324_000000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "KRON_20230324_003000_KRON_4_News_at_530pm",
@@ -412,7 +457,13 @@
         "CH"
       ],
       "tone": 0.0,
-      "replay_url": "https://archive.org/details/KRON_20230324_003000_KRON_4_News_at_530pm"
+      "replay_url": "https://archive.org/details/KRON_20230324_003000_KRON_4_News_at_530pm",
+      "jev_score": 75,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高"
+      ]
     },
     {
       "id": "RT_20230324_003000_The_Modus_Operandi",
@@ -440,7 +491,15 @@
         "FR"
       ],
       "tone": -1.99,
-      "replay_url": "https://archive.org/details/RT_20230324_003000_The_Modus_Operandi"
+      "replay_url": "https://archive.org/details/RT_20230324_003000_The_Modus_Operandi",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_003000_Inside_Story",
@@ -468,7 +527,15 @@
         "SY"
       ],
       "tone": -1.24,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_003000_Inside_Story"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_003000_Inside_Story",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_003000_To_the_Point",
@@ -496,7 +563,15 @@
         "GM"
       ],
       "tone": -0.381,
-      "replay_url": "https://archive.org/details/DW_20230324_003000_To_the_Point"
+      "replay_url": "https://archive.org/details/DW_20230324_003000_To_the_Point",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_010000_DW_News",
@@ -524,7 +599,15 @@
         "UK"
       ],
       "tone": -2.532,
-      "replay_url": "https://archive.org/details/DW_20230324_010000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_010000_DW_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "KRON_20230324_010000_KRON_4_News_at_6pm",
@@ -545,7 +628,13 @@
         "US"
       ],
       "tone": -1.684,
-      "replay_url": "https://archive.org/details/KRON_20230324_010000_KRON_4_News_at_6pm"
+      "replay_url": "https://archive.org/details/KRON_20230324_010000_KRON_4_News_at_6pm",
+      "jev_score": 73,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高"
+      ]
     },
     {
       "id": "RT_20230324_010000_News",
@@ -573,7 +662,15 @@
         "RP"
       ],
       "tone": -1.57,
-      "replay_url": "https://archive.org/details/RT_20230324_010000_News"
+      "replay_url": "https://archive.org/details/RT_20230324_010000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN_20230324_013000_U.S._House_of_Representatives_U.S._House_of_Representatives",
@@ -596,7 +693,15 @@
         "SN"
       ],
       "tone": 0.123,
-      "replay_url": "https://archive.org/details/CSPAN_20230324_013000_U.S._House_of_Representatives_U.S._House_of_Representatives"
+      "replay_url": "https://archive.org/details/CSPAN_20230324_013000_U.S._House_of_Representatives_U.S._House_of_Representatives",
+      "jev_score": 82,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_020000_DW_News",
@@ -623,7 +728,16 @@
         "GM"
       ],
       "tone": -4.444,
-      "replay_url": "https://archive.org/details/DW_20230324_020000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_020000_DW_News",
+      "jev_score": 96,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "Tone 信号显著",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_013000_Documentary",
@@ -645,7 +759,14 @@
         "PL"
       ],
       "tone": -2.176,
-      "replay_url": "https://archive.org/details/RT_20230324_013000_Documentary"
+      "replay_url": "https://archive.org/details/RT_20230324_013000_Documentary",
+      "jev_score": 76,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_010000_Witness__This_is_Congo",
@@ -673,7 +794,15 @@
         "BR"
       ],
       "tone": -1.421,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_010000_Witness__This_is_Congo"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_010000_Witness__This_is_Congo",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_011500_The_Plight_of_the_Pangolin",
@@ -694,7 +823,14 @@
         "UK"
       ],
       "tone": -0.879,
-      "replay_url": "https://archive.org/details/DW_20230324_011500_The_Plight_of_the_Pangolin"
+      "replay_url": "https://archive.org/details/DW_20230324_011500_The_Plight_of_the_Pangolin",
+      "jev_score": 72,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_020000_News",
@@ -722,7 +858,15 @@
         "ID"
       ],
       "tone": -1.556,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_020000_News"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_020000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_020200_The_Day",
@@ -750,7 +894,15 @@
         "AU"
       ],
       "tone": -0.961,
-      "replay_url": "https://archive.org/details/DW_20230324_020200_The_Day"
+      "replay_url": "https://archive.org/details/DW_20230324_020200_The_Day",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_020000_Documentary",
@@ -778,7 +930,15 @@
         "NL"
       ],
       "tone": -1.651,
-      "replay_url": "https://archive.org/details/RT_20230324_020000_Documentary"
+      "replay_url": "https://archive.org/details/RT_20230324_020000_Documentary",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN3_20230324_012500_Members_of_Congress_Testify_on_Oversight_of_Justice_Department__FBI",
@@ -806,7 +966,14 @@
         "KU"
       ],
       "tone": -2.812,
-      "replay_url": "https://archive.org/details/CSPAN3_20230324_012500_Members_of_Congress_Testify_on_Oversight_of_Justice_Department__FBI"
+      "replay_url": "https://archive.org/details/CSPAN3_20230324_012500_Members_of_Congress_Testify_on_Oversight_of_Justice_Department__FBI",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "SFGTV_20230324_010000_BOS_Public_Safety__Neighborhood_Services_Committee",
@@ -832,7 +999,14 @@
         "FR"
       ],
       "tone": 2.148,
-      "replay_url": "https://archive.org/details/SFGTV_20230324_010000_BOS_Public_Safety__Neighborhood_Services_Committee"
+      "replay_url": "https://archive.org/details/SFGTV_20230324_010000_BOS_Public_Safety__Neighborhood_Services_Committee",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "ALJAZ_20230324_023000_The_Forbidden_Reel__The_Era_of_Darkness",
@@ -851,7 +1025,14 @@
         "KE"
       ],
       "tone": -0.354,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_023000_The_Forbidden_Reel__The_Era_of_Darkness"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_023000_The_Forbidden_Reel__The_Era_of_Darkness",
+      "jev_score": 70,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_023000_Focus_on_Europe",
@@ -879,7 +1060,15 @@
         "CA"
       ],
       "tone": -1.96,
-      "replay_url": "https://archive.org/details/DW_20230324_023000_Focus_on_Europe"
+      "replay_url": "https://archive.org/details/DW_20230324_023000_Focus_on_Europe",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_023000_The_Cost_of_Everything",
@@ -906,7 +1095,16 @@
         "CA"
       ],
       "tone": -3.865,
-      "replay_url": "https://archive.org/details/RT_20230324_023000_The_Cost_of_Everything"
+      "replay_url": "https://archive.org/details/RT_20230324_023000_The_Cost_of_Everything",
+      "jev_score": 96,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "Tone 信号显著",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_030000_News",
@@ -932,7 +1130,15 @@
         "SZ"
       ],
       "tone": -1.292,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_030000_News"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_030000_News",
+      "jev_score": 82,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_030000_DW_News",
@@ -960,7 +1166,15 @@
         "UK"
       ],
       "tone": -2.649,
-      "replay_url": "https://archive.org/details/DW_20230324_030000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_030000_DW_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_031500_Business_-_News",
@@ -983,7 +1197,15 @@
         "PO"
       ],
       "tone": -1.54,
-      "replay_url": "https://archive.org/details/DW_20230324_031500_Business_-_News"
+      "replay_url": "https://archive.org/details/DW_20230324_031500_Business_-_News",
+      "jev_score": 82,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_030000_CrossTalk",
@@ -1004,7 +1226,14 @@
         "UP"
       ],
       "tone": -0.459,
-      "replay_url": "https://archive.org/details/RT_20230324_030000_CrossTalk"
+      "replay_url": "https://archive.org/details/RT_20230324_030000_CrossTalk",
+      "jev_score": 72,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN_20230324_000000_U.S._House_of_Representatives",
@@ -1027,7 +1256,15 @@
         "CA"
       ],
       "tone": 0.535,
-      "replay_url": "https://archive.org/details/CSPAN_20230324_000000_U.S._House_of_Representatives"
+      "replay_url": "https://archive.org/details/CSPAN_20230324_000000_U.S._House_of_Representatives",
+      "jev_score": 82,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_033000_People__Power__Europes_New_Moral_Crusade",
@@ -1055,7 +1292,15 @@
         "BE"
       ],
       "tone": -1.972,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_033000_People__Power__Europes_New_Moral_Crusade"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_033000_People__Power__Europes_New_Moral_Crusade",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_033000_Documentary",
@@ -1083,7 +1328,15 @@
         "GM"
       ],
       "tone": -1.256,
-      "replay_url": "https://archive.org/details/RT_20230324_033000_Documentary"
+      "replay_url": "https://archive.org/details/RT_20230324_033000_Documentary",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_033000_Made_in_Germany",
@@ -1105,7 +1358,14 @@
         "SP"
       ],
       "tone": -1.141,
-      "replay_url": "https://archive.org/details/DW_20230324_033000_Made_in_Germany"
+      "replay_url": "https://archive.org/details/DW_20230324_033000_Made_in_Germany",
+      "jev_score": 74,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_040000_DW_News",
@@ -1127,7 +1387,14 @@
         "UK"
       ],
       "tone": -2.385,
-      "replay_url": "https://archive.org/details/DW_20230324_040000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_040000_DW_News",
+      "jev_score": 74,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_040000_News",
@@ -1153,7 +1420,15 @@
         "SP"
       ],
       "tone": -1.514,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_040000_News"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_040000_News",
+      "jev_score": 82,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_040000_Documentary",
@@ -1181,7 +1456,15 @@
         "NL"
       ],
       "tone": -1.624,
-      "replay_url": "https://archive.org/details/RT_20230324_040000_Documentary"
+      "replay_url": "https://archive.org/details/RT_20230324_040000_Documentary",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_043000_The_Stream",
@@ -1209,7 +1492,15 @@
         "UP"
       ],
       "tone": -0.175,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_043000_The_Stream"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_043000_The_Stream",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_050000_DW_News",
@@ -1235,7 +1526,16 @@
         "GM"
       ],
       "tone": -4.469,
-      "replay_url": "https://archive.org/details/DW_20230324_050000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_050000_DW_News",
+      "jev_score": 96,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "Tone 信号显著",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_043000_The_360_View",
@@ -1263,7 +1563,15 @@
         "CA"
       ],
       "tone": -0.702,
-      "replay_url": "https://archive.org/details/RT_20230324_043000_The_360_View"
+      "replay_url": "https://archive.org/details/RT_20230324_043000_The_360_View",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "KRON_20230324_040000_KRON_4_News_at_9",
@@ -1280,7 +1588,13 @@
         "FJ"
       ],
       "tone": -0.966,
-      "replay_url": "https://archive.org/details/KRON_20230324_040000_KRON_4_News_at_9"
+      "replay_url": "https://archive.org/details/KRON_20230324_040000_KRON_4_News_at_9",
+      "jev_score": 65,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "ALJAZ_20230324_050000_News",
@@ -1306,7 +1620,15 @@
         "CF"
       ],
       "tone": -1.966,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_050000_News"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_050000_News",
+      "jev_score": 82,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_041500_The_Plight_of_the_Pangolin",
@@ -1328,7 +1650,14 @@
         "GR"
       ],
       "tone": -0.84,
-      "replay_url": "https://archive.org/details/DW_20230324_041500_The_Plight_of_the_Pangolin"
+      "replay_url": "https://archive.org/details/DW_20230324_041500_The_Plight_of_the_Pangolin",
+      "jev_score": 74,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_050200_The_Day",
@@ -1356,7 +1685,15 @@
         "GM"
       ],
       "tone": -1.195,
-      "replay_url": "https://archive.org/details/DW_20230324_050200_The_Day"
+      "replay_url": "https://archive.org/details/DW_20230324_050200_The_Day",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_050000_News",
@@ -1384,7 +1721,15 @@
         "RI"
       ],
       "tone": -2.408,
-      "replay_url": "https://archive.org/details/RT_20230324_050000_News"
+      "replay_url": "https://archive.org/details/RT_20230324_050000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN3_20230324_024100_Hearing_on_Oversight_of_Justice_Department__FBI",
@@ -1409,7 +1754,14 @@
         "IT"
       ],
       "tone": -0.599,
-      "replay_url": "https://archive.org/details/CSPAN3_20230324_024100_Hearing_on_Oversight_of_Justice_Department__FBI"
+      "replay_url": "https://archive.org/details/CSPAN3_20230324_024100_Hearing_on_Oversight_of_Justice_Department__FBI",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "SFGTV_20230324_023000_Entertainment_Commission",
@@ -1432,7 +1784,14 @@
         "UK"
       ],
       "tone": 1.621,
-      "replay_url": "https://archive.org/details/SFGTV_20230324_023000_Entertainment_Commission"
+      "replay_url": "https://archive.org/details/SFGTV_20230324_023000_Entertainment_Commission",
+      "jev_score": 77,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "ALJAZ_20230324_053000_Witness__Defending_French_Justice",
@@ -1457,7 +1816,14 @@
         "IZ"
       ],
       "tone": -0.07,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_053000_Witness__Defending_French_Justice"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_053000_Witness__Defending_French_Justice",
+      "jev_score": 80,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_053000_Inland_Visions",
@@ -1484,7 +1850,15 @@
         "IT"
       ],
       "tone": 0.917,
-      "replay_url": "https://archive.org/details/RT_20230324_053000_Inland_Visions"
+      "replay_url": "https://archive.org/details/RT_20230324_053000_Inland_Visions",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN3_20230324_050400_Heritage_Foundation_Lecture_on_Natural_Law",
@@ -1506,7 +1880,13 @@
         "GR"
       ],
       "tone": 2.381,
-      "replay_url": "https://archive.org/details/CSPAN3_20230324_050400_Heritage_Foundation_Lecture_on_Natural_Law"
+      "replay_url": "https://archive.org/details/CSPAN3_20230324_050400_Heritage_Foundation_Lecture_on_Natural_Law",
+      "jev_score": 75,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高"
+      ]
     },
     {
       "id": "DW_20230324_053000_To_the_Point",
@@ -1534,7 +1914,15 @@
         "KE"
       ],
       "tone": -0.591,
-      "replay_url": "https://archive.org/details/DW_20230324_053000_To_the_Point"
+      "replay_url": "https://archive.org/details/DW_20230324_053000_To_the_Point",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_060000_DW_News",
@@ -1556,7 +1944,14 @@
         "WE"
       ],
       "tone": -1.541,
-      "replay_url": "https://archive.org/details/DW_20230324_060000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_060000_DW_News",
+      "jev_score": 74,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_061500_Business_-_News",
@@ -1579,7 +1974,14 @@
         "PO"
       ],
       "tone": -2.319,
-      "replay_url": "https://archive.org/details/DW_20230324_061500_Business_-_News"
+      "replay_url": "https://archive.org/details/DW_20230324_061500_Business_-_News",
+      "jev_score": 76,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_060000_News",
@@ -1607,7 +2009,15 @@
         "FR"
       ],
       "tone": -1.921,
-      "replay_url": "https://archive.org/details/RT_20230324_060000_News"
+      "replay_url": "https://archive.org/details/RT_20230324_060000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_060000_Al_Jazeera_World__A_New_Face_Of_Palestinian_Resistance",
@@ -1633,7 +2043,15 @@
         "SP"
       ],
       "tone": -1.135,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_060000_Al_Jazeera_World__A_New_Face_Of_Palestinian_Resistance"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_060000_Al_Jazeera_World__A_New_Face_Of_Palestinian_Resistance",
+      "jev_score": 82,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_063000_Conflict_Zone",
@@ -1661,7 +2079,15 @@
         "PL"
       ],
       "tone": -2.375,
-      "replay_url": "https://archive.org/details/DW_20230324_063000_Conflict_Zone"
+      "replay_url": "https://archive.org/details/DW_20230324_063000_Conflict_Zone",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_063000_CrossTalk",
@@ -1680,7 +2106,14 @@
         "IR"
       ],
       "tone": -0.856,
-      "replay_url": "https://archive.org/details/RT_20230324_063000_CrossTalk"
+      "replay_url": "https://archive.org/details/RT_20230324_063000_CrossTalk",
+      "jev_score": 70,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_070000_News",
@@ -1708,7 +2141,15 @@
         "UK"
       ],
       "tone": -1.743,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_070000_News"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_070000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_070000_DW_News",
@@ -1731,7 +2172,14 @@
         "GM"
       ],
       "tone": -2.091,
-      "replay_url": "https://archive.org/details/DW_20230324_070000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_070000_DW_News",
+      "jev_score": 76,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_070000_News",
@@ -1759,7 +2207,15 @@
         "SA"
       ],
       "tone": -2.101,
-      "replay_url": "https://archive.org/details/RT_20230324_070000_News"
+      "replay_url": "https://archive.org/details/RT_20230324_070000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "SFGTV_20230324_050000_Retirement_Board",
@@ -1784,7 +2240,14 @@
         "RB"
       ],
       "tone": 1.417,
-      "replay_url": "https://archive.org/details/SFGTV_20230324_050000_Retirement_Board"
+      "replay_url": "https://archive.org/details/SFGTV_20230324_050000_Retirement_Board",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "CNNW_20230324_020000_CNN_Tonight",
@@ -1812,7 +2275,14 @@
         "SY"
       ],
       "tone": -1.184,
-      "replay_url": "https://archive.org/details/CNNW_20230324_020000_CNN_Tonight"
+      "replay_url": "https://archive.org/details/CNNW_20230324_020000_CNN_Tonight",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "CNNW_20230324_050000_CNN_Primetime",
@@ -1837,7 +2307,14 @@
         "SY"
       ],
       "tone": -0.232,
-      "replay_url": "https://archive.org/details/CNNW_20230324_050000_CNN_Primetime"
+      "replay_url": "https://archive.org/details/CNNW_20230324_050000_CNN_Primetime",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "RT_20230324_073000_Documentary",
@@ -1865,7 +2342,15 @@
         "RB"
       ],
       "tone": -0.751,
-      "replay_url": "https://archive.org/details/RT_20230324_073000_Documentary"
+      "replay_url": "https://archive.org/details/RT_20230324_073000_Documentary",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "SFGTV_20230324_070000_Small_Business_Commission",
@@ -1890,7 +2375,14 @@
         "VM"
       ],
       "tone": 1.307,
-      "replay_url": "https://archive.org/details/SFGTV_20230324_070000_Small_Business_Commission"
+      "replay_url": "https://archive.org/details/SFGTV_20230324_070000_Small_Business_Commission",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "ALJAZ_20230324_073000_Inside_Story",
@@ -1917,7 +2409,15 @@
         "CH"
       ],
       "tone": -0.961,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_073000_Inside_Story"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_073000_Inside_Story",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_073000_To_the_Point",
@@ -1945,7 +2445,15 @@
         "SA"
       ],
       "tone": -0.721,
-      "replay_url": "https://archive.org/details/DW_20230324_073000_To_the_Point"
+      "replay_url": "https://archive.org/details/DW_20230324_073000_To_the_Point",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN_20230324_062500_U.S._House_of_Representatives_Debate_on_the_GOP_Parents_Bill_of_Rights",
@@ -1966,7 +2474,14 @@
         "US"
       ],
       "tone": -0.118,
-      "replay_url": "https://archive.org/details/CSPAN_20230324_062500_U.S._House_of_Representatives_Debate_on_the_GOP_Parents_Bill_of_Rights"
+      "replay_url": "https://archive.org/details/CSPAN_20230324_062500_U.S._House_of_Representatives_Debate_on_the_GOP_Parents_Bill_of_Rights",
+      "jev_score": 78,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_080000_News",
@@ -1994,7 +2509,15 @@
         "RI"
       ],
       "tone": -2.153,
-      "replay_url": "https://archive.org/details/RT_20230324_080000_News"
+      "replay_url": "https://archive.org/details/RT_20230324_080000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_080000_News",
@@ -2021,7 +2544,15 @@
         "CH"
       ],
       "tone": -2.158,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_080000_News"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_080000_News",
+      "jev_score": 84,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN3_20230324_072000_Members_of_Congress_Testify_on_Oversight_of_Justice_Department__FBI",
@@ -2049,7 +2580,14 @@
         "KU"
       ],
       "tone": -2.812,
-      "replay_url": "https://archive.org/details/CSPAN3_20230324_072000_Members_of_Congress_Testify_on_Oversight_of_Justice_Department__FBI"
+      "replay_url": "https://archive.org/details/CSPAN3_20230324_072000_Members_of_Congress_Testify_on_Oversight_of_Justice_Department__FBI",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "DW_20230324_080000_DW_News",
@@ -2068,7 +2606,14 @@
         "GM"
       ],
       "tone": -1.913,
-      "replay_url": "https://archive.org/details/DW_20230324_080000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_080000_DW_News",
+      "jev_score": 70,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_083000_The_Stream",
@@ -2096,7 +2641,15 @@
         "CF"
       ],
       "tone": -0.292,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_083000_The_Stream"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_083000_The_Stream",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_083000_The_360_View",
@@ -2124,7 +2677,15 @@
         "UP"
       ],
       "tone": -0.629,
-      "replay_url": "https://archive.org/details/RT_20230324_083000_The_360_View"
+      "replay_url": "https://archive.org/details/RT_20230324_083000_The_360_View",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN2_20230324_060200_Defense_Secretary_Testifies_on_Presidents_2024_Budget",
@@ -2152,7 +2713,14 @@
         "MX"
       ],
       "tone": 0.942,
-      "replay_url": "https://archive.org/details/CSPAN2_20230324_060200_Defense_Secretary_Testifies_on_Presidents_2024_Budget"
+      "replay_url": "https://archive.org/details/CSPAN2_20230324_060200_Defense_Secretary_Testifies_on_Presidents_2024_Budget",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "DW_20230324_083000_Global_3000",
@@ -2174,7 +2742,14 @@
         "UP"
       ],
       "tone": -0.755,
-      "replay_url": "https://archive.org/details/DW_20230324_083000_Global_3000"
+      "replay_url": "https://archive.org/details/DW_20230324_083000_Global_3000",
+      "jev_score": 74,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "KPIX_20230324_083700_The_Late_News",
@@ -2188,7 +2763,13 @@
         "TU"
       ],
       "tone": -0.524,
-      "replay_url": "https://archive.org/details/KPIX_20230324_083700_The_Late_News"
+      "replay_url": "https://archive.org/details/KPIX_20230324_083700_The_Late_News",
+      "jev_score": 61,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "ALJAZ_20230324_090000_News",
@@ -2216,7 +2797,15 @@
         "RP"
       ],
       "tone": -2.019,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_090000_News"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_090000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_090000_News",
@@ -2244,7 +2833,15 @@
         "FR"
       ],
       "tone": -2.224,
-      "replay_url": "https://archive.org/details/RT_20230324_090000_News"
+      "replay_url": "https://archive.org/details/RT_20230324_090000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_090000_DW_News",
@@ -2263,7 +2860,14 @@
         "KS"
       ],
       "tone": -1.585,
-      "replay_url": "https://archive.org/details/DW_20230324_090000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_090000_DW_News",
+      "jev_score": 70,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_093000_101_East__North_Koreas_Most_Powerful_Woman",
@@ -2291,7 +2895,15 @@
         "BX"
       ],
       "tone": 0.462,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_093000_101_East__North_Koreas_Most_Powerful_Woman"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_093000_101_East__North_Koreas_Most_Powerful_Woman",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CNBC_20230324_080000_Squawk_Box_Europe",
@@ -2314,7 +2926,13 @@
         "UP"
       ],
       "tone": -0.088,
-      "replay_url": "https://archive.org/details/CNBC_20230324_080000_Squawk_Box_Europe"
+      "replay_url": "https://archive.org/details/CNBC_20230324_080000_Squawk_Box_Europe",
+      "jev_score": 71,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "DW_20230324_091500_The_Invisible_River_that_Flows",
@@ -2342,7 +2960,15 @@
         "UP"
       ],
       "tone": -0.758,
-      "replay_url": "https://archive.org/details/DW_20230324_091500_The_Invisible_River_that_Flows"
+      "replay_url": "https://archive.org/details/DW_20230324_091500_The_Invisible_River_that_Flows",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_100000_DW_News",
@@ -2361,7 +2987,14 @@
         "IS"
       ],
       "tone": -2.5,
-      "replay_url": "https://archive.org/details/DW_20230324_100000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_100000_DW_News",
+      "jev_score": 70,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_101500_Business_-_News",
@@ -2389,7 +3022,15 @@
         "SZ"
       ],
       "tone": -1.667,
-      "replay_url": "https://archive.org/details/DW_20230324_101500_Business_-_News"
+      "replay_url": "https://archive.org/details/DW_20230324_101500_Business_-_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_093000_Inland_Visions",
@@ -2416,7 +3057,15 @@
         "IT"
       ],
       "tone": 0.962,
-      "replay_url": "https://archive.org/details/RT_20230324_093000_Inland_Visions"
+      "replay_url": "https://archive.org/details/RT_20230324_093000_Inland_Visions",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CNNW_20230324_090000_Early_Start_With_Christine_Romans",
@@ -2441,7 +3090,13 @@
         "WE"
       ],
       "tone": -1.263,
-      "replay_url": "https://archive.org/details/CNNW_20230324_090000_Early_Start_With_Christine_Romans"
+      "replay_url": "https://archive.org/details/CNNW_20230324_090000_Early_Start_With_Christine_Romans",
+      "jev_score": 75,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "RT_20230324_100000_News",
@@ -2469,7 +3124,15 @@
         "CH"
       ],
       "tone": -2.48,
-      "replay_url": "https://archive.org/details/RT_20230324_100000_News"
+      "replay_url": "https://archive.org/details/RT_20230324_100000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_103000_CrossTalk",
@@ -2497,7 +3160,15 @@
         "IR"
       ],
       "tone": -0.492,
-      "replay_url": "https://archive.org/details/RT_20230324_103000_CrossTalk"
+      "replay_url": "https://archive.org/details/RT_20230324_103000_CrossTalk",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_103000_Conflict_Zone",
@@ -2525,7 +3196,15 @@
         "CA"
       ],
       "tone": -2.206,
-      "replay_url": "https://archive.org/details/DW_20230324_103000_Conflict_Zone"
+      "replay_url": "https://archive.org/details/DW_20230324_103000_Conflict_Zone",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "KRON_20230324_110000_KRON_4_News_at_4am",
@@ -2550,7 +3229,14 @@
         "MU"
       ],
       "tone": -0.06,
-      "replay_url": "https://archive.org/details/KRON_20230324_110000_KRON_4_News_at_4am"
+      "replay_url": "https://archive.org/details/KRON_20230324_110000_KRON_4_News_at_4am",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "ALJAZ_20230324_100000_NEWSHOUR",
@@ -2571,7 +3257,14 @@
         "AR"
       ],
       "tone": -1.059,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_100000_NEWSHOUR"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_100000_NEWSHOUR",
+      "jev_score": 72,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_110000_News",
@@ -2599,7 +3292,15 @@
         "SA"
       ],
       "tone": -2.581,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_110000_News"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_110000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_110000_News",
@@ -2627,7 +3328,15 @@
         "RI"
       ],
       "tone": -2.287,
-      "replay_url": "https://archive.org/details/RT_20230324_110000_News"
+      "replay_url": "https://archive.org/details/RT_20230324_110000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN3_20230324_083600_Hearing_on_Oversight_of_Justice_Department__FBI",
@@ -2652,7 +3361,14 @@
         "IT"
       ],
       "tone": -0.618,
-      "replay_url": "https://archive.org/details/CSPAN3_20230324_083600_Hearing_on_Oversight_of_Justice_Department__FBI"
+      "replay_url": "https://archive.org/details/CSPAN3_20230324_083600_Hearing_on_Oversight_of_Justice_Department__FBI",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "DW_20230324_110000_DW_News",
@@ -2671,7 +3387,14 @@
         "DA"
       ],
       "tone": -1.945,
-      "replay_url": "https://archive.org/details/DW_20230324_110000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_110000_DW_News",
+      "jev_score": 70,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_113000_Inside_Story",
@@ -2698,7 +3421,15 @@
         "US"
       ],
       "tone": -1.206,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_113000_Inside_Story"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_113000_Inside_Story",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN3_20230324_105800_Heritage_Foundation_Lecture_on_Natural_Law",
@@ -2720,7 +3451,13 @@
         "GR"
       ],
       "tone": 2.38,
-      "replay_url": "https://archive.org/details/CSPAN3_20230324_105800_Heritage_Foundation_Lecture_on_Natural_Law"
+      "replay_url": "https://archive.org/details/CSPAN3_20230324_105800_Heritage_Foundation_Lecture_on_Natural_Law",
+      "jev_score": 75,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高"
+      ]
     },
     {
       "id": "KRON_20230324_113000_KRON_4_News_at_430am",
@@ -2744,7 +3481,14 @@
         "FJ"
       ],
       "tone": -0.822,
-      "replay_url": "https://archive.org/details/KRON_20230324_113000_KRON_4_News_at_430am"
+      "replay_url": "https://archive.org/details/KRON_20230324_113000_KRON_4_News_at_430am",
+      "jev_score": 79,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "RT_20230324_113000_Documentary",
@@ -2771,7 +3515,15 @@
         "UP"
       ],
       "tone": -1.26,
-      "replay_url": "https://archive.org/details/RT_20230324_113000_Documentary"
+      "replay_url": "https://archive.org/details/RT_20230324_113000_Documentary",
+      "jev_score": 84,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     }
   ],
   "news_items": [
@@ -2799,7 +3551,16 @@
         "GM"
       ],
       "tone": -4.854,
-      "replay_url": "https://archive.org/details/DW_20230324_000000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_000000_DW_News",
+      "jev_score": 96,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "Tone 信号显著",
+        "主要电视来源"
+      ]
     },
     {
       "id": "KGO_20230324_000000_ABC7_News_500PM",
@@ -2820,7 +3581,13 @@
         "US"
       ],
       "tone": -2.242,
-      "replay_url": "https://archive.org/details/KGO_20230324_000000_ABC7_News_500PM"
+      "replay_url": "https://archive.org/details/KGO_20230324_000000_ABC7_News_500PM",
+      "jev_score": 73,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高"
+      ]
     },
     {
       "id": "KRON_20230324_000000_KRON_4_News_at_5pm",
@@ -2842,7 +3609,13 @@
         "CH"
       ],
       "tone": -1.564,
-      "replay_url": "https://archive.org/details/KRON_20230324_000000_KRON_4_News_at_5pm"
+      "replay_url": "https://archive.org/details/KRON_20230324_000000_KRON_4_News_at_5pm",
+      "jev_score": 75,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高"
+      ]
     },
     {
       "id": "ALJAZ_20230324_000000_News",
@@ -2870,7 +3643,15 @@
         "ID"
       ],
       "tone": -1.602,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_000000_News"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_000000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_000200_The_Day",
@@ -2898,7 +3679,15 @@
         "UP"
       ],
       "tone": -0.816,
-      "replay_url": "https://archive.org/details/DW_20230324_000200_The_Day"
+      "replay_url": "https://archive.org/details/DW_20230324_000200_The_Day",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_000000_News",
@@ -2926,7 +3715,15 @@
         "RP"
       ],
       "tone": -2.138,
-      "replay_url": "https://archive.org/details/RT_20230324_000000_News"
+      "replay_url": "https://archive.org/details/RT_20230324_000000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "KRON_20230324_003000_KRON_4_News_at_530pm",
@@ -2948,7 +3745,13 @@
         "CH"
       ],
       "tone": 0.0,
-      "replay_url": "https://archive.org/details/KRON_20230324_003000_KRON_4_News_at_530pm"
+      "replay_url": "https://archive.org/details/KRON_20230324_003000_KRON_4_News_at_530pm",
+      "jev_score": 75,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高"
+      ]
     },
     {
       "id": "RT_20230324_003000_The_Modus_Operandi",
@@ -2976,7 +3779,15 @@
         "FR"
       ],
       "tone": -1.99,
-      "replay_url": "https://archive.org/details/RT_20230324_003000_The_Modus_Operandi"
+      "replay_url": "https://archive.org/details/RT_20230324_003000_The_Modus_Operandi",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_003000_Inside_Story",
@@ -3004,7 +3815,15 @@
         "SY"
       ],
       "tone": -1.24,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_003000_Inside_Story"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_003000_Inside_Story",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_003000_To_the_Point",
@@ -3032,7 +3851,15 @@
         "GM"
       ],
       "tone": -0.381,
-      "replay_url": "https://archive.org/details/DW_20230324_003000_To_the_Point"
+      "replay_url": "https://archive.org/details/DW_20230324_003000_To_the_Point",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_010000_DW_News",
@@ -3060,7 +3887,15 @@
         "UK"
       ],
       "tone": -2.532,
-      "replay_url": "https://archive.org/details/DW_20230324_010000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_010000_DW_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "KRON_20230324_010000_KRON_4_News_at_6pm",
@@ -3081,7 +3916,13 @@
         "US"
       ],
       "tone": -1.684,
-      "replay_url": "https://archive.org/details/KRON_20230324_010000_KRON_4_News_at_6pm"
+      "replay_url": "https://archive.org/details/KRON_20230324_010000_KRON_4_News_at_6pm",
+      "jev_score": 73,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高"
+      ]
     },
     {
       "id": "RT_20230324_010000_News",
@@ -3109,7 +3950,15 @@
         "RP"
       ],
       "tone": -1.57,
-      "replay_url": "https://archive.org/details/RT_20230324_010000_News"
+      "replay_url": "https://archive.org/details/RT_20230324_010000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN_20230324_013000_U.S._House_of_Representatives_U.S._House_of_Representatives",
@@ -3132,7 +3981,15 @@
         "SN"
       ],
       "tone": 0.123,
-      "replay_url": "https://archive.org/details/CSPAN_20230324_013000_U.S._House_of_Representatives_U.S._House_of_Representatives"
+      "replay_url": "https://archive.org/details/CSPAN_20230324_013000_U.S._House_of_Representatives_U.S._House_of_Representatives",
+      "jev_score": 82,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_020000_DW_News",
@@ -3159,7 +4016,16 @@
         "GM"
       ],
       "tone": -4.444,
-      "replay_url": "https://archive.org/details/DW_20230324_020000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_020000_DW_News",
+      "jev_score": 96,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "Tone 信号显著",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_013000_Documentary",
@@ -3181,7 +4047,14 @@
         "PL"
       ],
       "tone": -2.176,
-      "replay_url": "https://archive.org/details/RT_20230324_013000_Documentary"
+      "replay_url": "https://archive.org/details/RT_20230324_013000_Documentary",
+      "jev_score": 76,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_010000_Witness__This_is_Congo",
@@ -3209,7 +4082,15 @@
         "BR"
       ],
       "tone": -1.421,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_010000_Witness__This_is_Congo"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_010000_Witness__This_is_Congo",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_011500_The_Plight_of_the_Pangolin",
@@ -3230,7 +4111,14 @@
         "UK"
       ],
       "tone": -0.879,
-      "replay_url": "https://archive.org/details/DW_20230324_011500_The_Plight_of_the_Pangolin"
+      "replay_url": "https://archive.org/details/DW_20230324_011500_The_Plight_of_the_Pangolin",
+      "jev_score": 72,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_020000_News",
@@ -3258,7 +4146,15 @@
         "ID"
       ],
       "tone": -1.556,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_020000_News"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_020000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_020200_The_Day",
@@ -3286,7 +4182,15 @@
         "AU"
       ],
       "tone": -0.961,
-      "replay_url": "https://archive.org/details/DW_20230324_020200_The_Day"
+      "replay_url": "https://archive.org/details/DW_20230324_020200_The_Day",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_020000_Documentary",
@@ -3314,7 +4218,15 @@
         "NL"
       ],
       "tone": -1.651,
-      "replay_url": "https://archive.org/details/RT_20230324_020000_Documentary"
+      "replay_url": "https://archive.org/details/RT_20230324_020000_Documentary",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN3_20230324_012500_Members_of_Congress_Testify_on_Oversight_of_Justice_Department__FBI",
@@ -3342,7 +4254,14 @@
         "KU"
       ],
       "tone": -2.812,
-      "replay_url": "https://archive.org/details/CSPAN3_20230324_012500_Members_of_Congress_Testify_on_Oversight_of_Justice_Department__FBI"
+      "replay_url": "https://archive.org/details/CSPAN3_20230324_012500_Members_of_Congress_Testify_on_Oversight_of_Justice_Department__FBI",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "SFGTV_20230324_010000_BOS_Public_Safety__Neighborhood_Services_Committee",
@@ -3368,7 +4287,14 @@
         "FR"
       ],
       "tone": 2.148,
-      "replay_url": "https://archive.org/details/SFGTV_20230324_010000_BOS_Public_Safety__Neighborhood_Services_Committee"
+      "replay_url": "https://archive.org/details/SFGTV_20230324_010000_BOS_Public_Safety__Neighborhood_Services_Committee",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "ALJAZ_20230324_023000_The_Forbidden_Reel__The_Era_of_Darkness",
@@ -3387,7 +4313,14 @@
         "KE"
       ],
       "tone": -0.354,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_023000_The_Forbidden_Reel__The_Era_of_Darkness"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_023000_The_Forbidden_Reel__The_Era_of_Darkness",
+      "jev_score": 70,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_023000_Focus_on_Europe",
@@ -3415,7 +4348,15 @@
         "CA"
       ],
       "tone": -1.96,
-      "replay_url": "https://archive.org/details/DW_20230324_023000_Focus_on_Europe"
+      "replay_url": "https://archive.org/details/DW_20230324_023000_Focus_on_Europe",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_023000_The_Cost_of_Everything",
@@ -3442,7 +4383,16 @@
         "CA"
       ],
       "tone": -3.865,
-      "replay_url": "https://archive.org/details/RT_20230324_023000_The_Cost_of_Everything"
+      "replay_url": "https://archive.org/details/RT_20230324_023000_The_Cost_of_Everything",
+      "jev_score": 96,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "Tone 信号显著",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_030000_News",
@@ -3468,7 +4418,15 @@
         "SZ"
       ],
       "tone": -1.292,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_030000_News"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_030000_News",
+      "jev_score": 82,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_030000_DW_News",
@@ -3496,7 +4454,15 @@
         "UK"
       ],
       "tone": -2.649,
-      "replay_url": "https://archive.org/details/DW_20230324_030000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_030000_DW_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_031500_Business_-_News",
@@ -3519,7 +4485,15 @@
         "PO"
       ],
       "tone": -1.54,
-      "replay_url": "https://archive.org/details/DW_20230324_031500_Business_-_News"
+      "replay_url": "https://archive.org/details/DW_20230324_031500_Business_-_News",
+      "jev_score": 82,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_030000_CrossTalk",
@@ -3540,7 +4514,14 @@
         "UP"
       ],
       "tone": -0.459,
-      "replay_url": "https://archive.org/details/RT_20230324_030000_CrossTalk"
+      "replay_url": "https://archive.org/details/RT_20230324_030000_CrossTalk",
+      "jev_score": 72,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN_20230324_000000_U.S._House_of_Representatives",
@@ -3563,7 +4544,15 @@
         "CA"
       ],
       "tone": 0.535,
-      "replay_url": "https://archive.org/details/CSPAN_20230324_000000_U.S._House_of_Representatives"
+      "replay_url": "https://archive.org/details/CSPAN_20230324_000000_U.S._House_of_Representatives",
+      "jev_score": 82,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_033000_People__Power__Europes_New_Moral_Crusade",
@@ -3591,7 +4580,15 @@
         "BE"
       ],
       "tone": -1.972,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_033000_People__Power__Europes_New_Moral_Crusade"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_033000_People__Power__Europes_New_Moral_Crusade",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_033000_Documentary",
@@ -3619,7 +4616,15 @@
         "GM"
       ],
       "tone": -1.256,
-      "replay_url": "https://archive.org/details/RT_20230324_033000_Documentary"
+      "replay_url": "https://archive.org/details/RT_20230324_033000_Documentary",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_033000_Made_in_Germany",
@@ -3641,7 +4646,14 @@
         "SP"
       ],
       "tone": -1.141,
-      "replay_url": "https://archive.org/details/DW_20230324_033000_Made_in_Germany"
+      "replay_url": "https://archive.org/details/DW_20230324_033000_Made_in_Germany",
+      "jev_score": 74,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_040000_DW_News",
@@ -3663,7 +4675,14 @@
         "UK"
       ],
       "tone": -2.385,
-      "replay_url": "https://archive.org/details/DW_20230324_040000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_040000_DW_News",
+      "jev_score": 74,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_040000_News",
@@ -3689,7 +4708,15 @@
         "SP"
       ],
       "tone": -1.514,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_040000_News"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_040000_News",
+      "jev_score": 82,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_040000_Documentary",
@@ -3717,7 +4744,15 @@
         "NL"
       ],
       "tone": -1.624,
-      "replay_url": "https://archive.org/details/RT_20230324_040000_Documentary"
+      "replay_url": "https://archive.org/details/RT_20230324_040000_Documentary",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_043000_The_Stream",
@@ -3745,7 +4780,15 @@
         "UP"
       ],
       "tone": -0.175,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_043000_The_Stream"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_043000_The_Stream",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_050000_DW_News",
@@ -3771,7 +4814,16 @@
         "GM"
       ],
       "tone": -4.469,
-      "replay_url": "https://archive.org/details/DW_20230324_050000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_050000_DW_News",
+      "jev_score": 96,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "Tone 信号显著",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_043000_The_360_View",
@@ -3799,7 +4851,15 @@
         "CA"
       ],
       "tone": -0.702,
-      "replay_url": "https://archive.org/details/RT_20230324_043000_The_360_View"
+      "replay_url": "https://archive.org/details/RT_20230324_043000_The_360_View",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "KRON_20230324_040000_KRON_4_News_at_9",
@@ -3816,7 +4876,13 @@
         "FJ"
       ],
       "tone": -0.966,
-      "replay_url": "https://archive.org/details/KRON_20230324_040000_KRON_4_News_at_9"
+      "replay_url": "https://archive.org/details/KRON_20230324_040000_KRON_4_News_at_9",
+      "jev_score": 65,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "ALJAZ_20230324_050000_News",
@@ -3842,7 +4908,15 @@
         "CF"
       ],
       "tone": -1.966,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_050000_News"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_050000_News",
+      "jev_score": 82,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_041500_The_Plight_of_the_Pangolin",
@@ -3864,7 +4938,14 @@
         "GR"
       ],
       "tone": -0.84,
-      "replay_url": "https://archive.org/details/DW_20230324_041500_The_Plight_of_the_Pangolin"
+      "replay_url": "https://archive.org/details/DW_20230324_041500_The_Plight_of_the_Pangolin",
+      "jev_score": 74,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_050200_The_Day",
@@ -3892,7 +4973,15 @@
         "GM"
       ],
       "tone": -1.195,
-      "replay_url": "https://archive.org/details/DW_20230324_050200_The_Day"
+      "replay_url": "https://archive.org/details/DW_20230324_050200_The_Day",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_050000_News",
@@ -3920,7 +5009,15 @@
         "RI"
       ],
       "tone": -2.408,
-      "replay_url": "https://archive.org/details/RT_20230324_050000_News"
+      "replay_url": "https://archive.org/details/RT_20230324_050000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN3_20230324_024100_Hearing_on_Oversight_of_Justice_Department__FBI",
@@ -3945,7 +5042,14 @@
         "IT"
       ],
       "tone": -0.599,
-      "replay_url": "https://archive.org/details/CSPAN3_20230324_024100_Hearing_on_Oversight_of_Justice_Department__FBI"
+      "replay_url": "https://archive.org/details/CSPAN3_20230324_024100_Hearing_on_Oversight_of_Justice_Department__FBI",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "SFGTV_20230324_023000_Entertainment_Commission",
@@ -3968,7 +5072,14 @@
         "UK"
       ],
       "tone": 1.621,
-      "replay_url": "https://archive.org/details/SFGTV_20230324_023000_Entertainment_Commission"
+      "replay_url": "https://archive.org/details/SFGTV_20230324_023000_Entertainment_Commission",
+      "jev_score": 77,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "ALJAZ_20230324_053000_Witness__Defending_French_Justice",
@@ -3993,7 +5104,14 @@
         "IZ"
       ],
       "tone": -0.07,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_053000_Witness__Defending_French_Justice"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_053000_Witness__Defending_French_Justice",
+      "jev_score": 80,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_053000_Inland_Visions",
@@ -4020,7 +5138,15 @@
         "IT"
       ],
       "tone": 0.917,
-      "replay_url": "https://archive.org/details/RT_20230324_053000_Inland_Visions"
+      "replay_url": "https://archive.org/details/RT_20230324_053000_Inland_Visions",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN3_20230324_050400_Heritage_Foundation_Lecture_on_Natural_Law",
@@ -4042,7 +5168,13 @@
         "GR"
       ],
       "tone": 2.381,
-      "replay_url": "https://archive.org/details/CSPAN3_20230324_050400_Heritage_Foundation_Lecture_on_Natural_Law"
+      "replay_url": "https://archive.org/details/CSPAN3_20230324_050400_Heritage_Foundation_Lecture_on_Natural_Law",
+      "jev_score": 75,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高"
+      ]
     },
     {
       "id": "DW_20230324_053000_To_the_Point",
@@ -4070,7 +5202,15 @@
         "KE"
       ],
       "tone": -0.591,
-      "replay_url": "https://archive.org/details/DW_20230324_053000_To_the_Point"
+      "replay_url": "https://archive.org/details/DW_20230324_053000_To_the_Point",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_060000_DW_News",
@@ -4092,7 +5232,14 @@
         "WE"
       ],
       "tone": -1.541,
-      "replay_url": "https://archive.org/details/DW_20230324_060000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_060000_DW_News",
+      "jev_score": 74,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_061500_Business_-_News",
@@ -4115,7 +5262,14 @@
         "PO"
       ],
       "tone": -2.319,
-      "replay_url": "https://archive.org/details/DW_20230324_061500_Business_-_News"
+      "replay_url": "https://archive.org/details/DW_20230324_061500_Business_-_News",
+      "jev_score": 76,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_060000_News",
@@ -4143,7 +5297,15 @@
         "FR"
       ],
       "tone": -1.921,
-      "replay_url": "https://archive.org/details/RT_20230324_060000_News"
+      "replay_url": "https://archive.org/details/RT_20230324_060000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_060000_Al_Jazeera_World__A_New_Face_Of_Palestinian_Resistance",
@@ -4169,7 +5331,15 @@
         "SP"
       ],
       "tone": -1.135,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_060000_Al_Jazeera_World__A_New_Face_Of_Palestinian_Resistance"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_060000_Al_Jazeera_World__A_New_Face_Of_Palestinian_Resistance",
+      "jev_score": 82,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_063000_Conflict_Zone",
@@ -4197,7 +5367,15 @@
         "PL"
       ],
       "tone": -2.375,
-      "replay_url": "https://archive.org/details/DW_20230324_063000_Conflict_Zone"
+      "replay_url": "https://archive.org/details/DW_20230324_063000_Conflict_Zone",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_063000_CrossTalk",
@@ -4216,7 +5394,14 @@
         "IR"
       ],
       "tone": -0.856,
-      "replay_url": "https://archive.org/details/RT_20230324_063000_CrossTalk"
+      "replay_url": "https://archive.org/details/RT_20230324_063000_CrossTalk",
+      "jev_score": 70,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_070000_News",
@@ -4244,7 +5429,15 @@
         "UK"
       ],
       "tone": -1.743,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_070000_News"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_070000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_070000_DW_News",
@@ -4267,7 +5460,14 @@
         "GM"
       ],
       "tone": -2.091,
-      "replay_url": "https://archive.org/details/DW_20230324_070000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_070000_DW_News",
+      "jev_score": 76,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_070000_News",
@@ -4295,7 +5495,15 @@
         "SA"
       ],
       "tone": -2.101,
-      "replay_url": "https://archive.org/details/RT_20230324_070000_News"
+      "replay_url": "https://archive.org/details/RT_20230324_070000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "SFGTV_20230324_050000_Retirement_Board",
@@ -4320,7 +5528,14 @@
         "RB"
       ],
       "tone": 1.417,
-      "replay_url": "https://archive.org/details/SFGTV_20230324_050000_Retirement_Board"
+      "replay_url": "https://archive.org/details/SFGTV_20230324_050000_Retirement_Board",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "CNNW_20230324_020000_CNN_Tonight",
@@ -4348,7 +5563,14 @@
         "SY"
       ],
       "tone": -1.184,
-      "replay_url": "https://archive.org/details/CNNW_20230324_020000_CNN_Tonight"
+      "replay_url": "https://archive.org/details/CNNW_20230324_020000_CNN_Tonight",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "CNNW_20230324_050000_CNN_Primetime",
@@ -4373,7 +5595,14 @@
         "SY"
       ],
       "tone": -0.232,
-      "replay_url": "https://archive.org/details/CNNW_20230324_050000_CNN_Primetime"
+      "replay_url": "https://archive.org/details/CNNW_20230324_050000_CNN_Primetime",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "RT_20230324_073000_Documentary",
@@ -4401,7 +5630,15 @@
         "RB"
       ],
       "tone": -0.751,
-      "replay_url": "https://archive.org/details/RT_20230324_073000_Documentary"
+      "replay_url": "https://archive.org/details/RT_20230324_073000_Documentary",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "SFGTV_20230324_070000_Small_Business_Commission",
@@ -4426,7 +5663,14 @@
         "VM"
       ],
       "tone": 1.307,
-      "replay_url": "https://archive.org/details/SFGTV_20230324_070000_Small_Business_Commission"
+      "replay_url": "https://archive.org/details/SFGTV_20230324_070000_Small_Business_Commission",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "ALJAZ_20230324_073000_Inside_Story",
@@ -4453,7 +5697,15 @@
         "CH"
       ],
       "tone": -0.961,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_073000_Inside_Story"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_073000_Inside_Story",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_073000_To_the_Point",
@@ -4481,7 +5733,15 @@
         "SA"
       ],
       "tone": -0.721,
-      "replay_url": "https://archive.org/details/DW_20230324_073000_To_the_Point"
+      "replay_url": "https://archive.org/details/DW_20230324_073000_To_the_Point",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN_20230324_062500_U.S._House_of_Representatives_Debate_on_the_GOP_Parents_Bill_of_Rights",
@@ -4502,7 +5762,14 @@
         "US"
       ],
       "tone": -0.118,
-      "replay_url": "https://archive.org/details/CSPAN_20230324_062500_U.S._House_of_Representatives_Debate_on_the_GOP_Parents_Bill_of_Rights"
+      "replay_url": "https://archive.org/details/CSPAN_20230324_062500_U.S._House_of_Representatives_Debate_on_the_GOP_Parents_Bill_of_Rights",
+      "jev_score": 78,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_080000_News",
@@ -4530,7 +5797,15 @@
         "RI"
       ],
       "tone": -2.153,
-      "replay_url": "https://archive.org/details/RT_20230324_080000_News"
+      "replay_url": "https://archive.org/details/RT_20230324_080000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_080000_News",
@@ -4557,7 +5832,15 @@
         "CH"
       ],
       "tone": -2.158,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_080000_News"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_080000_News",
+      "jev_score": 84,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN3_20230324_072000_Members_of_Congress_Testify_on_Oversight_of_Justice_Department__FBI",
@@ -4585,7 +5868,14 @@
         "KU"
       ],
       "tone": -2.812,
-      "replay_url": "https://archive.org/details/CSPAN3_20230324_072000_Members_of_Congress_Testify_on_Oversight_of_Justice_Department__FBI"
+      "replay_url": "https://archive.org/details/CSPAN3_20230324_072000_Members_of_Congress_Testify_on_Oversight_of_Justice_Department__FBI",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "DW_20230324_080000_DW_News",
@@ -4604,7 +5894,14 @@
         "GM"
       ],
       "tone": -1.913,
-      "replay_url": "https://archive.org/details/DW_20230324_080000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_080000_DW_News",
+      "jev_score": 70,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_083000_The_Stream",
@@ -4632,7 +5929,15 @@
         "CF"
       ],
       "tone": -0.292,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_083000_The_Stream"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_083000_The_Stream",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_083000_The_360_View",
@@ -4660,7 +5965,15 @@
         "UP"
       ],
       "tone": -0.629,
-      "replay_url": "https://archive.org/details/RT_20230324_083000_The_360_View"
+      "replay_url": "https://archive.org/details/RT_20230324_083000_The_360_View",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN2_20230324_060200_Defense_Secretary_Testifies_on_Presidents_2024_Budget",
@@ -4688,7 +6001,14 @@
         "MX"
       ],
       "tone": 0.942,
-      "replay_url": "https://archive.org/details/CSPAN2_20230324_060200_Defense_Secretary_Testifies_on_Presidents_2024_Budget"
+      "replay_url": "https://archive.org/details/CSPAN2_20230324_060200_Defense_Secretary_Testifies_on_Presidents_2024_Budget",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "DW_20230324_083000_Global_3000",
@@ -4710,7 +6030,14 @@
         "UP"
       ],
       "tone": -0.755,
-      "replay_url": "https://archive.org/details/DW_20230324_083000_Global_3000"
+      "replay_url": "https://archive.org/details/DW_20230324_083000_Global_3000",
+      "jev_score": 74,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "KPIX_20230324_083700_The_Late_News",
@@ -4724,7 +6051,13 @@
         "TU"
       ],
       "tone": -0.524,
-      "replay_url": "https://archive.org/details/KPIX_20230324_083700_The_Late_News"
+      "replay_url": "https://archive.org/details/KPIX_20230324_083700_The_Late_News",
+      "jev_score": 61,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "ALJAZ_20230324_090000_News",
@@ -4752,7 +6085,15 @@
         "RP"
       ],
       "tone": -2.019,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_090000_News"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_090000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_090000_News",
@@ -4780,7 +6121,15 @@
         "FR"
       ],
       "tone": -2.224,
-      "replay_url": "https://archive.org/details/RT_20230324_090000_News"
+      "replay_url": "https://archive.org/details/RT_20230324_090000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_090000_DW_News",
@@ -4799,7 +6148,14 @@
         "KS"
       ],
       "tone": -1.585,
-      "replay_url": "https://archive.org/details/DW_20230324_090000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_090000_DW_News",
+      "jev_score": 70,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_093000_101_East__North_Koreas_Most_Powerful_Woman",
@@ -4827,7 +6183,15 @@
         "BX"
       ],
       "tone": 0.462,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_093000_101_East__North_Koreas_Most_Powerful_Woman"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_093000_101_East__North_Koreas_Most_Powerful_Woman",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CNBC_20230324_080000_Squawk_Box_Europe",
@@ -4850,7 +6214,13 @@
         "UP"
       ],
       "tone": -0.088,
-      "replay_url": "https://archive.org/details/CNBC_20230324_080000_Squawk_Box_Europe"
+      "replay_url": "https://archive.org/details/CNBC_20230324_080000_Squawk_Box_Europe",
+      "jev_score": 71,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "DW_20230324_091500_The_Invisible_River_that_Flows",
@@ -4878,7 +6248,15 @@
         "UP"
       ],
       "tone": -0.758,
-      "replay_url": "https://archive.org/details/DW_20230324_091500_The_Invisible_River_that_Flows"
+      "replay_url": "https://archive.org/details/DW_20230324_091500_The_Invisible_River_that_Flows",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_100000_DW_News",
@@ -4897,7 +6275,14 @@
         "IS"
       ],
       "tone": -2.5,
-      "replay_url": "https://archive.org/details/DW_20230324_100000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_100000_DW_News",
+      "jev_score": 70,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_101500_Business_-_News",
@@ -4925,7 +6310,15 @@
         "SZ"
       ],
       "tone": -1.667,
-      "replay_url": "https://archive.org/details/DW_20230324_101500_Business_-_News"
+      "replay_url": "https://archive.org/details/DW_20230324_101500_Business_-_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_093000_Inland_Visions",
@@ -4952,7 +6345,15 @@
         "IT"
       ],
       "tone": 0.962,
-      "replay_url": "https://archive.org/details/RT_20230324_093000_Inland_Visions"
+      "replay_url": "https://archive.org/details/RT_20230324_093000_Inland_Visions",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CNNW_20230324_090000_Early_Start_With_Christine_Romans",
@@ -4977,7 +6378,13 @@
         "WE"
       ],
       "tone": -1.263,
-      "replay_url": "https://archive.org/details/CNNW_20230324_090000_Early_Start_With_Christine_Romans"
+      "replay_url": "https://archive.org/details/CNNW_20230324_090000_Early_Start_With_Christine_Romans",
+      "jev_score": 75,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "RT_20230324_100000_News",
@@ -5005,7 +6412,15 @@
         "CH"
       ],
       "tone": -2.48,
-      "replay_url": "https://archive.org/details/RT_20230324_100000_News"
+      "replay_url": "https://archive.org/details/RT_20230324_100000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_103000_CrossTalk",
@@ -5033,7 +6448,15 @@
         "IR"
       ],
       "tone": -0.492,
-      "replay_url": "https://archive.org/details/RT_20230324_103000_CrossTalk"
+      "replay_url": "https://archive.org/details/RT_20230324_103000_CrossTalk",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "DW_20230324_103000_Conflict_Zone",
@@ -5061,7 +6484,15 @@
         "CA"
       ],
       "tone": -2.206,
-      "replay_url": "https://archive.org/details/DW_20230324_103000_Conflict_Zone"
+      "replay_url": "https://archive.org/details/DW_20230324_103000_Conflict_Zone",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "KRON_20230324_110000_KRON_4_News_at_4am",
@@ -5086,7 +6517,14 @@
         "MU"
       ],
       "tone": -0.06,
-      "replay_url": "https://archive.org/details/KRON_20230324_110000_KRON_4_News_at_4am"
+      "replay_url": "https://archive.org/details/KRON_20230324_110000_KRON_4_News_at_4am",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "ALJAZ_20230324_100000_NEWSHOUR",
@@ -5107,7 +6545,14 @@
         "AR"
       ],
       "tone": -1.059,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_100000_NEWSHOUR"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_100000_NEWSHOUR",
+      "jev_score": 72,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_110000_News",
@@ -5135,7 +6580,15 @@
         "SA"
       ],
       "tone": -2.581,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_110000_News"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_110000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "RT_20230324_110000_News",
@@ -5163,7 +6616,15 @@
         "RI"
       ],
       "tone": -2.287,
-      "replay_url": "https://archive.org/details/RT_20230324_110000_News"
+      "replay_url": "https://archive.org/details/RT_20230324_110000_News",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN3_20230324_083600_Hearing_on_Oversight_of_Justice_Department__FBI",
@@ -5188,7 +6649,14 @@
         "IT"
       ],
       "tone": -0.618,
-      "replay_url": "https://archive.org/details/CSPAN3_20230324_083600_Hearing_on_Oversight_of_Justice_Department__FBI"
+      "replay_url": "https://archive.org/details/CSPAN3_20230324_083600_Hearing_on_Oversight_of_Justice_Department__FBI",
+      "jev_score": 81,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "DW_20230324_110000_DW_News",
@@ -5207,7 +6675,14 @@
         "DA"
       ],
       "tone": -1.945,
-      "replay_url": "https://archive.org/details/DW_20230324_110000_DW_News"
+      "replay_url": "https://archive.org/details/DW_20230324_110000_DW_News",
+      "jev_score": 70,
+      "jev_label": "可选",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "ALJAZ_20230324_113000_Inside_Story",
@@ -5234,7 +6709,15 @@
         "US"
       ],
       "tone": -1.206,
-      "replay_url": "https://archive.org/details/ALJAZ_20230324_113000_Inside_Story"
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_113000_Inside_Story",
+      "jev_score": 86,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     },
     {
       "id": "CSPAN3_20230324_105800_Heritage_Foundation_Lecture_on_Natural_Law",
@@ -5256,7 +6739,13 @@
         "GR"
       ],
       "tone": 2.38,
-      "replay_url": "https://archive.org/details/CSPAN3_20230324_105800_Heritage_Foundation_Lecture_on_Natural_Law"
+      "replay_url": "https://archive.org/details/CSPAN3_20230324_105800_Heritage_Foundation_Lecture_on_Natural_Law",
+      "jev_score": 75,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高"
+      ]
     },
     {
       "id": "KRON_20230324_113000_KRON_4_News_at_430am",
@@ -5280,7 +6769,14 @@
         "FJ"
       ],
       "tone": -0.822,
-      "replay_url": "https://archive.org/details/KRON_20230324_113000_KRON_4_News_at_430am"
+      "replay_url": "https://archive.org/details/KRON_20230324_113000_KRON_4_News_at_430am",
+      "jev_score": 79,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广"
+      ]
     },
     {
       "id": "RT_20230324_113000_Documentary",
@@ -5307,8 +6803,17 @@
         "UP"
       ],
       "tone": -1.26,
-      "replay_url": "https://archive.org/details/RT_20230324_113000_Documentary"
+      "replay_url": "https://archive.org/details/RT_20230324_113000_Documentary",
+      "jev_score": 84,
+      "jev_label": "值得看",
+      "jev_reasons": [
+        "有 Archive 回放",
+        "主题密度高",
+        "地点覆盖广",
+        "主要电视来源"
+      ]
     }
   ],
-  "latest_file": "http://data.gdeltproject.org/gdeltv2_iatelevision/20230324.gkg.csv.gz"
+  "latest_file": "http://data.gdeltproject.org/gdeltv2_iatelevision/20230324.gkg.csv.gz",
+  "latest_available_note": "当前官方 TV-GKG 文件的最新可取得日期；不代表今天已完成电视处理。"
 }

@@ -67,7 +67,7 @@
         <div><b id="stat-frames">0</b><span>已截帧</span></div>
       </div>
       <div class="tv-gkg-panel">
-        <div class="section-head"><div><p class="eyebrow">OFFICIAL GDELT TV-GKG</p><h3>全球电视视频统计</h3></div><span id="tv-gkg-status" class="availability delayed">读取官方快照…</span></div>
+        <div class="section-head"><div><p class="eyebrow">OFFICIAL GDELT TV-GKG</p><h3>全球电视视频统计</h3></div><span id="tv-gkg-status" class="availability delayed">读取最新可用快照…</span></div>
         <p class="muted">这里显示 GDELT 已分析的电视新闻字幕数据，不是当前浏览器上传视频的统计。点击节目可打开 Internet Archive 原始回放。</p>
         <div class="tv-gkg-stats">
           <div><b id="tv-records">—</b><span>电视记录</span></div>
@@ -77,6 +77,7 @@
         </div>
         <div class="video-news-table">
           <div class="section-head"><div><p class="eyebrow">CONCRETE BROADCAST RECORDS</p><h3>具体视频新闻记录</h3></div><span id="tv-record-count">—</span></div>
+          <p><a class="archive-link" href="video-review.html">打开 JEV：逐条判断哪些视频值得看 ↗</a></p>
           <p class="muted">TV-GKG 原始数据没有传统新闻标题；下面按广播记录展示节目名、频道、UTC 时间、识别主题、地点和 Tone。点击回放可核验原始画面。</p>
           <div id="tv-news-list"><p class="empty">加载中…</p></div>
         </div>
@@ -219,7 +220,7 @@
           $('tv-tone').textContent = data.average_tone == null ? '—' : Number(data.average_tone).toFixed(2);
           $('tv-day').textContent = data.data_day || '—';
           $('tv-record-count').textContent = `${Number((data.news_items || []).length).toLocaleString()} 条可核验记录`;
-          $('tv-news-list').innerHTML = (data.news_items || []).slice(0, 30).map(item => `<article class="video-news-row"><div><b>${escapeHtml(item.title || '未命名广播')}</b><span>${escapeHtml(item.source || 'unknown')} · ${escapeHtml(item.date || '')} UTC · Tone ${item.tone == null ? '—' : Number(item.tone).toFixed(2)}</span></div><p>${(item.themes || []).slice(0, 4).map(theme => `<em>${escapeHtml(theme)}</em>`).join('') || '<em>无主题标签</em>'}</p>${item.replay_url ? `<a href="${escapeHtml(item.replay_url)}" target="_blank" rel="noopener">回放 ↗</a>` : ''}</article>`).join('') || '<p class="empty">暂无广播记录。</p>';
+          $('tv-news-list').innerHTML = (data.news_items || []).slice(0, 30).map(item => `<article class="video-news-row"><div><b>${escapeHtml(item.title || '未命名广播')}</b><span>${escapeHtml(item.source || 'unknown')} · ${escapeHtml(item.date || '')} UTC · Tone ${item.tone == null ? '—' : Number(item.tone).toFixed(2)} · JEV ${Number(item.jev_score || 0)}</span></div><p>${(item.themes || []).slice(0, 4).map(theme => `<em>${escapeHtml(theme)}</em>`).join('') || '<em>无主题标签</em>'}</p><div>${item.replay_url ? `<a href="${escapeHtml(item.replay_url)}" target="_blank" rel="noopener">回放 ↗</a>` : ''}<a href="video-review.html" class="review-link">JEV ↗</a></div></article>`).join('') || '<p class="empty">暂无广播记录。</p>';
           $('tv-themes').innerHTML = (data.top_themes || []).slice(0, 8).map(item => `<li><span>${escapeHtml(item.name)}</span><b>${Number(item.count).toLocaleString()}</b></li>`).join('') || '<li>暂无数据</li>';
           $('tv-broadcasts').innerHTML = (data.broadcasts || []).slice(0, 8).map(item => `<li>${item.replay_url ? `<a href="${escapeHtml(item.replay_url)}" target="_blank" rel="noopener">${escapeHtml(item.source || item.id)}</a>` : escapeHtml(item.source || item.id)}<small>${escapeHtml(item.date || '')}</small></li>`).join('') || '<li>暂无回放</li>';
           $('tv-gkg-status').textContent = data.freshness === 'current' ? `官方快照 · ${data.data_day}` : `历史快照 · ${data.data_day} · 延迟 ${data.lag_days ?? '未知'} 天`;

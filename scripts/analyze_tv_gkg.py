@@ -56,6 +56,32 @@ def locations(value: str) -> list[str]:
     return result
 
 
+def jev_score(item: dict) -> tuple[int, str, list[str]]:
+    score = 35
+    reasons = []
+    if item.get("replay_url"):
+        score += 20
+        reasons.append("有 Archive 回放")
+    theme_count = len(item.get("themes", []))
+    score += min(20, theme_count * 2)
+    if theme_count >= 6:
+        reasons.append("主题密度高")
+    country_count = len(item.get("countries", []))
+    score += min(10, country_count * 2)
+    if country_count >= 3:
+        reasons.append("地点覆盖广")
+    tone = item.get("tone")
+    if tone is not None and abs(tone) >= 3:
+        score += 10
+        reasons.append("Tone 信号显著")
+    if item.get("source") in {"CNN", "DW", "RT", "ALJAZ", "CSPAN"}:
+        score += 5
+        reasons.append("主要电视来源")
+    score = min(100, score)
+    label = "值得看" if score >= 75 else "可选" if score >= 55 else "低优先级"
+    return score, label, reasons
+
+
 def build() -> dict:
     url, data_day = latest_file()
     rows = gzip.GzipFile(fileobj=io.BytesIO(get(url)))
@@ -76,6 +102,7 @@ def build() -> dict:
         source_counts[source] += 1
         themes.update(names(row[8]))
         countries.update(locations(row[10]))
+        tone = None
         try:
             tone = float(row[15].split(",")[0])
             tone_total += tone
@@ -86,7 +113,7 @@ def build() -> dict:
         if len(broadcasts) < 100:
             identifier = clean(row[4])
             title = re.sub(r"^\d{8}_\d{6}_", "", identifier).replace("_", " ").strip() or source
-            broadcasts.append({
+            item = {
                 "id": identifier,
                 "title": title,
                 "source": source,
@@ -95,7 +122,9 @@ def build() -> dict:
                 "countries": locations(row[10])[:8],
                 "tone": round(tone, 3) if tone_count and row[15] else None,
                 "replay_url": f"https://archive.org/details/{identifier}" if identifier else "",
-            })
+            }
+            item["jev_score"], item["jev_label"], item["jev_reasons"] = jev_score(item)
+            broadcasts.append(item)
     sources = len(source_counts)
     generated = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     try:
@@ -121,6 +150,7 @@ def build() -> dict:
         "broadcasts": broadcasts,
         "news_items": broadcasts,
         "latest_file": url,
+        "latest_available_note": "当前官方 TV-GKG 文件的最新可取得日期；不代表今天已完成电视处理。",
     }
 
 
