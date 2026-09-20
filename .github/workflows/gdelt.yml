@@ -7,6 +7,7 @@ on:
   push:
     paths:
       - 'scripts/analyze_gdelt.py'
+      - 'scripts/analyze_tv_gkg.py'
       - '.github/workflows/gdelt.yml'
 
 permissions:
@@ -29,6 +30,9 @@ jobs:
       - name: Generate latest snapshot and append history
         run: python scripts/analyze_gdelt.py
       - name: Generate TV-GKG video statistics
+        env:
+          JEV_LIVE_EVAL: ${{ secrets.TYPESAFE_API_KEY != '' && '1' || '0' }}
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
         run: python scripts/analyze_tv_gkg.py
       - name: Commit snapshot and archive
         id: commit
