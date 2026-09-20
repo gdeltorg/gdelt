@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-20T07:11:08+00:00",
+  "generated_at": "2026-09-20T07:13:54+00:00",
   "source": "https://data.gdeltproject.org/gdeltv2_iatelevision/",
   "source_label": "GDELT TV-GKG / Internet Archive Television News Archive",
   "data_day": "20230324",
@@ -6815,5 +6815,7 @@
     }
   ],
   "latest_file": "http://data.gdeltproject.org/gdeltv2_iatelevision/20230324.gkg.csv.gz",
-  "latest_available_note": "当前官方 TV-GKG 文件的最新可取得日期；不代表今天已完成电视处理。"
+  "latest_available_note": "当前官方 TV-GKG 文件的最新可取得日期；不代表今天已完成电视处理。",
+  "jev_provider": "local_explainable_fallback",
+  "jev_source": "https://typesafe.ai/blog/introducing-system-one-models-and-jev"
 }
