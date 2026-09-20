@@ -41,11 +41,23 @@ def latest_archive_videos(limit: int = 100) -> list[dict]:
         source = identifier.split("_", 1)[0]
         title = clean(doc.get("title", "")) or identifier.replace("_", " ")
         date = clean(doc.get("date", ""))
+        program = title.split(" : ")[0].strip() if " : " in title else title
+        human_title = f"{source}《{program}》电视节目（{date[:10] or '日期未知'}）"
         result.append({
             "id": identifier,
             "title": title,
-            "title_candidate": title,
-            "summary": "Internet Archive 最新电视档案条目；当前目录结果未包含逐段 ASR/OCR 文本。",
+            "title_candidate": human_title,
+            "human_title": human_title,
+            "summary": "该条目来自 Internet Archive 最新电视目录。公开目录未提供可读取的逐段 ASR/字幕正文，因此暂不能从文本确认具体新闻标题。",
+            "human_summary": "节目级摘要："
+                f"{source} 的《{program}》于 {date or '未知时间'} 进入电视档案。"
+                "具体新闻内容需等待公开字幕/ASR 或打开原片人工核验。",
+            "model_analysis": {
+                "provider": "not_configured",
+                "judgment": "信息不足，暂不判定新闻价值",
+                "confidence": 0.0,
+                "basis": "当前只有 Archive 目录元数据，没有公开 ASR/字幕正文。",
+            },
             "source": source,
             "source_url": f"https://archive.org/details/{identifier}",
             "date": date,
@@ -53,6 +65,7 @@ def latest_archive_videos(limit: int = 100) -> list[dict]:
             "themes": [],
             "countries": [],
             "extraction_methods": ["Internet Archive tvnews 目录"],
+            "text_sources": [],
             "extraction_status": {
                 "caption": "catalog_only",
                 "asr": "not_in_catalog",
@@ -180,7 +193,24 @@ def metadata_summary(source: str, themes: list[str], countries: list[str], tone:
 def build() -> dict:
     url, data_day = latest_file()
     generated = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+    jev_key = os.environ.get("TYPESAFE_API_KEY") if os.environ.get("JEV_LIVE_EVAL") == "1" else None
     latest_videos = latest_archive_videos()
+    if jev_key:
+        for item in latest_videos:
+            try:
+                score, label, reasons, confidence = jev_api_score(item, jev_key)
+                item["jev_score"] = score
+                item["jev_label"] = label
+                item["jev_reasons"] = reasons
+                item["jev_confidence"] = confidence
+                item["model_analysis"] = {
+                    "provider": "typesafe_jev",
+                    "judgment": label,
+                    "confidence": confidence,
+                    "basis": "Archive 目录元数据；未包含公开 ASR/字幕正文。",
+                }
+            except (HTTPError, URLError, TimeoutError, ValueError, KeyError, TypeError):
+                pass
     rows = gzip.GzipFile(fileobj=io.BytesIO(get(url)))
     records = sources = 0
     source_counts: Counter[str] = Counter()
@@ -191,7 +221,6 @@ def build() -> dict:
     broadcasts = []
     tone_buckets: Counter[str] = Counter()
     jev_provider = "local_explainable_fallback"
-    jev_key = os.environ.get("TYPESAFE_API_KEY") if os.environ.get("JEV_LIVE_EVAL") == "1" else None
     reader = csv.reader(io.TextIOWrapper(rows, encoding="utf-8", errors="replace"), delimiter="\t")
     for row in reader:
         if len(row) < 16:
