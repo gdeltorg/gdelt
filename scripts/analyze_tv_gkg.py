@@ -52,22 +52,24 @@ def latest_archive_videos(limit: int = 2000) -> list[dict]:
         date = clean(doc.get("date", ""))
         program = title.split(" : ")[0].strip() if " : " in title else title
         program = readable_program(program, source)
-        human_title = f"{source_label(source)}《{program}》节目（{date[:10] or '日期未知'}）"
+        human_title = f"{source_label(source)}节目文字待核验"
         page_url = f"https://archive.org/details/{identifier}"
         visual_url = f"https://visualexplorer.gdeltproject.org/tvv?id={quote_plus(identifier)}"
         raw_transcript = transcript
         transcript = usable_transcript(transcript)
         if transcript:
-            human_title = transcript_headline(transcript, source, date)
-        summary = " ".join(transcript.split()[:70]) + ("…" if len(transcript.split()) > 70 else "") if transcript else (
+            human_title, summary = transcript_story(transcript, source, date)
+        else:
+            summary = (
             f"节目级信息：{source_label(source)} 的《{program}》于 {date or '未知时间'}进入电视档案。"
             "当前没有取得可核验的字幕/ASR 正文，因此不生成具体新闻摘要；请打开原片核验。"
-        )
+            )
         result.append({
             "id": identifier,
             "title": title,
             "title_candidate": human_title,
             "human_title": human_title,
+            "program_title": program,
             "summary": summary,
             "human_summary": summary,
             "model_analysis": {
@@ -126,9 +128,10 @@ def enrich_broadcasts(items: list[dict]) -> None:
             ]
             continue
         keywords = extract_keywords(transcript)
-        item["human_title"] = transcript_headline(transcript, item.get("source", ""), item.get("date", ""))
+        item["human_title"], item["human_summary"] = transcript_story(
+            transcript, item.get("source", ""), item.get("date", "")
+        )
         item["title_candidate"] = item["human_title"]
-        item["human_summary"] = " ".join(transcript.split()[:70]) + ("…" if len(transcript.split()) > 70 else "")
         item["summary"] = item["human_summary"]
         item["keywords"] = keywords + [x for x in item.get("keywords", []) if x not in keywords][:8]
         item["related_links"] = gdelt_links(keywords)
@@ -168,6 +171,13 @@ def usable_transcript(text: str) -> str:
     """Reject audio-stage directions that cannot support a news summary."""
     cleaned = clean(text)
     cleaned = re.sub(r"\[[^\]]{1,120}\]", " ", cleaned)
+    cleaned = re.sub(
+        r"^(?:enter archive item description|this item belongs to the television news archive|"
+        r"public page.*?(?:\.\s+|$)|no description available[.:]?\s*)+",
+        "",
+        cleaned,
+        flags=re.I,
+    )
     words = re.findall(r"[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ'-]{2,}", cleaned)
     return cleaned if len(words) >= 8 else ""
 
@@ -192,13 +202,20 @@ def readable_program(program: str, source: str) -> str:
     return value
 
 
-def transcript_headline(transcript: str, source: str, date: str) -> str:
-    """Use a complete transcript sentence only; never label a filename as news."""
-    sentence = re.split(r"(?<=[.!?])\s+", transcript, maxsplit=1)[0].strip()
-    sentence = re.sub(r"^[\-\d\s]+", "", sentence)
-    if len(sentence) < 24:
-        return f"{source_label(source)}电视节目字幕摘要（{date[:10] or '日期未知'}）"
-    return sentence[:180].rstrip(" ,;:") + ("…" if len(sentence) > 180 else "")
+def transcript_story(transcript: str, source: str, date: str) -> tuple[str, str]:
+    """Turn available transcript prose into a headline and a useful short summary."""
+    sentences = [
+        re.sub(r"^[\-\d\s]+", "", part).strip()
+        for part in re.split(r"(?<=[.!?])\s+", transcript)
+        if len(part.strip()) >= 24
+    ]
+    if not sentences:
+        return f"{source_label(source)}节目文字片段", transcript[:240]
+    headline = sentences[0][:180].rstrip(" ,;:") + ("…" if len(sentences[0]) > 180 else "")
+    summary = " ".join(sentences[:2])
+    if len(summary) > 420:
+        summary = summary[:417].rsplit(" ", 1)[0] + "…"
+    return headline, summary
 
 
 def gdelt_links(keywords: list[str]) -> list[dict[str, str]]:
