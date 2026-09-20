@@ -50,8 +50,16 @@
         <span id="ocr-status">OCR：浏览器端需本地/后端引擎</span>
         <span id="subtitle-status">字幕：未加载</span>
       </div>
+      <div class="video-stats" aria-live="polite">
+        <div><b id="stat-duration">—</b><span>视频时长</span></div>
+        <div><b id="stat-cues">0</b><span>字幕条数</span></div>
+        <div><b id="stat-coverage">—</b><span>字幕覆盖</span></div>
+        <div><b id="stat-words">0</b><span>字幕词数</span></div>
+        <div><b id="stat-matches">0</b><span>当前命中</span></div>
+        <div><b id="stat-frames">0</b><span>已截帧</span></div>
+      </div>
       <div id="transcript" class="transcript"><p class="empty">加载视频后导入 SRT/VTT，字幕会按时间码显示并可点击跳转。</p></div>
-      <p class="notice">当前页面在浏览器本地完成视频预览、元数据读取、字幕解析、时间码检索和关键帧导出；不会绕过版权、登录或跨域限制。ASR/OCR 需要明确接入浏览器可用的模型或受控后端，页面不会伪造识别结果。</p>
+      <p class="notice">使用方法：① 选择本地视频，或填入允许跨域的公开视频 URL；② 选择对应的 SRT/VTT 字幕；③ 在字幕列表点击时间码回放、输入关键词检索，必要时导出截帧和证据 JSON。统计只基于当前视频、字幕和本页操作记录；ASR/OCR 需要明确接入模型或受控后端，页面不会伪造识别结果。</p>
     </section>
 
     <section class="panel methodology video-boundary"><p class="eyebrow">SOURCE BOUNDARIES</p><h2>数据边界与来源说明</h2><p>TV-GKG 提供电视新闻的字幕、主题、情绪和时间码等结构化信号，但不是 GDELT 托管的全球视频档案。ASR 与屏幕 OCR 属于本台可扩展的视频处理层；结果必须标注机器生成、来源地址和 UTC 时间码，并与原始视频人工比对。</p><a href="capabilities.html#broadcast">返回电视与广播能力说明 ↗</a></section>
@@ -90,6 +98,20 @@
         const rows = evidence.subtitles.filter(item => !query || item.text.toLowerCase().includes(query));
         $('transcript').innerHTML = rows.length ? rows.map(item => `<button class="transcript-row" data-time="${item.start}"><time>${timecode(item.start)}</time><span>${escapeHtml(item.text)}</span></button>`).join('') : '<p class="empty">没有匹配的字幕。</p>';
         $('subtitle-status').textContent = `字幕：${evidence.subtitles.length} 条${query ? ` · 匹配 ${rows.length} 条` : ''}`;
+        updateStats(rows.length);
+      };
+      const formatDuration = seconds => Number.isFinite(seconds) && seconds > 0 ? timecode(seconds).replace('.000', '') : '—';
+      const updateStats = matches => {
+        const duration = evidence.duration || player.duration || 0;
+        const cues = evidence.subtitles;
+        const covered = cues.reduce((total, item) => total + Math.max(0, item.end - item.start), 0);
+        const words = cues.reduce((total, item) => total + item.text.trim().split(/\s+/).filter(Boolean).length, 0);
+        $('stat-duration').textContent = formatDuration(duration);
+        $('stat-cues').textContent = cues.length;
+        $('stat-coverage').textContent = duration ? `${Math.min(100, covered / duration * 100).toFixed(1)}%` : '—';
+        $('stat-words').textContent = words.toLocaleString();
+        $('stat-matches').textContent = matches ?? cues.length;
+        $('stat-frames').textContent = evidence.frames.length;
       };
       const loadVideo = (src, name) => {
         if (objectUrl) URL.revokeObjectURL(objectUrl);
@@ -123,7 +145,7 @@
       player.ontimeupdate = () => {
         $('video-time').textContent = `${timecode(player.currentTime)} / ${timecode(player.duration || 0)}`;
       };
-      player.onloadedmetadata = () => { evidence.duration = player.duration; $('video-time').textContent = `00:00.000 / ${timecode(player.duration)}`; };
+      player.onloadedmetadata = () => { evidence.duration = player.duration; $('video-time').textContent = `00:00.000 / ${timecode(player.duration)}`; updateStats(); };
       $('capture-frame').onclick = () => {
         if (!player.videoWidth) return;
         const canvas = document.createElement('canvas');
@@ -131,6 +153,7 @@
         canvas.getContext('2d').drawImage(player, 0, 0);
         const timestamp = timecode(player.currentTime);
         evidence.frames.push({ timestamp, width: canvas.width, height: canvas.height });
+        updateStats();
         const link = document.createElement('a');
         link.download = `frame-${timestamp.replace(/[:.]/g, '-')}.png`;
         link.href = canvas.toDataURL('image/png');
