@@ -28,12 +28,14 @@ jobs:
           python-version: '3.12'
       - name: Generate latest snapshot and append history
         run: python scripts/analyze_gdelt.py
+      - name: Generate TV-GKG video statistics
+        run: python scripts/analyze_tv_gkg.py
       - name: Commit snapshot and archive
         id: commit
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/latest.json data/history.json data/archive
+          git add data/latest.json data/history.json data/archive data/video.json
           if git diff --cached --quiet; then
             echo 'No changes.'
           else

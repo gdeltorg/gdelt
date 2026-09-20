@@ -1,0 +1,538 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-20T05:49:06+00:00",
+  "source": "https://data.gdeltproject.org/gdeltv2_iatelevision/",
+  "source_label": "GDELT TV-GKG / Internet Archive Television News Archive",
+  "data_day": "20230324",
+  "lag_days": 1276,
+  "freshness": "historical_or_delayed",
+  "scope": "美国电视新闻档案；用于全球叙事语境分析，数据有延迟且字幕存在识别噪声。",
+  "records": 208,
+  "sources": 12,
+  "average_tone": -1.075,
+  "top_sources": [
+    {
+      "name": "DW",
+      "count": 62
+    },
+    {
+      "name": "RT",
+      "count": 49
+    },
+    {
+      "name": "ALJAZ",
+      "count": 41
+    },
+    {
+      "name": "CSPAN",
+      "count": 12
+    },
+    {
+      "name": "CSPAN3",
+      "count": 12
+    },
+    {
+      "name": "KRON",
+      "count": 11
+    },
+    {
+      "name": "SFGTV",
+      "count": 8
+    },
+    {
+      "name": "CNNW",
+      "count": 6
+    },
+    {
+      "name": "CSPAN2",
+      "count": 3
+    },
+    {
+      "name": "KPIX",
+      "count": 2
+    },
+    {
+      "name": "KGO",
+      "count": 1
+    },
+    {
+      "name": "CNBC",
+      "count": 1
+    }
+  ],
+  "top_themes": [
+    {
+      "name": "LEADER",
+      "count": 96
+    },
+    {
+      "name": "MANMADE_DISASTER_IMPLIED",
+      "count": 68
+    },
+    {
+      "name": "EDUCATION",
+      "count": 52
+    },
+    {
+      "name": "GENERAL_GOVERNMENT",
+      "count": 49
+    },
+    {
+      "name": "EPU_CATS_NATIONAL_SECURITY",
+      "count": 44
+    },
+    {
+      "name": "CRISISLEX_T11_UPDATESSYMPATHY",
+      "count": 40
+    },
+    {
+      "name": "ARMEDCONFLICT",
+      "count": 38
+    },
+    {
+      "name": "TAX_ETHNICITY_AMERICANS",
+      "count": 37
+    },
+    {
+      "name": "TAX_FNCACT_PRIME_MINISTER",
+      "count": 31
+    },
+    {
+      "name": "TAX_ETHNICITY_AMERICAN",
+      "count": 31
+    },
+    {
+      "name": "USPEC_POLITICS_GENERAL1",
+      "count": 26
+    },
+    {
+      "name": "TAX_FNCACT_CITIZENS",
+      "count": 26
+    },
+    {
+      "name": "DEMOCRACY",
+      "count": 26
+    },
+    {
+      "name": "WB_2432_FRAGILITY_CONFLICT_AND_VIOLENCE",
+      "count": 23
+    },
+    {
+      "name": "EPU_POLICY_GOVERNMENT",
+      "count": 22
+    },
+    {
+      "name": "MARITIME_INCIDENT",
+      "count": 19
+    },
+    {
+      "name": "TAX_FNCACT_LEADERS",
+      "count": 18
+    },
+    {
+      "name": "WB_696_PUBLIC_SECTOR_MANAGEMENT",
+      "count": 18
+    },
+    {
+      "name": "EPU_POLICY_TAX",
+      "count": 17
+    },
+    {
+      "name": "EPU_POLICY_CONGRESS",
+      "count": 16
+    }
+  ],
+  "top_countries": [
+    {
+      "name": "US",
+      "count": 198
+    },
+    {
+      "name": "CH",
+      "count": 155
+    },
+    {
+      "name": "RS",
+      "count": 146
+    },
+    {
+      "name": "FR",
+      "count": 129
+    },
+    {
+      "name": "UP",
+      "count": 118
+    },
+    {
+      "name": "GM",
+      "count": 110
+    },
+    {
+      "name": "UK",
+      "count": 99
+    },
+    {
+      "name": "IN",
+      "count": 67
+    },
+    {
+      "name": "IR",
+      "count": 64
+    },
+    {
+      "name": "IS",
+      "count": 62
+    },
+    {
+      "name": "BE",
+      "count": 55
+    },
+    {
+      "name": "CA",
+      "count": 55
+    },
+    {
+      "name": "JA",
+      "count": 43
+    },
+    {
+      "name": "SY",
+      "count": 41
+    },
+    {
+      "name": "KS",
+      "count": 41
+    },
+    {
+      "name": "SZ",
+      "count": 39
+    },
+    {
+      "name": "PL",
+      "count": 35
+    },
+    {
+      "name": "WE",
+      "count": 34
+    },
+    {
+      "name": "TW",
+      "count": 34
+    },
+    {
+      "name": "SA",
+      "count": 34
+    }
+  ],
+  "broadcasts": [
+    {
+      "id": "DW_20230324_000000_DW_News",
+      "source": "DW",
+      "date": "20230324000000",
+      "themes": [
+        "GENERAL_GOVERNMENT",
+        "EPU_POLICY_GOVERNMENT",
+        "EPU_POLICY_CONGRESSIONAL",
+        "EPU_CATS_NATIONAL_SECURITY",
+        "RETIREMENT",
+        "PUBLIC_TRANSPORT",
+        "SECURITY_SERVICES",
+        "ARMEDCONFLICT"
+      ],
+      "replay_url": "https://archive.org/details/DW_20230324_000000_DW_News"
+    },
+    {
+      "id": "KGO_20230324_000000_ABC7_News_500PM",
+      "source": "KGO",
+      "date": "20230324000000",
+      "themes": [
+        "TAX_FNCACT_PILOT",
+        "WATER_SECURITY",
+        "NATURAL_DISASTER_DROUGHT",
+        "ECON_PRICEGOUGE",
+        "TAX_FNCACT_STUDENT",
+        "TAX_WORLDFISH_MOLA",
+        "TAX_DISEASE_LYME_DISEASE",
+        "WOUND"
+      ],
+      "replay_url": "https://archive.org/details/KGO_20230324_000000_ABC7_News_500PM"
+    },
+    {
+      "id": "KRON_20230324_000000_KRON_4_News_at_5pm",
+      "source": "KRON",
+      "date": "20230324000000",
+      "themes": [
+        "SHORTAGE",
+        "SOC_USSECURITYAGENCIES",
+        "EDUCATION",
+        "TAX_FNCACT_TEACHER",
+        "ECON_TAXATION",
+        "USPEC_POLICY1",
+        "EPU_POLICY_TAX",
+        "EPU_CATS_TAXES"
+      ],
+      "replay_url": "https://archive.org/details/KRON_20230324_000000_KRON_4_News_at_5pm"
+    },
+    {
+      "id": "ALJAZ_20230324_000000_News",
+      "source": "ALJAZ",
+      "date": "20230324000000",
+      "themes": [
+        "RELIGION",
+        "TAX_FNCACT_WOMEN",
+        "APPOINTMENT",
+        "EDUCATION",
+        "TAX_FNCACT_CEO",
+        "LEADER",
+        "MANMADE_DISASTER_IMPLIED",
+        "GENERAL_GOVERNMENT"
+      ],
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_000000_News"
+    },
+    {
+      "id": "DW_20230324_000200_The_Day",
+      "source": "DW",
+      "date": "20230324000200",
+      "themes": [
+        "GENERAL_GOVERNMENT",
+        "EPU_POLICY_GOVERNMENT",
+        "USPEC_POLITICS_GENERAL1",
+        "EPU_POLICY_CONGRESSIONAL",
+        "EDUCATION",
+        "IMMIGRATION",
+        "WB_2769_JOBS_STRATEGIES",
+        "WB_2837_IMMIGRATION"
+      ],
+      "replay_url": "https://archive.org/details/DW_20230324_000200_The_Day"
+    },
+    {
+      "id": "RT_20230324_000000_News",
+      "source": "RT",
+      "date": "20230324000000",
+      "themes": [
+        "GENERAL_GOVERNMENT",
+        "EPU_POLICY_GOVERNMENT",
+        "TAX_FNCACT_SPY",
+        "TAX_FNCACT_PRIME_MINISTER",
+        "TAX_WORLDLANGUAGES_RUSSIA",
+        "TAX_FNCACT_CITIZENS",
+        "TAX_FNCACT_MINISTER",
+        "TAX_FNCACT_JOURNALIST"
+      ],
+      "replay_url": "https://archive.org/details/RT_20230324_000000_News"
+    },
+    {
+      "id": "KRON_20230324_003000_KRON_4_News_at_530pm",
+      "source": "KRON",
+      "date": "20230324003000",
+      "themes": [
+        "BAN",
+        "TAX_DISEASE_INFECTION",
+        "TAX_FNCACT_ATHLETE",
+        "CRISISLEX_T01_CAUTION_ADVICE",
+        "MANMADE_DISASTER_WITHOUT_POWER",
+        "POWER_OUTAGE",
+        "TAX_ETHNICITY_AMERICANS",
+        "CRISISLEX_C07_SAFETY"
+      ],
+      "replay_url": "https://archive.org/details/KRON_20230324_003000_KRON_4_News_at_530pm"
+    },
+    {
+      "id": "RT_20230324_003000_The_Modus_Operandi",
+      "source": "RT",
+      "date": "20230324003000",
+      "themes": [
+        "IDEOLOGY",
+        "IMMIGRATION",
+        "TAX_FNCACT_IMMIGRANTS",
+        "EPU_CATS_NATIONAL_SECURITY",
+        "TAX_FNCACT_ECONOMISTS",
+        "ECON_TAXATION",
+        "EPU_POLICY_TAX",
+        "EPU_CATS_TAXES"
+      ],
+      "replay_url": "https://archive.org/details/RT_20230324_003000_The_Modus_Operandi"
+    },
+    {
+      "id": "ALJAZ_20230324_003000_Inside_Story",
+      "source": "ALJAZ",
+      "date": "20230324003000",
+      "themes": [
+        "EPU_POLICY_GOVERNMENT",
+        "TAX_ETHNICITY_PALESTINIAN",
+        "TAX_FNCACT_VILLAGERS",
+        "EDUCATION",
+        "MANMADE_DISASTER_IMPLIED",
+        "TAX_ETHNICITY_POLES",
+        "TAX_FNCACT_PRIME_MINISTER",
+        "DEMOCRACY"
+      ],
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_003000_Inside_Story"
+    },
+    {
+      "id": "DW_20230324_003000_To_the_Point",
+      "source": "DW",
+      "date": "20230324003000",
+      "themes": [
+        "MEDIA_SOCIAL",
+        "TAX_FNCACT_MEDIATOR",
+        "ARMEDCONFLICT",
+        "EPU_CATS_NATIONAL_SECURITY",
+        "TAX_FNCACT_PRIME_MINISTER",
+        "BLACK_MARKET",
+        "TAX_FNCACT_STUDENT",
+        "PEACEKEEPING"
+      ],
+      "replay_url": "https://archive.org/details/DW_20230324_003000_To_the_Point"
+    },
+    {
+      "id": "DW_20230324_010000_DW_News",
+      "source": "DW",
+      "date": "20230324010000",
+      "themes": [
+        "LEADER",
+        "TAX_FNCACT_PRESIDENT",
+        "TAX_FNCACT_BOSS",
+        "GENERAL_GOVERNMENT",
+        "USPEC_POLITICS_GENERAL1",
+        "EPU_POLICY_CONGRESS",
+        "TAX_FNCACT_LEADERS",
+        "TAX_FNCACT_CHILDREN"
+      ],
+      "replay_url": "https://archive.org/details/DW_20230324_010000_DW_News"
+    },
+    {
+      "id": "KRON_20230324_010000_KRON_4_News_at_6pm",
+      "source": "KRON",
+      "date": "20230324010000",
+      "themes": [
+        "TAX_POLITICAL_PARTY_REPUBLICANS",
+        "USPEC_POLITICS_GENERAL1",
+        "LGBT",
+        "TAX_FNCACT_WOMAN",
+        "TAX_ETHNICITY_ASIAN",
+        "SOC_USSECURITYAGENCIES",
+        "CRISISLEX_T11_UPDATESSYMPATHY",
+        "TAX_FNCACT_LEADERS"
+      ],
+      "replay_url": "https://archive.org/details/KRON_20230324_010000_KRON_4_News_at_6pm"
+    },
+    {
+      "id": "RT_20230324_010000_News",
+      "source": "RT",
+      "date": "20230324010000",
+      "themes": [
+        "GENERAL_GOVERNMENT",
+        "TAX_FNCACT_SPY",
+        "TAX_FNCACT_PRIME_MINISTER",
+        "TAX_WORLDLANGUAGES_RUSSIA",
+        "TAX_FNCACT_DOCTOR",
+        "TAX_FNCACT_MINISTER",
+        "TAX_FNCACT_JOURNALIST",
+        "MANMADE_DISASTER_IMPLIED"
+      ],
+      "replay_url": "https://archive.org/details/RT_20230324_010000_News"
+    },
+    {
+      "id": "CSPAN_20230324_013000_U.S._House_of_Representatives_U.S._House_of_Representatives",
+      "source": "CSPAN",
+      "date": "20230324013000",
+      "themes": [
+        "TAX_FNCACT_ADVERTISERS",
+        "TAX_FNCACT_CONGRESSMAN",
+        "BAN",
+        "TAX_ETHNICITY_AMERICANS",
+        "SOC_SUICIDE",
+        "TAX_FNCACT_CITIZENS",
+        "HATE_SPEECH",
+        "UNREST_SELF_IDENTIFIED_HATE_SPEECH"
+      ],
+      "replay_url": "https://archive.org/details/CSPAN_20230324_013000_U.S._House_of_Representatives_U.S._House_of_Representatives"
+    },
+    {
+      "id": "DW_20230324_020000_DW_News",
+      "source": "DW",
+      "date": "20230324020000",
+      "themes": [
+        "EPU_POLICY_CONGRESSIONAL",
+        "MEDIA_SOCIAL",
+        "EPU_CATS_NATIONAL_SECURITY",
+        "PUBLIC_TRANSPORT",
+        "TAX_FNCACT_LEADERS",
+        "WB_696_PUBLIC_SECTOR_MANAGEMENT",
+        "WB_2048_COMPENSATION_CAREERS_AND_INCENTIVES",
+        "WB_723_PUBLIC_ADMINISTRATION"
+      ],
+      "replay_url": "https://archive.org/details/DW_20230324_020000_DW_News"
+    },
+    {
+      "id": "RT_20230324_013000_Documentary",
+      "source": "RT",
+      "date": "20230324013000",
+      "themes": [
+        "TAX_FNCACT_JOURNALIST",
+        "EDUCATION",
+        "MANMADE_DISASTER_IMPLIED"
+      ],
+      "replay_url": "https://archive.org/details/RT_20230324_013000_Documentary"
+    },
+    {
+      "id": "ALJAZ_20230324_010000_Witness__This_is_Congo",
+      "source": "ALJAZ",
+      "date": "20230324010000",
+      "themes": [
+        "EPU_POLICY_INTEREST_RATES",
+        "MANMADE_DISASTER_IMPLIED",
+        "LEADER",
+        "TAX_FNCACT_GANGSTERS",
+        "BORDER",
+        "DEMOCRACY",
+        "TAX_FNCACT_COMMUNIST",
+        "TAX_FNCACT_DIPLOMAT"
+      ],
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_010000_Witness__This_is_Congo"
+    },
+    {
+      "id": "DW_20230324_011500_The_Plight_of_the_Pangolin",
+      "source": "DW",
+      "date": "20230324011500",
+      "themes": [
+        "TAX_FNCACT_CHAMPIONS"
+      ],
+      "replay_url": "https://archive.org/details/DW_20230324_011500_The_Plight_of_the_Pangolin"
+    },
+    {
+      "id": "ALJAZ_20230324_020000_News",
+      "source": "ALJAZ",
+      "date": "20230324020000",
+      "themes": [
+        "GENERAL_GOVERNMENT",
+        "EPU_POLICY_GOVERNMENT",
+        "TAX_FNCACT_WOMEN",
+        "USPEC_POLITICS_GENERAL1",
+        "TAX_FNCACT_CEO",
+        "DEMOCRACY",
+        "LEADER",
+        "MANMADE_DISASTER_IMPLIED"
+      ],
+      "replay_url": "https://archive.org/details/ALJAZ_20230324_020000_News"
+    },
+    {
+      "id": "DW_20230324_020200_The_Day",
+      "source": "DW",
+      "date": "20230324020200",
+      "themes": [
+        "GENERAL_GOVERNMENT",
+        "EPU_POLICY_GOVERNMENT",
+        "USPEC_POLITICS_GENERAL1",
+        "EPU_POLICY_CONGRESSIONAL",
+        "EDUCATION",
+        "IMMIGRATION",
+        "WB_2769_JOBS_STRATEGIES",
+        "WB_2837_IMMIGRATION"
+      ],
+      "replay_url": "https://archive.org/details/DW_20230324_020200_The_Day"
+    }
+  ],
+  "latest_file": "http://data.gdeltproject.org/gdeltv2_iatelevision/20230324.gkg.csv.gz"
+}
