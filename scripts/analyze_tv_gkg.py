@@ -51,17 +51,17 @@ def latest_archive_videos(limit: int = 2000) -> list[dict]:
         title = clean(doc.get("title", "")) or identifier.replace("_", " ")
         date = clean(doc.get("date", ""))
         program = title.split(" : ")[0].strip() if " : " in title else title
-        human_title = f"{source}《{program}》电视节目（{date[:10] or '日期未知'}）"
+        program = readable_program(program, source)
+        human_title = f"{source_label(source)}《{program}》节目（{date[:10] or '日期未知'}）"
         page_url = f"https://archive.org/details/{identifier}"
         visual_url = f"https://visualexplorer.gdeltproject.org/tvv?id={quote_plus(identifier)}"
         raw_transcript = transcript
         transcript = usable_transcript(transcript)
         if transcript:
-            human_title = transcript.split(". ", 1)[0].strip()[:180]
+            human_title = transcript_headline(transcript, source, date)
         summary = " ".join(transcript.split()[:70]) + ("…" if len(transcript.split()) > 70 else "") if transcript else (
-            "节目级摘要："
-            f"{source} 的《{program}》于 {date or '未知时间'} 进入电视档案。"
-            "公开页面暂未取得可读字幕正文，需打开原片核验。"
+            f"节目级信息：{source_label(source)} 的《{program}》于 {date or '未知时间'}进入电视档案。"
+            "当前没有取得可核验的字幕/ASR 正文，因此不生成具体新闻摘要；请打开原片核验。"
         )
         result.append({
             "id": identifier,
@@ -124,7 +124,7 @@ def enrich_broadcasts(items: list[dict]) -> None:
             ]
             continue
         keywords = extract_keywords(transcript)
-        item["human_title"] = transcript.split(". ", 1)[0].strip()[:180]
+        item["human_title"] = transcript_headline(transcript, item.get("source", ""), item.get("date", ""))
         item["title_candidate"] = item["human_title"]
         item["human_summary"] = " ".join(transcript.split()[:70]) + ("…" if len(transcript.split()) > 70 else "")
         item["summary"] = item["human_summary"]
@@ -166,6 +166,35 @@ def usable_transcript(text: str) -> str:
     cleaned = re.sub(r"\[[^\]]{1,120}\]", " ", cleaned)
     words = re.findall(r"[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ'-]{2,}", cleaned)
     return cleaned if len(words) >= 8 else ""
+
+
+def source_label(source: str) -> str:
+    """Keep archive source codes readable without turning metadata into a headline."""
+    labels = {
+        "CBCNEWS": "CBC News",
+        "ETVPLUS": "ETV Plus",
+        "YLETV1": "YLE TV1",
+        "CCTV13": "CCTV-13",
+        "ALJAZ": "Al Jazeera",
+    }
+    return labels.get(source.upper(), source.upper() or "未知频道")
+
+
+def readable_program(program: str, source: str) -> str:
+    value = clean(program.replace("_", " "))
+    prefix = source_label(source)
+    if not value or value.upper() == source.upper():
+        return f"{prefix}电视节目"
+    return value
+
+
+def transcript_headline(transcript: str, source: str, date: str) -> str:
+    """Use a complete transcript sentence only; never label a filename as news."""
+    sentence = re.split(r"(?<=[.!?])\s+", transcript, maxsplit=1)[0].strip()
+    sentence = re.sub(r"^[\-\d\s]+", "", sentence)
+    if len(sentence) < 24:
+        return f"{source_label(source)}电视节目字幕摘要（{date[:10] or '日期未知'}）"
+    return sentence[:180].rstrip(" ,;:") + ("…" if len(sentence) > 180 else "")
 
 
 def gdelt_links(keywords: list[str]) -> list[dict[str, str]]:
