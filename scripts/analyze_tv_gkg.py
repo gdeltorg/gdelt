@@ -54,6 +54,8 @@ def latest_archive_videos(limit: int = 2000) -> list[dict]:
         program = readable_program(program, source)
         human_title = f"{source_label(source)}节目文字待核验"
         page_url = f"https://archive.org/details/{identifier}"
+        image_url = f"https://archive.org/services/img/{identifier}/full/pct:200/0/default.jpg"
+        frame_grid_url = f"https://visualexplorer.gdeltproject.org/ve/site/shows/{identifier}.jpg"
         visual_url = f"https://visualexplorer.gdeltproject.org/tvv?id={quote_plus(identifier)}"
         raw_transcript = transcript
         transcript = usable_transcript(transcript)
@@ -70,6 +72,10 @@ def latest_archive_videos(limit: int = 2000) -> list[dict]:
             "title_candidate": human_title,
             "human_title": human_title,
             "program_title": program,
+            "image_url": image_url,
+            "image_source": "Internet Archive 视频缩略图",
+            "visual_frame_grid_url": frame_grid_url,
+            "summary_method": "全文文字抽取式归纳：按信息密度、实体和事件词选择跨全文关键句",
             "summary": summary,
             "human_summary": summary,
             "model_analysis": {
@@ -203,7 +209,7 @@ def readable_program(program: str, source: str) -> str:
 
 
 def transcript_story(transcript: str, source: str, date: str) -> tuple[str, str]:
-    """Turn available transcript prose into a headline and a useful short summary."""
+    """Summarize the full transcript with extractive sentence ranking."""
     sentences = [
         re.sub(r"^[\-\d\s]+", "", part).strip()
         for part in re.split(r"(?<=[.!?])\s+", transcript)
@@ -211,8 +217,26 @@ def transcript_story(transcript: str, source: str, date: str) -> tuple[str, str]
     ]
     if not sentences:
         return f"{source_label(source)}节目文字片段", transcript[:240]
-    headline = sentences[0][:180].rstrip(" ,;:") + ("…" if len(sentences[0]) > 180 else "")
-    summary = " ".join(sentences[:2])
+    words = re.findall(r"[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ'-]{3,}", transcript.lower())
+    frequencies = Counter(word for word in words if word not in {
+        "about", "after", "also", "because", "could", "first", "from", "have",
+        "into", "more", "other", "said", "some", "than", "that", "their",
+        "there", "these", "they", "this", "what", "when", "which", "will",
+        "with", "would", "your",
+    })
+    scored = []
+    for index, sentence in enumerate(sentences):
+        tokens = re.findall(r"[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ'-]{3,}", sentence.lower())
+        entities = sum(1 for token in tokens if token[:1].isupper())
+        score = sum(frequencies[token] for token in tokens) + entities * 1.5
+        if any(marker in sentence.lower() for marker in ("killed", "attack", "government", "president", "court", "election", "war", "fire", "virus")):
+            score += 5
+        scored.append((score + max(0, 2 - index * 0.05), index, sentence))
+    ranked = sorted(scored, reverse=True)
+    selected = sorted(ranked[: min(4, len(ranked))], key=lambda item: item[1])
+    headline_sentence = max(ranked[: min(6, len(ranked))], key=lambda item: (item[0], -item[1]))[2]
+    headline = headline_sentence[:180].rstrip(" ,;:") + ("…" if len(headline_sentence) > 180 else "")
+    summary = " ".join(item[2] for item in selected)
     if len(summary) > 420:
         summary = summary[:417].rsplit(" ", 1)[0] + "…"
     return headline, summary
