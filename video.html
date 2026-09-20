@@ -23,22 +23,127 @@
     </section>
 
     <section class="panel video-workbench">
-      <div class="section-head"><div><p class="eyebrow">VIDEO EVIDENCE WORKBENCH</p><h2>视频证据工作台</h2></div><span class="availability planned">分析接口待接入</span></div>
+      <div class="section-head"><div><p class="eyebrow">VIDEO EVIDENCE WORKBENCH</p><h2>视频证据工作台</h2></div><span id="engine-status" class="availability api">浏览器端分析</span></div>
       <div class="video-flow">
         <div><b>① 视频来源</b><span>公开 URL / TV-GKG 回放 / 用户授权文件</span></div>
         <div><b>② 多轨分析</b><span>ASR 语音识别 · 字幕抽取 · 屏幕 OCR · 关键帧</span></div>
         <div><b>③ 事件关联</b><span>人物、地点、组织、主题与 GDELT 三库证据</span></div>
         <div><b>④ 可核验输出</b><span>UTC 时间码 · 原文片段 · 置信度 · 人工复核状态</span></div>
       </div>
-      <form class="video-form" onsubmit="return false">
-        <label>视频或回放地址<input type="url" placeholder="https://…"></label>
-        <button type="button" disabled>提交分析（接口接入后开放）</button>
-      </form>
-      <p class="notice">当前 GitHub Pages 版本先展示数据结构与核验规范，不会在浏览器中伪造转写结果，也不会绕过版权、登录或访问控制抓取视频。接入后端分析服务时，输出应保留模型、版本、语言、置信度和原始时间码。</p>
+      <div class="video-inputs">
+        <label>本地视频文件<input id="video-file" type="file" accept="video/*"></label>
+        <label>公开视频 URL（需允许跨域）<input id="video-url" type="url" placeholder="https://…"></label>
+        <button id="load-url" type="button">加载 URL</button>
+      </div>
+      <div class="video-player">
+        <video id="player" controls preload="metadata" playsinline></video>
+        <div class="player-meta"><span id="video-name">尚未加载视频</span><span id="video-time">00:00.000 / 00:00.000</span></div>
+      </div>
+      <div class="analysis-actions">
+        <label>字幕文件（SRT / VTT）<input id="subtitle-file" type="file" accept=".srt,.vtt,text/vtt,text/plain"></label>
+        <input id="transcript-search" type="search" placeholder="检索字幕并回到时间码…">
+        <button id="capture-frame" type="button">导出当前关键帧</button>
+        <button id="export-evidence" type="button">导出证据 JSON</button>
+      </div>
+      <div class="capability-status">
+        <span id="asr-status">ASR：检测中…</span>
+        <span id="ocr-status">OCR：浏览器端需本地/后端引擎</span>
+        <span id="subtitle-status">字幕：未加载</span>
+      </div>
+      <div id="transcript" class="transcript"><p class="empty">加载视频后导入 SRT/VTT，字幕会按时间码显示并可点击跳转。</p></div>
+      <p class="notice">当前页面在浏览器本地完成视频预览、元数据读取、字幕解析、时间码检索和关键帧导出；不会绕过版权、登录或跨域限制。ASR/OCR 需要明确接入浏览器可用的模型或受控后端，页面不会伪造识别结果。</p>
     </section>
 
     <section class="panel methodology video-boundary"><p class="eyebrow">SOURCE BOUNDARIES</p><h2>数据边界与来源说明</h2><p>TV-GKG 提供电视新闻的字幕、主题、情绪和时间码等结构化信号，但不是 GDELT 托管的全球视频档案。ASR 与屏幕 OCR 属于本台可扩展的视频处理层；结果必须标注机器生成、来源地址和 UTC 时间码，并与原始视频人工比对。</p><a href="capabilities.html#broadcast">返回电视与广播能力说明 ↗</a></section>
   </main>
   <footer class="shell footer"><span>视频证据层 · 字幕 · ASR · Screen OCR · Keyframes</span><a href="./">返回全球观察台 ↗</a></footer>
+  <script>
+    (() => {
+      const $ = id => document.getElementById(id);
+      const player = $('player');
+      const evidence = { source: '', duration: 0, subtitles: [], frames: [] };
+      let objectUrl = '';
+      const pad = n => String(Math.floor(n)).padStart(2, '0');
+      const timecode = seconds => {
+        const ms = Math.floor((seconds % 1) * 1000);
+        const whole = Math.floor(seconds);
+        return `${pad(whole / 60)}:${pad(whole % 60)}.${String(ms).padStart(3, '0')}`;
+      };
+      const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+      const parseTime = value => {
+        const parts = value.trim().replace(',', '.').split(':').map(Number);
+        if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+        return parts[0] * 60 + parts[1];
+      };
+      const parseSubtitles = text => {
+        const blocks = text.replace(/\r/g, '').split(/\n{2,}/);
+        return blocks.map(block => {
+          const lines = block.split('\n').filter(Boolean);
+          const timing = lines.findIndex(line => line.includes('-->'));
+          if (timing < 0) return null;
+          const [start, end] = lines[timing].split('-->');
+          return { start: parseTime(start), end: parseTime(end.split(/\s+/)[0]), text: lines.slice(timing + 1).join(' ').replace(/<[^>]+>/g, '') };
+        }).filter(item => item && item.text);
+      };
+      const renderTranscript = () => {
+        const query = $('transcript-search').value.trim().toLowerCase();
+        const rows = evidence.subtitles.filter(item => !query || item.text.toLowerCase().includes(query));
+        $('transcript').innerHTML = rows.length ? rows.map(item => `<button class="transcript-row" data-time="${item.start}"><time>${timecode(item.start)}</time><span>${escapeHtml(item.text)}</span></button>`).join('') : '<p class="empty">没有匹配的字幕。</p>';
+        $('subtitle-status').textContent = `字幕：${evidence.subtitles.length} 条${query ? ` · 匹配 ${rows.length} 条` : ''}`;
+      };
+      const loadVideo = (src, name) => {
+        if (objectUrl) URL.revokeObjectURL(objectUrl);
+        player.src = src;
+        evidence.source = name || src;
+        $('video-name').textContent = name || src;
+        player.load();
+      };
+      $('video-file').onchange = event => {
+        const file = event.target.files[0];
+        if (!file) return;
+        objectUrl = URL.createObjectURL(file);
+        loadVideo(objectUrl, file.name);
+      };
+      $('load-url').onclick = () => {
+        const url = $('video-url').value.trim();
+        if (!/^https?:\/\//i.test(url)) return;
+        loadVideo(url, url);
+      };
+      $('subtitle-file').onchange = async event => {
+        const file = event.target.files[0];
+        if (!file) return;
+        evidence.subtitles = parseSubtitles(await file.text());
+        renderTranscript();
+      };
+      $('transcript-search').oninput = renderTranscript;
+      $('transcript').onclick = event => {
+        const row = event.target.closest('[data-time]');
+        if (row) { player.currentTime = Number(row.dataset.time); player.play().catch(() => {}); }
+      };
+      player.ontimeupdate = () => {
+        $('video-time').textContent = `${timecode(player.currentTime)} / ${timecode(player.duration || 0)}`;
+      };
+      player.onloadedmetadata = () => { evidence.duration = player.duration; $('video-time').textContent = `00:00.000 / ${timecode(player.duration)}`; };
+      $('capture-frame').onclick = () => {
+        if (!player.videoWidth) return;
+        const canvas = document.createElement('canvas');
+        canvas.width = player.videoWidth; canvas.height = player.videoHeight;
+        canvas.getContext('2d').drawImage(player, 0, 0);
+        const timestamp = timecode(player.currentTime);
+        evidence.frames.push({ timestamp, width: canvas.width, height: canvas.height });
+        const link = document.createElement('a');
+        link.download = `frame-${timestamp.replace(/[:.]/g, '-')}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      };
+      $('export-evidence').onclick = () => {
+        const blob = new Blob([JSON.stringify({ ...evidence, exported_at: new Date().toISOString() }, null, 2)], { type: 'application/json' });
+        const link = document.createElement('a');
+        link.download = 'video-evidence.json'; link.href = URL.createObjectURL(blob); link.click();
+        setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+      };
+      $('asr-status').textContent = `ASR：${('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) ? '浏览器语音接口可用（麦克风）' : '当前浏览器不支持'}`;
+    })();
+  </script>
 </body>
 </html>
