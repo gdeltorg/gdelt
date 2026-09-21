@@ -52,7 +52,7 @@ def latest_archive_videos(limit: int = 2000) -> list[dict]:
         date = clean(doc.get("date", ""))
         program = title.split(" : ")[0].strip() if " : " in title else title
         program = readable_program(program, source)
-        human_title = f"{source_label(source)}节目文字待核验"
+        human_title = f"{source_label(source)}｜{program}"
         page_url = f"https://archive.org/details/{identifier}"
         image_url = f"https://archive.org/services/img/{identifier}/full/pct:200/0/default.jpg"
         frame_grid_url = f"https://visualexplorer.gdeltproject.org/ve/site/shows/{identifier}.jpg"
@@ -63,8 +63,9 @@ def latest_archive_videos(limit: int = 2000) -> list[dict]:
             human_title, summary = transcript_story(transcript, source, date)
         else:
             summary = (
-            f"节目级信息：{source_label(source)} 的《{program}》于 {date or '未知时间'}进入电视档案。"
-            "当前没有取得可核验的字幕/ASR 正文，因此不生成具体新闻摘要；请打开原片核验。"
+                f"这是 {source_label(source)} 的《{program}》节目档案记录，时间为 {date or '未知'}。"
+                "当前数据只有节目目录信息，未取得可核验的正文，因此这里不把目录信息冒充新闻内容；"
+                "请打开原片或 Visual Explorer 查看具体报道。"
             )
         result.append({
             "id": identifier,
