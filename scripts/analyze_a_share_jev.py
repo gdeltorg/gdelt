@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "data" / "a_share_jev.json"
-QUOTE_URL = "https://push2.eastmoney.com/api/qt/ulist.np?fltt=2&fields=f2,f3,f4,f12,f14,f15,f16,f17,f18&secids=1.000001,0.399001,0.399006"
+QUOTE_URL = "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&fields=f2,f3,f4,f12,f14,f15,f16,f17,f18&secids=1.000001,0.399001,0.399006"
 LABELS = {"up": "上涨", "down": "下跌", "flat": "持平", "insufficient": "数据不足"}
 
 def get_json(url: str) -> dict:
