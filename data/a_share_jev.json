@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-21T03:32:05.267652+00:00",
+  "generated_at": "2026-09-21T03:36:33.881954+00:00",
   "source": "Eastmoney push2 quote API",
   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&fields=f2,f3,f4,f12,f14,f15,f16,f17,f18&secids=1.000001,0.399001,0.399006",
   "market": "中国 A 股主要指数",
@@ -43,13 +43,14 @@
     "choice": "up",
     "label": "上涨",
     "probabilities": {
+      "flat": 0.0,
       "up": 1.0,
       "down": 0.0,
-      "flat": 0.0,
       "insufficient": 0.0
     },
-    "confidence": 0.35,
-    "provider": "deterministic_quote_fallback"
+    "confidence": 1.0,
+    "provider": "typesafe_jev",
+    "model": "jev-latest"
   },
   "method": "observed quote direction; Jev does not forecast"
 }
