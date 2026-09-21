@@ -24,6 +24,17 @@ OUTPUT = ROOT / "data" / "video.json"
 UA = "gdeltorg-video-dashboard/1.0"
 
 
+def visual_explorer_url(identifier: str, date: str) -> str:
+    """Recent Archive shows may exist before Visual Explorer finishes processing."""
+    try:
+        recorded = datetime.fromisoformat(date.replace("Z", "+00:00"))
+        if (datetime.now(timezone.utc) - recorded).total_seconds() < 24 * 3600:
+            return ""
+    except (TypeError, ValueError):
+        pass
+    return f"https://visualexplorer.gdeltproject.org/tvv?id={quote_plus(identifier)}"
+
+
 def get(url: str, timeout: int = 90) -> bytes:
     request = Request(url, headers={"User-Agent": UA})
     with urlopen(request, timeout=timeout) as response:
@@ -55,8 +66,11 @@ def latest_archive_videos(limit: int = 2000) -> list[dict]:
         human_title = f"{source_label(source)}｜{program}"
         page_url = f"https://archive.org/details/{identifier}"
         image_url = f"https://archive.org/services/img/{identifier}/full/pct:200/0/default.jpg"
-        frame_grid_url = f"https://visualexplorer.gdeltproject.org/ve/site/shows/{identifier}.jpg"
-        visual_url = f"https://visualexplorer.gdeltproject.org/tvv?id={quote_plus(identifier)}"
+        visual_url = visual_explorer_url(identifier, date)
+        frame_grid_url = (
+            f"https://visualexplorer.gdeltproject.org/ve/site/shows/{identifier}.jpg"
+            if visual_url else ""
+        )
         raw_transcript = transcript
         transcript = usable_transcript(transcript)
         if transcript:
@@ -108,10 +122,11 @@ def latest_archive_videos(limit: int = 2000) -> list[dict]:
             "transcript_text": transcript[:12000],
             "transcript_text_raw": raw_transcript[:12000],
             "transcript_source": page_url if transcript else "",
-            "source_links": [
-                {"label": "GDELT Visual Explorer", "url": visual_url},
-                {"label": "Internet Archive 原片", "url": page_url},
-            ] + gdelt_links(extract_keywords(transcript)),
+            "source_links": (
+                ([{"label": "GDELT Visual Explorer", "url": visual_url}] if visual_url else [])
+                + [{"label": "Internet Archive 原片", "url": page_url}]
+                + gdelt_links(extract_keywords(transcript))
+            ),
         })
     return result
 
@@ -128,11 +143,12 @@ def enrich_broadcasts(items: list[dict]) -> None:
         if not transcript:
             item["transcript_text_raw"] = raw_transcript[:12000]
             item["related_links"] = []
-            item["visual_explorer_url"] = f"https://visualexplorer.gdeltproject.org/tvv?id={quote_plus(item['id'])}"
-            item["source_links"] = [
-                {"label": "GDELT Visual Explorer", "url": item["visual_explorer_url"]},
-                {"label": "Internet Archive 原片", "url": item["source_url"]},
-            ]
+            item["visual_explorer_url"] = visual_explorer_url(item["id"], item.get("date", ""))
+            item["source_links"] = (
+                ([{"label": "GDELT Visual Explorer", "url": item["visual_explorer_url"]}]
+                 if item["visual_explorer_url"] else [])
+                + [{"label": "Internet Archive 原片", "url": item["source_url"]}]
+            )
             continue
         keywords = extract_keywords(transcript)
         item["human_title"], item["human_summary"] = transcript_story(
@@ -145,9 +161,10 @@ def enrich_broadcasts(items: list[dict]) -> None:
         item["transcript_text"] = transcript[:12000]
         item["transcript_text_raw"] = raw_transcript[:12000]
         item["transcript_source"] = item["source_url"]
-        item["visual_explorer_url"] = f"https://visualexplorer.gdeltproject.org/tvv?id={quote_plus(item['id'])}"
+        item["visual_explorer_url"] = visual_explorer_url(item["id"], item.get("date", ""))
         item["source_links"] = [
-            {"label": "GDELT Visual Explorer", "url": item["visual_explorer_url"]},
+            *([{"label": "GDELT Visual Explorer", "url": item["visual_explorer_url"]}]
+              if item["visual_explorer_url"] else []),
             {"label": "Internet Archive 原片", "url": item["source_url"]},
         ] + gdelt_links(keywords)
         item["extraction_methods"] = item.get("extraction_methods", []) + ["Archive 页面字幕/ASR 摘要"]
