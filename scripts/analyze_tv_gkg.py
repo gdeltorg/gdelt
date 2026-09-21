@@ -54,6 +54,7 @@ def official_link(source: str) -> dict | None:
         "ETVPLUS": "https://etvpluss.err.ee/",
         "RT": "https://www.rt.com/",
         "TVPINFO": "https://tvp.info/",
+        "TVRI": "https://www.tvri.go.id/",
         "YLETV1": "https://yle.fi/",
     }
     url = urls.get(source.upper())
