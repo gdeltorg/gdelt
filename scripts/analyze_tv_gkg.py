@@ -51,6 +51,7 @@ def official_link(source: str) -> dict | None:
         "CCTV13": "https://tv.cctv.com/",
         "CNNW": "https://www.cnn.com/",
         "DW": "https://www.dw.com/",
+        "ETVPLUS": "https://etvpluss.err.ee/",
         "RT": "https://www.rt.com/",
         "TVPINFO": "https://tvp.info/",
         "YLETV1": "https://yle.fi/",
