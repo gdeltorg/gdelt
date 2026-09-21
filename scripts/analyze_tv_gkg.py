@@ -334,6 +334,51 @@ def extract_keywords(text: str, limit: int = 12) -> list[str]:
     return [word for word, _ in Counter(word for word in words if word not in stop).most_common(limit)]
 
 
+def featured_quality(item: dict) -> tuple[int, list[str]]:
+    """Score only records with usable evidence for the homepage featured rail."""
+    transcript = clean(item.get("transcript_text", ""))
+    if not transcript:
+        return -1, ["无可核验正文"]
+    words = re.findall(r"[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ'-]{2,}", transcript.lower())
+    if len(words) < 35:
+        return -1, ["正文过短"]
+    counts = Counter(words)
+    repeated = sum(count - 1 for count in counts.values() if count > 1)
+    repetition_ratio = repeated / max(1, len(words))
+    if repetition_ratio > 0.45:
+        return -1, ["ASR 重复噪声过高"]
+    score = min(35, len(words) // 12)
+    reasons = ["已有正文"]
+    event_markers = (
+        "government", "president", "election", "court", "war", "attack",
+        "killed", "fire", "crisis", "economy", "market", "china", "ukraine",
+    )
+    event_count = sum(transcript.lower().count(marker) for marker in event_markers)
+    if event_count:
+        score += min(30, event_count * 5)
+        reasons.append("包含事件信号")
+    if len(item.get("keywords", [])) >= 5:
+        score += 10
+        reasons.append("关键词覆盖较广")
+    if item.get("source") in {"BBCNEWS", "CBCNEWS", "CNNW", "DW", "ALJAZ", "CSPAN3"}:
+        score += 10
+        reasons.append("新闻来源")
+    return min(100, score), reasons
+
+
+def choose_featured_videos(items: list[dict], limit: int = 3) -> list[dict]:
+    candidates = []
+    for item in items:
+        score, reasons = featured_quality(item)
+        if score < 0:
+            continue
+        item["featured_score"] = score
+        item["featured_reason"] = "；".join(reasons)
+        candidates.append(item)
+    candidates.sort(key=lambda item: (-item["featured_score"], item.get("date", "")))
+    return candidates[:limit]
+
+
 def latest_file() -> tuple[str, str]:
     text = get(BASE + "lastupdate.txt").decode("utf-8", "replace")
     match = re.search(r"(?m)^\s*\d+\s+\S+\s+(https?://\S+\.gkg\.csv\.gz)\s*$", text)
@@ -451,7 +496,7 @@ def build() -> dict:
     url, data_day = latest_file()
     generated = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     jev_key = os.environ.get("TYPESAFE_API_KEY") if os.environ.get("JEV_LIVE_EVAL") == "1" else None
-    latest_videos = latest_archive_videos()
+    latest_videos = choose_featured_videos(latest_archive_videos())
     if jev_key:
         for item in latest_videos:
             try:
