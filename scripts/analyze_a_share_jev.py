@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fetch China A-share index quotes in Actions and evaluate direction with TypeSafe Jev."""
 from __future__ import annotations
-import json, os
+import json, os, time
 from datetime import datetime, timezone
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
@@ -14,8 +14,18 @@ LABELS = {"up": "上涨", "down": "下跌", "flat": "持平", "insufficient": "�
 
 def get_json(url: str) -> dict:
     req = Request(url, headers={"User-Agent": "gdeltorg-a-share-jev/1.0"})
-    with urlopen(req, timeout=30) as response:
-        return json.loads(response.read().decode("utf-8"))
+    for attempt in range(3):
+        try:
+            with urlopen(req, timeout=30) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except HTTPError as error:
+            if error.code not in {502, 503, 504} or attempt == 2:
+                raise
+            time.sleep(2 ** attempt)
+        except URLError:
+            if attempt == 2:
+                raise
+            time.sleep(2 ** attempt)
 
 def quote_rows() -> list[dict]:
     payload = get_json(QUOTE_URL)
@@ -42,7 +52,7 @@ def jev_judgment(rows: list[dict]) -> dict | None:
         return None
     state = {"market": "China A-share major indices", "as_of": datetime.now(timezone.utc).isoformat(), "indices": rows, "rule": "Judge observed session direction from all three index change_percent values; do not forecast."}
     body = {"state": state, "model": "jev-latest", "questions": {"direction": {"type": "choice", "instructions": "What is the observed direction of today's China A-share major indices based only on the supplied change_percent values? This is not a forecast.", "criteria": {"up": "The broad set of indices is up versus the previous close.", "down": "The broad set of indices is down versus the previous close.", "flat": "The broad set is mixed or near unchanged.", "insufficient": "There is not enough valid quote data."}}}}
-    req = Request("https://api.typesafe.ai/v1/systemone", data=json.dumps(body).encode(), headers={"Authorization": key, "Content-Type": "application/json", "User-Agent": "gdeltorg-a-share-jev/1.0"}, method="POST")
+    req = Request("https://api.typesafe.ai/v1/systemone", data=json.dumps(body).encode(), headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json", "User-Agent": "gdeltorg-a-share-jev/1.0"}, method="POST")
     try:
         with urlopen(req, timeout=45) as response:
             answer = json.loads(response.read().decode()).get("answers", {}).get("direction", {})
