@@ -40,7 +40,15 @@ def gdelt_link(identifier: str, date: str) -> dict:
     return (
         {"label": "GDELT Visual Explorer", "url": url}
         if url else
-        {"label": "GDELT Visual Explorer（处理中）", "url": "", "available": False}
+        {
+            "label": "GDELT TV 搜索",
+            "url": (
+                "https://api.gdeltproject.org/api/v2/tv/tv"
+                f"?format=html&mode=clipgallery&query={quote_plus(identifier)}"
+            ),
+            "available": True,
+            "direct_visual_explorer": False,
+        }
     )
 
 
