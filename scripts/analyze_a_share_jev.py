@@ -48,7 +48,12 @@ def jev_judgment(rows: list[dict]) -> dict | None:
             answer = json.loads(response.read().decode()).get("answers", {}).get("direction", {})
         choice = answer.get("choice") if answer.get("choice") in LABELS else "insufficient"
         return {"choice": choice, "label": LABELS[choice], "probabilities": answer.get("probabilities", {}), "confidence": answer.get("confidence", 0), "provider": "typesafe_jev", "model": "jev-latest"}
-    except (HTTPError, URLError, TimeoutError, ValueError):
+    except HTTPError as error:
+        detail = error.read().decode("utf-8", errors="replace")[:500]
+        print(f"TypeSafe Jev HTTP {error.code}: {detail}", flush=True)
+        return None
+    except (URLError, TimeoutError, ValueError) as error:
+        print(f"TypeSafe Jev request failed: {type(error).__name__}: {error}", flush=True)
         return None
 
 def main() -> None:
