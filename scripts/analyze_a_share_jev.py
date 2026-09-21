@@ -42,7 +42,7 @@ def jev_judgment(rows: list[dict]) -> dict | None:
         return None
     state = {"market": "China A-share major indices", "as_of": datetime.now(timezone.utc).isoformat(), "indices": rows, "rule": "Judge observed session direction from all three index change_percent values; do not forecast."}
     body = {"state": state, "model": "jev-latest", "questions": {"direction": {"type": "choice", "instructions": "What is the observed direction of today's China A-share major indices based only on the supplied change_percent values? This is not a forecast.", "criteria": {"up": "The broad set of indices is up versus the previous close.", "down": "The broad set of indices is down versus the previous close.", "flat": "The broad set is mixed or near unchanged.", "insufficient": "There is not enough valid quote data."}}}}
-    req = Request("https://api.typesafe.ai/v1/systemone", data=json.dumps(body).encode(), headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json", "User-Agent": "gdeltorg-a-share-jev/1.0"}, method="POST")
+    req = Request("https://api.typesafe.ai/v1/systemone", data=json.dumps(body).encode(), headers={"Authorization": key, "Content-Type": "application/json", "User-Agent": "gdeltorg-a-share-jev/1.0"}, method="POST")
     try:
         with urlopen(req, timeout=45) as response:
             answer = json.loads(response.read().decode()).get("answers", {}).get("direction", {})
