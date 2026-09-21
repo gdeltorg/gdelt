@@ -100,7 +100,7 @@ def latest_archive_videos(limit: int = 2000) -> list[dict]:
         raw_transcript = transcript
         transcript = usable_transcript(transcript)
         if transcript:
-            human_title, summary = transcript_story(transcript, source, date)
+            human_title, summary = transcript_story(transcript, source, date, program)
         else:
             summary = (
                 f"这是 {source_label(source)} 的《{program}》节目档案记录，时间为 {date or '未知'}。"
@@ -180,7 +180,10 @@ def enrich_broadcasts(items: list[dict]) -> None:
             continue
         keywords = extract_keywords(transcript)
         item["human_title"], item["human_summary"] = transcript_story(
-            transcript, item.get("source", ""), item.get("date", "")
+            transcript,
+            item.get("source", ""),
+            item.get("date", ""),
+            item.get("title", ""),
         )
         item["title_candidate"] = item["human_title"]
         item["summary"] = item["human_summary"]
@@ -255,7 +258,9 @@ def readable_program(program: str, source: str) -> str:
     return value
 
 
-def transcript_story(transcript: str, source: str, date: str) -> tuple[str, str]:
+def transcript_story(
+    transcript: str, source: str, date: str, program: str = ""
+) -> tuple[str, str]:
     """Summarize the full transcript with extractive sentence ranking."""
     sentences = [
         re.sub(r"^[\-\d\s]+", "", part).strip()
@@ -283,11 +288,9 @@ def transcript_story(transcript: str, source: str, date: str) -> tuple[str, str]
     selected = sorted(ranked[: min(4, len(ranked))], key=lambda item: item[1])
     headline_sentence = max(ranked[: min(6, len(ranked))], key=lambda item: (item[0], -item[1]))[2]
     headline = headline_sentence[:180].rstrip(" ,;:") + ("…" if len(headline_sentence) > 180 else "")
-    # Avoid using short leading transcript fragments as headline: if headline matches the transcript start or is a short fragment, fallback to program label
     transcript_start = transcript.strip()[:200].lower()
     if transcript_start.startswith(headline.lower()) or len(headline.split()) < 4:
-        # prefer program fallback title
-        headline = f"{source_label(source)}｜{readable_program('', source)}"
+        headline = f"{source_label(source)}｜{readable_program(program, source)}"
     summary = " ".join(item[2] for item in selected)
     if len(summary) > 420:
         summary = summary[:417].rsplit(" ", 1)[0] + "…"
