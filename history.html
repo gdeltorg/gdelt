@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>历史记录预览 · GDELT</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top"><div class="shell nav"><a class="logo" href="./"><b>GDELT</b><span>HISTORY PREVIEW</span></a><nav><a href="./">返回首页</a><a href="data/history.json" target="_blank" rel="noopener">历史 JSON ↗</a></nav></div></header>
+  <main class="shell">
+    <section class="data-hero"><p class="eyebrow">ARCHIVE / HISTORY</p><h1>历史记录预览</h1><p class="dek">完整显示已保存快照；首页仅保留最近 5 条，减少首屏滚动。</p><p id="meta" class="muted">正在读取历史快照…</p></section>
+    <section class="panel history-panel history-preview-panel">
+      <div class="table-wrap"><table><thead><tr><th>快照时间</th><th>Events</th><th>GKG</th><th>Mentions</th><th>时间点</th><th>原始快照</th></tr></thead><tbody id="rows"></tbody></table></div>
+      <p class="notice">每行保留原始 JSON 入口，可继续进入对应数据快照核查。</p>
+    </section>
+  </main>
+  <footer class="shell footer"><span>历史记录用于追溯数据变化</span><a href="./">返回全球事件观察台 ↗</a></footer>
+  <script>
+    const $=x=>document.getElementById(x),esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),fmt=x=>Number(x||0).toLocaleString('zh-CN');
+    const date=x=>{if(!x)return'—';const m=String(x).match(/^(\d{4})(\d{2})(\d{2})(\d{2})?(\d{2})?/);return m?`${m[1]}-${m[2]}-${m[3]}${m[4]?` ${m[4]}:${m[5]||'00'}`:''} UTC`:String(x).replace('T',' ').replace('+00:00',' UTC').replace(/ UTC UTC$/,' UTC')};
+    async function load(){const data=await (await fetch('data/history.json?v='+Date.now())).json();const items=data.snapshots||[];$('meta').textContent=`${fmt(items.length)} 个快照 · 三库可追溯`;$('rows').innerHTML=items.slice().reverse().map(x=>`<tr><td>${date(x.generated_at||x.at)}</td><td>${fmt(x.datasets?.events?.records??x.datasets?.events)}</td><td>${fmt(x.datasets?.gkg?.records??x.datasets?.gkg)}</td><td>${fmt(x.datasets?.mentions?.records??x.datasets?.mentions)}</td><td>${fmt(x.timeline_points||0)}</td><td><a target="_blank" rel="noopener" href="data/${esc(x.file)}">JSON ↗</a></td></tr>`).join('')||'<tr><td colspan="6">暂无历史记录</td></tr>'}
+    load().catch(e=>{$('meta').textContent='无法读取历史快照';console.error(e)});
+  </script>
+</body>
+</html>
