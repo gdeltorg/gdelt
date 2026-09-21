@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fetch China A-share index quotes in Actions and evaluate direction with TypeSafe Jev."""
 from __future__ import annotations
-import json, os
+import json, os, time
 from datetime import datetime, timezone
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
@@ -14,8 +14,18 @@ LABELS = {"up": "上涨", "down": "下跌", "flat": "持平", "insufficient": "�
 
 def get_json(url: str) -> dict:
     req = Request(url, headers={"User-Agent": "gdeltorg-a-share-jev/1.0"})
-    with urlopen(req, timeout=30) as response:
-        return json.loads(response.read().decode("utf-8"))
+    for attempt in range(3):
+        try:
+            with urlopen(req, timeout=30) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except HTTPError as error:
+            if error.code not in {502, 503, 504} or attempt == 2:
+                raise
+            time.sleep(2 ** attempt)
+        except URLError:
+            if attempt == 2:
+                raise
+            time.sleep(2 ** attempt)
 
 def quote_rows() -> list[dict]:
     payload = get_json(QUOTE_URL)
