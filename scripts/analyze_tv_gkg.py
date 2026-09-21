@@ -283,6 +283,11 @@ def transcript_story(transcript: str, source: str, date: str) -> tuple[str, str]
     selected = sorted(ranked[: min(4, len(ranked))], key=lambda item: item[1])
     headline_sentence = max(ranked[: min(6, len(ranked))], key=lambda item: (item[0], -item[1]))[2]
     headline = headline_sentence[:180].rstrip(" ,;:") + ("…" if len(headline_sentence) > 180 else "")
+    # Avoid using short leading transcript fragments as headline: if headline matches the transcript start or is a short fragment, fallback to program label
+    transcript_start = transcript.strip()[:200].lower()
+    if transcript_start.startswith(headline.lower()) or len(headline.split()) < 4:
+        # prefer program fallback title
+        headline = f"{source_label(source)}｜{readable_program('', source)}"
     summary = " ".join(item[2] for item in selected)
     if len(summary) > 420:
         summary = summary[:417].rsplit(" ", 1)[0] + "…"
