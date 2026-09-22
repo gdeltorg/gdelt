@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-21T08:29:56.058060+00:00",
+  "generated_at": "2026-09-22T07:28:12.900848+00:00",
   "source": "Eastmoney push2 quote API",
   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&fields=f2,f3,f4,f12,f14,f15,f16,f17,f18&secids=1.000001,0.399001,0.399006",
   "market": "中国 A 股主要指数",
@@ -8,47 +8,47 @@
     {
       "code": "000001",
       "name": "上证指数",
-      "price": 3949.91,
-      "change_percent": 0.97,
-      "change": 38.04,
-      "open": 3920.27,
-      "previous_close": 3911.87,
-      "high": 3950.94,
-      "low": 3918.13
+      "price": 3952.13,
+      "change_percent": 0.06,
+      "change": 2.22,
+      "open": 3963.81,
+      "previous_close": 3949.91,
+      "high": 3967.68,
+      "low": 3945.42
     },
     {
       "code": "399001",
       "name": "深证成指",
-      "price": 13730.02,
-      "change_percent": 0.65,
-      "change": 89.15,
-      "open": 13716.22,
-      "previous_close": 13640.87,
-      "high": 13779.0,
-      "low": 13643.95
+      "price": 13723.74,
+      "change_percent": -0.05,
+      "change": -6.28,
+      "open": 13858.62,
+      "previous_close": 13730.02,
+      "high": 13914.21,
+      "low": 13691.09
     },
     {
       "code": "399006",
       "name": "创业板指",
-      "price": 3399.59,
-      "change_percent": 0.8,
-      "change": 26.91,
-      "open": 3403.9,
-      "previous_close": 3372.68,
-      "high": 3429.27,
-      "low": 3373.93
+      "price": 3399.93,
+      "change_percent": 0.01,
+      "change": 0.34,
+      "open": 3446.33,
+      "previous_close": 3399.59,
+      "high": 3472.47,
+      "low": 3387.88
     }
   ],
   "judgment": {
-    "choice": "up",
-    "label": "上涨",
+    "choice": "flat",
+    "label": "持平",
     "probabilities": {
-      "insufficient": 0.0,
       "down": 0.0,
-      "flat": 0.0,
-      "up": 1.0
+      "flat": 0.97,
+      "insufficient": 0.0,
+      "up": 0.03
     },
-    "confidence": 1.0,
+    "confidence": 0.96,
     "provider": "typesafe_jev",
     "model": "jev-latest"
   },
