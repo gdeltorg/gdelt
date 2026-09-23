@@ -22,26 +22,22 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  configuration:
-    if: ${{ secrets.GEMINI_API_KEY == '' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Explain required repository secret
-        run: |
-          echo "::warning::Visual indexing is paused. Add GEMINI_API_KEY to the repository Actions secrets to enable cloud image descriptions."
-
   index:
-    if: ${{ secrets.GEMINI_API_KEY != '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Explain missing repository secret
+        if: ${{ env.GEMINI_API_KEY == '' }}
+        run: echo "::warning::Visual indexing is paused. Add GEMINI_API_KEY to the repository Actions secrets to enable cloud image descriptions."
       - name: Build cloud visual index
+        if: ${{ env.GEMINI_API_KEY != '' }}
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           VISUAL_INDEX_LIMIT: ${{ inputs.limit || '120' }}
         run: python scripts/index_visual_frames.py
       - name: Commit visual index
