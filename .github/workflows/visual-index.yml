@@ -22,7 +22,16 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  configuration:
+    if: ${{ secrets.GEMINI_API_KEY == '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Explain required repository secret
+        run: |
+          echo "::warning::Visual indexing is paused. Add GEMINI_API_KEY to the repository Actions secrets to enable cloud image descriptions."
+
   index:
+    if: ${{ secrets.GEMINI_API_KEY != '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
