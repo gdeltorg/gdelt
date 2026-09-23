@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-09-23T03:44:04.816299+00:00",
+  "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-26-2",
+  "device": "iPhone 17 Pro",
+  "scope": "Apple Simulator and simctl system capabilities; no app-specific or account flows",
+  "tests": [
+    {
+      "name": "Boot and bootstatus",
+      "status": "passed",
+      "details": "3B1CE197-B5B0-41F9-916C-69AA4961832B"
+    },
+    {
+      "name": "System environment",
+      "status": "failed",
+      "details": "/Users/runner/Library/Developer/CoreSimulator/Devices/3B1CE197-B5B0-41F9-916C-69AA4961832B/data"
+    },
+    {
+      "name": "Screenshot capture",
+      "status": "passed",
+      "details": "simctl io screenshot"
+    },
+    {
+      "name": "Appearance control",
+      "status": "passed",
+      "details": "dark then light"
+    },
+    {
+      "name": "Location control",
+      "status": "passed",
+      "details": "set then clear"
+    },
+    {
+      "name": "Privacy and permissions API",
+      "status": "failed",
+      "details": "simctl privacy help available"
+    },
+    {
+      "name": "Diagnostics",
+      "status": "passed",
+      "details": "simctl diagnose"
+    }
+  ]
+}
