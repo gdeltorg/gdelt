@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-23T06:35:02+00:00",
+  "generated_at": "2026-09-23T11:28:31+00:00",
   "model": "OFA-Sys/chinese-clip-vit-base-patch16",
   "records": 3,
   "items": [
@@ -191,95 +191,95 @@
       ]
     },
     {
-      "id": "RUSSIA24_20260923_030700_Ekonomika",
-      "title": "however, he was not so compassionate towards the victims of the armed forces of ukraine, as european journalists found out, macron and other eu leaders flew to the general assembly…",
-      "source": "RUSSIA24",
+      "id": "TVPINFO_20260923_044000_Prognoza_pogody",
+      "title": "american protocol states that generally the president greets guests only in the white house, very rarely does he go out to meet them at the airport, as so far, donald trump has onl…",
+      "source": "TVPINFO",
       "date": "2026-09-23T00:00:00Z",
-      "image_url": "https://archive.org/services/img/RUSSIA24_20260923_030700_Ekonomika/full/pct:200/0/default.jpg",
-      "replay_url": "https://archive.org/details/RUSSIA24_20260923_030700_Ekonomika",
-      "description_zh": "画面候选标签：a news studio、a protest、text on screen、a speech、新闻演播室、a flag、抗议活动、an explosion、屏幕文字、police、smoke、fire",
-      "description_en": "Visual candidate labels: a news studio, a protest, text on screen, a speech, 新闻演播室, a flag, 抗议活动, an explosion, 屏幕文字, police, smoke, fire",
-      "keywords": "a news studio,a protest,text on screen,a speech,新闻演播室,a flag,抗议活动,an explosion,屏幕文字,police,smoke,fire,a river,a mountain,military,旗帜,a forest,a sports match,a road,a car",
+      "image_url": "https://archive.org/services/img/TVPINFO_20260923_044000_Prognoza_pogody/full/pct:200/0/default.jpg",
+      "replay_url": "https://archive.org/details/TVPINFO_20260923_044000_Prognoza_pogody",
+      "description_zh": "画面候选标签：a news studio、text on screen、新闻演播室、a protest、抗议活动、an explosion、police、a flag、a speech、屏幕文字、a river、smoke",
+      "description_en": "Visual candidate labels: a news studio, text on screen, 新闻演播室, a protest, 抗议活动, an explosion, police, a flag, a speech, 屏幕文字, a river, smoke",
+      "keywords": "a news studio,text on screen,新闻演播室,a protest,抗议活动,an explosion,police,a flag,a speech,屏幕文字,a river,smoke,military,a horse,旗帜,fire,a mountain,a truck,a car,a map",
       "visual_labels": [
         {
           "label": "a news studio",
-          "score": 0.4008
-        },
-        {
-          "label": "a protest",
-          "score": 0.383
+          "score": 0.4106
         },
         {
           "label": "text on screen",
-          "score": 0.383
-        },
-        {
-          "label": "a speech",
-          "score": 0.3626
+          "score": 0.3826
         },
         {
           "label": "新闻演播室",
-          "score": 0.3611
+          "score": 0.3732
         },
         {
-          "label": "a flag",
-          "score": 0.3559
+          "label": "a protest",
+          "score": 0.3714
         },
         {
           "label": "抗议活动",
-          "score": 0.3539
+          "score": 0.3541
         },
         {
           "label": "an explosion",
-          "score": 0.3521
-        },
-        {
-          "label": "屏幕文字",
-          "score": 0.3459
+          "score": 0.3531
         },
         {
           "label": "police",
-          "score": 0.3441
+          "score": 0.3518
         },
         {
-          "label": "smoke",
-          "score": 0.3421
+          "label": "a flag",
+          "score": 0.3501
         },
         {
-          "label": "fire",
-          "score": 0.3415
+          "label": "a speech",
+          "score": 0.3474
+        },
+        {
+          "label": "屏幕文字",
+          "score": 0.3435
         },
         {
           "label": "a river",
-          "score": 0.3373
+          "score": 0.3429
         },
         {
-          "label": "a mountain",
-          "score": 0.3333
+          "label": "smoke",
+          "score": 0.3411
         },
         {
           "label": "military",
-          "score": 0.3294
+          "score": 0.3373
+        },
+        {
+          "label": "a horse",
+          "score": 0.332
         },
         {
           "label": "旗帜",
-          "score": 0.3279
+          "score": 0.3309
         },
         {
-          "label": "a forest",
-          "score": 0.325
+          "label": "fire",
+          "score": 0.3303
         },
         {
-          "label": "a sports match",
-          "score": 0.3243
+          "label": "a mountain",
+          "score": 0.3295
         },
         {
-          "label": "a road",
-          "score": 0.3242
+          "label": "a truck",
+          "score": 0.3272
         },
         {
           "label": "a car",
-          "score": 0.3241
+          "score": 0.3247
+        },
+        {
+          "label": "a map",
+          "score": 0.3224
         }
       ]
     }
