@@ -46,6 +46,8 @@ def fetch_image(url: str) -> Image.Image:
 
 
 def normalized(features: torch.Tensor) -> torch.Tensor:
+    if not isinstance(features, torch.Tensor):
+        features = features.pooler_output
     return features / features.norm(p=2, dim=-1, keepdim=True)
 
 
