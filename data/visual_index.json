@@ -13,7 +13,7 @@
       "replay_url": "https://archive.org/details/ALJAZ_20260923_010000",
       "description_zh": "画面候选标签：a mountain、山、海滩、道路、an explosion、a beach、a map、a road、奔跑、人群、森林、屏幕文字",
       "description_en": "Visual candidate labels: a mountain, 山, 海滩, 道路, an explosion, a beach, a map, a road, 奔跑, 人群, 森林, 屏幕文字",
-      "keywords": "a mountain,山,海滩,道路,an explosion,a beach,a map,a road,奔跑,人群,森林,屏幕文字,running,树林,爆炸,新闻演播室,地图,旗帜,河流,动物,a forest,text on screen,烟雾,抗议活动,乡村,military,体育比赛,洪水,an animal,军队,建筑物,a river,a crowd,火车,an airplane,汽车,flooding,fire,马,人,飞机,the countryside,火灾,a news studio,篮球,a car,演讲,卡车,a protest,soccer,足球,basketball,a train,smoke,城市街道,a city street,a horse,船,警察,a flag,a truck,police,a building,a speech,a ship,a sports match",
+      "keywords": "a mountain,山,海滩,道路,an explosion,a beach,a map,a road,奔跑,人群,森林,屏幕文字,running,树林,爆炸,新闻演播室,地图,旗帜,河流,动物",
       "visual_labels": [
         {
           "label": "a mountain",
@@ -106,7 +106,7 @@
       "replay_url": "https://archive.org/details/KNTV_20260923_003000_NBC_Bay_Area_News_at_530",
       "description_zh": "画面候选标签：a road、a truck、a news studio、an explosion、抗议活动、a car、police、a city street、卡车、flooding、a river、城市街道",
       "description_en": "Visual candidate labels: a road, a truck, a news studio, an explosion, 抗议活动, a car, police, a city street, 卡车, flooding, a river, 城市街道",
-      "keywords": "a road,a truck,a news studio,an explosion,抗议活动,a car,police,a city street,卡车,flooding,a river,城市街道,警察,a building,text on screen,新闻演播室,屏幕文字,a protest,a map,道路,a crowd,a beach,a ship,洪水,fire,汽车,建筑物,火车,烟雾,船,a sports match,an airplane,人群,a train,a speech,地图,旗帜,奔跑,running,a horse,飞机,a flag,河流,火灾,basketball,soccer,an animal,爆炸,smoke,海滩,演讲,树林,a mountain,the countryside,动物,马,军队,体育比赛,a forest,人,乡村,森林,足球,military,山,篮球",
+      "keywords": "a road,a truck,a news studio,an explosion,抗议活动,a car,police,a city street,卡车,flooding,a river,城市街道,警察,a building,text on screen,新闻演播室,屏幕文字,a protest,a map,道路",
       "visual_labels": [
         {
           "label": "a road",
@@ -199,7 +199,7 @@
       "replay_url": "https://archive.org/details/DW_20260923_010000_DW_News",
       "description_zh": "画面候选标签：running、奔跑、a mountain、soccer、a road、basketball、the countryside、an animal、a horse、乡村、fire、a river",
       "description_en": "Visual candidate labels: running, 奔跑, a mountain, soccer, a road, basketball, the countryside, an animal, a horse, 乡村, fire, a river",
-      "keywords": "running,奔跑,a mountain,soccer,a road,basketball,the countryside,an animal,a horse,乡村,fire,a river,a beach,a sports match,山,an explosion,人群,人,police,text on screen,a train,a protest,a news studio,树林,抗议活动,道路,a flag,动物,足球,a map,体育比赛,河流,a city street,森林,屏幕文字,海滩,旗帜,an airplane,马,烟雾,flooding,military,a forest,a crowd,smoke,爆炸,a truck,篮球,a building,地图,军队,a speech,火车,警察,城市街道,a car,建筑物,新闻演播室,汽车,演讲,a ship,洪水,飞机,火灾,船,卡车",
+      "keywords": "running,奔跑,a mountain,soccer,a road,basketball,the countryside,an animal,a horse,乡村,fire,a river,a beach,a sports match,山,an explosion,人群,人,police,text on screen",
       "visual_labels": [
         {
           "label": "running",
