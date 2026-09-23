@@ -1,0 +1,67 @@
+name: Build visual search index
+
+on:
+  schedule:
+    - cron: '47 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Maximum representative frames to describe'
+        required: false
+        default: '120'
+  push:
+    paths:
+      - 'scripts/index_visual_frames.py'
+      - '.github/workflows/visual-index.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gdelt-visual-index
+  cancel-in-progress: false
+
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build cloud visual index
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          VISUAL_INDEX_LIMIT: ${{ inputs.limit || '120' }}
+        run: python scripts/index_visual_frames.py
+      - name: Commit visual index
+        id: commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/visual_index.json
+          if git diff --cached --quiet; then
+            echo 'No changes.'
+          else
+            git commit -m 'Update visual search index'
+            git fetch origin main
+            if ! git rebase origin/main; then
+              git checkout --theirs data/visual_index.json
+              git add data/visual_index.json
+              GIT_EDITOR=true git rebase --continue
+            fi
+            git push
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Deploy updated visual index
+        if: steps.commit.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'pages.yml',
+              ref: 'main'
+            });
