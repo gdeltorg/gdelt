@@ -15,6 +15,7 @@ on:
       - '.github/workflows/visual-index.yml'
 
 permissions:
+  actions: write
   contents: write
 
 concurrency:

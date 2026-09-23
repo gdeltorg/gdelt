@@ -77,7 +77,7 @@ def main() -> None:
                 if float(score) >= THRESHOLD
             ]
             matches.sort(key=lambda pair: pair[1], reverse=True)
-            terms = [label for label, _ in matches]
+            terms = [label for label, _ in matches[:20]]
             entries.append({
                 "id": item.get("id"),
                 "title": item.get("human_title") or item.get("title_candidate") or item.get("title"),
