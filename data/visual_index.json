@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-23T02:28:54+00:00",
+  "generated_at": "2026-09-23T06:35:02+00:00",
   "model": "OFA-Sys/chinese-clip-vit-base-patch16",
   "records": 3,
   "items": [
@@ -98,188 +98,188 @@
       ]
     },
     {
-      "id": "KNTV_20260923_003000_NBC_Bay_Area_News_at_530",
-      "title": "what a new study is warning about our future gridlock if voters don't approve two transit measures, is this valid or just a campaign tactic?",
-      "source": "KNTV",
+      "id": "BBCNEWS_20260923_020000_Newsday",
+      "title": "us president donald donald trump hails a productive meeting meeting with iranian officials in in new york, but threatened annihilation annihilation if a deal is not reached.",
+      "source": "BBCNEWS",
       "date": "2026-09-23T00:00:00Z",
-      "image_url": "https://archive.org/services/img/KNTV_20260923_003000_NBC_Bay_Area_News_at_530/full/pct:200/0/default.jpg",
-      "replay_url": "https://archive.org/details/KNTV_20260923_003000_NBC_Bay_Area_News_at_530",
-      "description_zh": "画面候选标签：a road、a truck、a news studio、an explosion、抗议活动、a car、police、a city street、卡车、flooding、a river、城市街道",
-      "description_en": "Visual candidate labels: a road, a truck, a news studio, an explosion, 抗议活动, a car, police, a city street, 卡车, flooding, a river, 城市街道",
-      "keywords": "a road,a truck,a news studio,an explosion,抗议活动,a car,police,a city street,卡车,flooding,a river,城市街道,警察,a building,text on screen,新闻演播室,屏幕文字,a protest,a map,道路",
+      "image_url": "https://archive.org/services/img/BBCNEWS_20260923_020000_Newsday/full/pct:200/0/default.jpg",
+      "replay_url": "https://archive.org/details/BBCNEWS_20260923_020000_Newsday",
+      "description_zh": "画面候选标签：a news studio、a building、新闻演播室、a city street、text on screen、an explosion、城市街道、fire、建筑物、police、烟雾、a protest",
+      "description_en": "Visual candidate labels: a news studio, a building, 新闻演播室, a city street, text on screen, an explosion, 城市街道, fire, 建筑物, police, 烟雾, a protest",
+      "keywords": "a news studio,a building,新闻演播室,a city street,text on screen,an explosion,城市街道,fire,建筑物,police,烟雾,a protest,爆炸,抗议活动,屏幕文字,a road,a speech,a map,basketball,a crowd",
       "visual_labels": [
         {
-          "label": "a road",
-          "score": 0.3825
-        },
-        {
-          "label": "a truck",
-          "score": 0.3756
-        },
-        {
           "label": "a news studio",
-          "score": 0.3587
-        },
-        {
-          "label": "an explosion",
-          "score": 0.3535
-        },
-        {
-          "label": "抗议活动",
-          "score": 0.3522
-        },
-        {
-          "label": "a car",
-          "score": 0.3512
-        },
-        {
-          "label": "police",
-          "score": 0.351
-        },
-        {
-          "label": "a city street",
-          "score": 0.3508
-        },
-        {
-          "label": "卡车",
-          "score": 0.3495
-        },
-        {
-          "label": "flooding",
-          "score": 0.3493
-        },
-        {
-          "label": "a river",
-          "score": 0.347
-        },
-        {
-          "label": "城市街道",
-          "score": 0.344
-        },
-        {
-          "label": "警察",
-          "score": 0.3435
+          "score": 0.482
         },
         {
           "label": "a building",
-          "score": 0.3418
-        },
-        {
-          "label": "text on screen",
-          "score": 0.3414
+          "score": 0.4247
         },
         {
           "label": "新闻演播室",
-          "score": 0.3378
+          "score": 0.4176
         },
         {
-          "label": "屏幕文字",
-          "score": 0.3369
+          "label": "a city street",
+          "score": 0.3871
+        },
+        {
+          "label": "text on screen",
+          "score": 0.3834
+        },
+        {
+          "label": "an explosion",
+          "score": 0.3823
+        },
+        {
+          "label": "城市街道",
+          "score": 0.3723
+        },
+        {
+          "label": "fire",
+          "score": 0.3702
+        },
+        {
+          "label": "建筑物",
+          "score": 0.3678
+        },
+        {
+          "label": "police",
+          "score": 0.3678
+        },
+        {
+          "label": "烟雾",
+          "score": 0.3625
         },
         {
           "label": "a protest",
-          "score": 0.3369
+          "score": 0.3625
+        },
+        {
+          "label": "爆炸",
+          "score": 0.3619
+        },
+        {
+          "label": "抗议活动",
+          "score": 0.3578
+        },
+        {
+          "label": "屏幕文字",
+          "score": 0.3577
+        },
+        {
+          "label": "a road",
+          "score": 0.3526
+        },
+        {
+          "label": "a speech",
+          "score": 0.3472
         },
         {
           "label": "a map",
-          "score": 0.3349
+          "score": 0.3467
         },
         {
-          "label": "道路",
-          "score": 0.3344
+          "label": "basketball",
+          "score": 0.3455
+        },
+        {
+          "label": "a crowd",
+          "score": 0.345
         }
       ]
     },
     {
-      "id": "DW_20260923_010000_DW_News",
-      "title": "president trump easing us of tension over his calls to acquire the sent me a ton of mis danish territory in the arctic.",
-      "source": "DW",
+      "id": "RUSSIA24_20260923_030700_Ekonomika",
+      "title": "however, he was not so compassionate towards the victims of the armed forces of ukraine, as european journalists found out, macron and other eu leaders flew to the general assembly…",
+      "source": "RUSSIA24",
       "date": "2026-09-23T00:00:00Z",
-      "image_url": "https://archive.org/services/img/DW_20260923_010000_DW_News/full/pct:200/0/default.jpg",
-      "replay_url": "https://archive.org/details/DW_20260923_010000_DW_News",
-      "description_zh": "画面候选标签：running、奔跑、a mountain、soccer、a road、basketball、the countryside、an animal、a horse、乡村、fire、a river",
-      "description_en": "Visual candidate labels: running, 奔跑, a mountain, soccer, a road, basketball, the countryside, an animal, a horse, 乡村, fire, a river",
-      "keywords": "running,奔跑,a mountain,soccer,a road,basketball,the countryside,an animal,a horse,乡村,fire,a river,a beach,a sports match,山,an explosion,人群,人,police,text on screen",
+      "image_url": "https://archive.org/services/img/RUSSIA24_20260923_030700_Ekonomika/full/pct:200/0/default.jpg",
+      "replay_url": "https://archive.org/details/RUSSIA24_20260923_030700_Ekonomika",
+      "description_zh": "画面候选标签：a news studio、a protest、text on screen、a speech、新闻演播室、a flag、抗议活动、an explosion、屏幕文字、police、smoke、fire",
+      "description_en": "Visual candidate labels: a news studio, a protest, text on screen, a speech, 新闻演播室, a flag, 抗议活动, an explosion, 屏幕文字, police, smoke, fire",
+      "keywords": "a news studio,a protest,text on screen,a speech,新闻演播室,a flag,抗议活动,an explosion,屏幕文字,police,smoke,fire,a river,a mountain,military,旗帜,a forest,a sports match,a road,a car",
       "visual_labels": [
         {
-          "label": "running",
-          "score": 0.3977
+          "label": "a news studio",
+          "score": 0.4008
         },
         {
-          "label": "奔跑",
-          "score": 0.3787
-        },
-        {
-          "label": "a mountain",
-          "score": 0.3786
-        },
-        {
-          "label": "soccer",
-          "score": 0.378
-        },
-        {
-          "label": "a road",
-          "score": 0.3774
-        },
-        {
-          "label": "basketball",
-          "score": 0.3748
-        },
-        {
-          "label": "the countryside",
-          "score": 0.373
-        },
-        {
-          "label": "an animal",
-          "score": 0.3687
-        },
-        {
-          "label": "a horse",
-          "score": 0.3673
-        },
-        {
-          "label": "乡村",
-          "score": 0.3604
-        },
-        {
-          "label": "fire",
-          "score": 0.3595
-        },
-        {
-          "label": "a river",
-          "score": 0.3588
-        },
-        {
-          "label": "a beach",
-          "score": 0.3567
-        },
-        {
-          "label": "a sports match",
-          "score": 0.3547
-        },
-        {
-          "label": "山",
-          "score": 0.3531
-        },
-        {
-          "label": "an explosion",
-          "score": 0.3528
-        },
-        {
-          "label": "人群",
-          "score": 0.3503
-        },
-        {
-          "label": "人",
-          "score": 0.3485
-        },
-        {
-          "label": "police",
-          "score": 0.346
+          "label": "a protest",
+          "score": 0.383
         },
         {
           "label": "text on screen",
-          "score": 0.346
+          "score": 0.383
+        },
+        {
+          "label": "a speech",
+          "score": 0.3626
+        },
+        {
+          "label": "新闻演播室",
+          "score": 0.3611
+        },
+        {
+          "label": "a flag",
+          "score": 0.3559
+        },
+        {
+          "label": "抗议活动",
+          "score": 0.3539
+        },
+        {
+          "label": "an explosion",
+          "score": 0.3521
+        },
+        {
+          "label": "屏幕文字",
+          "score": 0.3459
+        },
+        {
+          "label": "police",
+          "score": 0.3441
+        },
+        {
+          "label": "smoke",
+          "score": 0.3421
+        },
+        {
+          "label": "fire",
+          "score": 0.3415
+        },
+        {
+          "label": "a river",
+          "score": 0.3373
+        },
+        {
+          "label": "a mountain",
+          "score": 0.3333
+        },
+        {
+          "label": "military",
+          "score": 0.3294
+        },
+        {
+          "label": "旗帜",
+          "score": 0.3279
+        },
+        {
+          "label": "a forest",
+          "score": 0.325
+        },
+        {
+          "label": "a sports match",
+          "score": 0.3243
+        },
+        {
+          "label": "a road",
+          "score": 0.3242
+        },
+        {
+          "label": "a car",
+          "score": 0.3241
         }
       ]
     }
