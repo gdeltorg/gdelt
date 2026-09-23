@@ -1,9 +1,102 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-23T11:28:31+00:00",
+  "generated_at": "2026-09-23T17:28:11+00:00",
   "model": "OFA-Sys/chinese-clip-vit-base-patch16",
   "records": 3,
   "items": [
+    {
+      "id": "BBCPERSIAN_20260923_060000",
+      "title": "see, he himself reported that the supreme court has confirmed it, and after the confirmation of the supreme court, unfortunately, there is a possibility of the sentence being carri…",
+      "source": "BBCPERSIAN",
+      "date": "2026-09-23T00:00:00Z",
+      "image_url": "https://archive.org/services/img/BBCPERSIAN_20260923_060000/full/pct:200/0/default.jpg",
+      "replay_url": "https://archive.org/details/BBCPERSIAN_20260923_060000",
+      "description_zh": "画面候选标签：a news studio、新闻演播室、a map、text on screen、a river、a protest、fire、抗议活动、a flag、地图、a road、屏幕文字",
+      "description_en": "Visual candidate labels: a news studio, 新闻演播室, a map, text on screen, a river, a protest, fire, 抗议活动, a flag, 地图, a road, 屏幕文字",
+      "keywords": "a news studio,新闻演播室,a map,text on screen,a river,a protest,fire,抗议活动,a flag,地图,a road,屏幕文字,an animal,a forest,a mountain,the countryside,a speech,a sports match,an airplane,演讲",
+      "visual_labels": [
+        {
+          "label": "a news studio",
+          "score": 0.4461
+        },
+        {
+          "label": "新闻演播室",
+          "score": 0.4148
+        },
+        {
+          "label": "a map",
+          "score": 0.4135
+        },
+        {
+          "label": "text on screen",
+          "score": 0.4037
+        },
+        {
+          "label": "a river",
+          "score": 0.3789
+        },
+        {
+          "label": "a protest",
+          "score": 0.3774
+        },
+        {
+          "label": "fire",
+          "score": 0.3772
+        },
+        {
+          "label": "抗议活动",
+          "score": 0.3747
+        },
+        {
+          "label": "a flag",
+          "score": 0.3731
+        },
+        {
+          "label": "地图",
+          "score": 0.3709
+        },
+        {
+          "label": "a road",
+          "score": 0.3704
+        },
+        {
+          "label": "屏幕文字",
+          "score": 0.3672
+        },
+        {
+          "label": "an animal",
+          "score": 0.3664
+        },
+        {
+          "label": "a forest",
+          "score": 0.364
+        },
+        {
+          "label": "a mountain",
+          "score": 0.3618
+        },
+        {
+          "label": "the countryside",
+          "score": 0.3596
+        },
+        {
+          "label": "a speech",
+          "score": 0.3595
+        },
+        {
+          "label": "a sports match",
+          "score": 0.3586
+        },
+        {
+          "label": "an airplane",
+          "score": 0.3579
+        },
+        {
+          "label": "演讲",
+          "score": 0.3506
+        }
+      ]
+    },
     {
       "id": "ALJAZ_20260923_010000",
       "title": "so the 81st un general assembly presidents, donald trump held high level tasks with dcc air leaders and the president of took a focusing on regional security and efforts to find a…",
@@ -187,99 +280,6 @@
         {
           "label": "a crowd",
           "score": 0.345
-        }
-      ]
-    },
-    {
-      "id": "TVPINFO_20260923_044000_Prognoza_pogody",
-      "title": "american protocol states that generally the president greets guests only in the white house, very rarely does he go out to meet them at the airport, as so far, donald trump has onl…",
-      "source": "TVPINFO",
-      "date": "2026-09-23T00:00:00Z",
-      "image_url": "https://archive.org/services/img/TVPINFO_20260923_044000_Prognoza_pogody/full/pct:200/0/default.jpg",
-      "replay_url": "https://archive.org/details/TVPINFO_20260923_044000_Prognoza_pogody",
-      "description_zh": "画面候选标签：a news studio、text on screen、新闻演播室、a protest、抗议活动、an explosion、police、a flag、a speech、屏幕文字、a river、smoke",
-      "description_en": "Visual candidate labels: a news studio, text on screen, 新闻演播室, a protest, 抗议活动, an explosion, police, a flag, a speech, 屏幕文字, a river, smoke",
-      "keywords": "a news studio,text on screen,新闻演播室,a protest,抗议活动,an explosion,police,a flag,a speech,屏幕文字,a river,smoke,military,a horse,旗帜,fire,a mountain,a truck,a car,a map",
-      "visual_labels": [
-        {
-          "label": "a news studio",
-          "score": 0.4106
-        },
-        {
-          "label": "text on screen",
-          "score": 0.3826
-        },
-        {
-          "label": "新闻演播室",
-          "score": 0.3732
-        },
-        {
-          "label": "a protest",
-          "score": 0.3714
-        },
-        {
-          "label": "抗议活动",
-          "score": 0.3541
-        },
-        {
-          "label": "an explosion",
-          "score": 0.3531
-        },
-        {
-          "label": "police",
-          "score": 0.3518
-        },
-        {
-          "label": "a flag",
-          "score": 0.3501
-        },
-        {
-          "label": "a speech",
-          "score": 0.3474
-        },
-        {
-          "label": "屏幕文字",
-          "score": 0.3435
-        },
-        {
-          "label": "a river",
-          "score": 0.3429
-        },
-        {
-          "label": "smoke",
-          "score": 0.3411
-        },
-        {
-          "label": "military",
-          "score": 0.3373
-        },
-        {
-          "label": "a horse",
-          "score": 0.332
-        },
-        {
-          "label": "旗帜",
-          "score": 0.3309
-        },
-        {
-          "label": "fire",
-          "score": 0.3303
-        },
-        {
-          "label": "a mountain",
-          "score": 0.3295
-        },
-        {
-          "label": "a truck",
-          "score": 0.3272
-        },
-        {
-          "label": "a car",
-          "score": 0.3247
-        },
-        {
-          "label": "a map",
-          "score": 0.3224
         }
       ]
     }
