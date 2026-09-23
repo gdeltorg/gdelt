@@ -7,13 +7,16 @@ on:
       - '.github/workflows/ios-simulator-check.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   simulator:
     runs-on: macos-15
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
       - name: Report Apple tooling
         run: |
           sw_vers
@@ -26,6 +29,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          mkdir -p ios-simulator
           runtime="$(xcrun simctl list runtimes | awk '/iOS/ {print $NF}' | tail -n 1)"
           device_type="$(xcrun simctl list devicetypes | awk -F '[()]' '/iPhone 17 Pro \(/ {print $2; exit}')"
           if [[ -z "$runtime" || -z "$device_type" ]]; then
@@ -39,6 +43,61 @@ jobs:
           xcrun simctl bootstatus "$device_id" -b
           xcrun simctl list devices | tee "$RUNNER_TEMP/simulator-devices.txt"
           xcrun simctl diagnose --no-archive --output="$RUNNER_TEMP/simulator-diagnose"
+          {
+            printf '{"name":"Boot and bootstatus","status":"passed","details":"%s"}\n' "$device_id"
+            printf '{"name":"System environment","status":"%s","details":"%s"}\n' \
+              "$([ "$(xcrun simctl spawn "$device_id" sw_vers >/dev/null 2>&1; echo $?)" -eq 0 ] && echo passed || echo failed)" \
+              "$(xcrun simctl getenv "$device_id" HOME)"
+            printf '{"name":"Screenshot capture","status":"%s","details":"simctl io screenshot"}\n' \
+              "$([ "$(xcrun simctl io "$device_id" screenshot "$RUNNER_TEMP/simulator-screen.png" >/dev/null 2>&1; echo $?)" -eq 0 ] && echo passed || echo failed)"
+            printf '{"name":"Appearance control","status":"%s","details":"dark then light"}\n' \
+              "$([ "$(xcrun simctl ui "$device_id" appearance dark >/dev/null 2>&1; xcrun simctl ui "$device_id" appearance light >/dev/null 2>&1; echo $?)" -eq 0 ] && echo passed || echo failed)"
+            printf '{"name":"Location control","status":"%s","details":"set then clear"}\n' \
+              "$([ "$(xcrun simctl location "$device_id" 37.3317,-122.0307 >/dev/null 2>&1; xcrun simctl location "$device_id" clear >/dev/null 2>&1; echo $?)" -eq 0 ] && echo passed || echo failed)"
+            printf '{"name":"Privacy and permissions API","status":"%s","details":"simctl privacy help available"}\n' \
+              "$([ "$(xcrun simctl privacy help >/dev/null 2>&1; echo $?)" -eq 0 ] && echo passed || echo failed)"
+            printf '{"name":"Diagnostics","status":"passed","details":"simctl diagnose"}\n'
+          } > "$RUNNER_TEMP/simulator-tests.ndjson"
+          python3 - "$RUNNER_TEMP/simulator-tests.ndjson" "$GITHUB_WORKSPACE/ios-simulator/report.json" "$runtime" <<'PY'
+          import json
+          import pathlib
+          import sys
+          tests = [json.loads(line) for line in pathlib.Path(sys.argv[1]).read_text().splitlines()]
+          report = {
+              "generated_at": __import__("datetime").datetime.now(__import__("datetime").timezone.utc).isoformat(),
+              "runtime": sys.argv[3],
+              "device": "iPhone 17 Pro",
+              "scope": "Apple Simulator and simctl system capabilities; no app-specific or account flows",
+              "tests": tests,
+          }
+          pathlib.Path(sys.argv[2]).write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
+          PY
+          # The runtime is passed separately so the report contains the exact
+          # identifier selected by simctl rather than a temporary filename.
+
+      - name: Prepare Simulator report page
+        if: always()
+        run: |
+          mkdir -p ios-simulator
+          if [ ! -f ios-simulator/report.json ]; then
+            cat > ios-simulator/report.json <<'JSON'
+          {"generated_at":null,"device":"iPhone 17 Pro","scope":"The Simulator job did not reach report generation.","tests":[]}
+          JSON
+          fi
+
+      - name: Publish latest Simulator report
+        if: always()
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ios-simulator/report.json
+          if git diff --cached --quiet; then
+            echo "Simulator report is unchanged."
+          else
+            git commit -m "Update iOS Simulator test report"
+            git push
+          fi
 
       - name: Upload Simulator diagnostics
         if: always()
@@ -48,4 +107,6 @@ jobs:
           path: |
             ${{ runner.temp }}/simulator-devices.txt
             ${{ runner.temp }}/simulator-diagnose
+            ${{ runner.temp }}/simulator-screen.png
+            ${{ runner.temp }}/simulator-tests.ndjson
           if-no-files-found: ignore

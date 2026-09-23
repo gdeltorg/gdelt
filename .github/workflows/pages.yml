@@ -8,6 +8,7 @@ on:
       - '*.html'
       - 'styles.css'
       - 'data/**'
+      - 'ios-simulator/**'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 

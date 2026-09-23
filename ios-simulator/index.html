@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GDELT iOS Simulator Test Report</title>
+  <style>
+    body { font: 16px system-ui, sans-serif; margin: 2rem auto; max-width: 960px; padding: 0 1rem; color: #172033; }
+    .meta { color: #5d687d; }
+    table { border-collapse: collapse; width: 100%; margin-top: 1.5rem; }
+    th, td { border-bottom: 1px solid #dfe3ea; padding: .7rem; text-align: left; vertical-align: top; }
+    .passed { color: #087f46; font-weight: 700; }
+    .failed { color: #b42318; font-weight: 700; }
+    code { word-break: break-word; }
+  </style>
+</head>
+<body>
+  <h1>iOS Simulator Test Report</h1>
+  <p class="meta">Apple official Simulator tooling, executed on GitHub Actions with an iPhone 17 Pro device profile.</p>
+  <p id="summary">Loading latest report…</p>
+  <table>
+    <thead><tr><th>Capability</th><th>Status</th><th>Details</th></tr></thead>
+    <tbody id="tests"></tbody>
+  </table>
+  <p class="meta">Scope: automated Simulator and <code>xcrun simctl</code> system capabilities. App-specific UI, Apple account, SMS, CAPTCHA, and production service flows are not tested by this report.</p>
+  <script>
+    fetch("report.json").then(r => r.json()).then(report => {
+      const tests = report.tests || [];
+      const passed = tests.filter(t => t.status === "passed").length;
+      document.getElementById("summary").textContent =
+        `${passed}/${tests.length} checks passed · ${report.device} · ${report.generated_at || "not generated"}`;
+      document.getElementById("tests").innerHTML = tests.map(t =>
+        `<tr><td>${escapeHtml(t.name)}</td><td class="${escapeHtml(t.status)}">${escapeHtml(t.status)}</td><td><code>${escapeHtml(t.details || "")}</code></td></tr>`
+      ).join("");
+    }).catch(error => {
+      document.getElementById("summary").textContent = `Report unavailable: ${error}`;
+    });
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]));
+    }
+  </script>
+</body>
+</html>
