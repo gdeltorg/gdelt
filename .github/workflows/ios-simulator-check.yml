@@ -26,8 +26,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          runtime="$(xcrun simctl list runtimes available -j | jq -r '.runtimes[] | select(.identifier | contains("iOS")) | .identifier' | head -n 1)"
-          device_type="$(xcrun simctl list devicetypes available -j | jq -r '.devicetypes[] | select(.name | startswith("iPhone")) | .identifier' | head -n 1)"
+          runtime="$(xcrun simctl list runtimes | awk '/iOS/ {print $NF}' | tail -n 1)"
+          device_type="$(xcrun simctl list devicetypes | awk -F '[()]' '/iPhone 17 Pro \(/ {print $2; exit}')"
           if [[ -z "$runtime" || -z "$device_type" ]]; then
             echo "No available iOS runtime or iPhone device type was found." >&2
             exit 1
