@@ -1,7 +1,287 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-24T00:35:57+00:00",
+  "generated_at": "2026-09-24T06:34:54+00:00",
   "model": "OFA-Sys/chinese-clip-vit-base-patch16",
-  "records": 0,
-  "items": []
+  "records": 3,
+  "items": [
+    {
+      "id": "ALJAZ_20260924_010000",
+      "title": "it has more the floor between us president donald trump and china as president choosing take was on full display as the chinese president arrived here",
+      "source": "ALJAZ",
+      "date": "2026-09-24T00:00:00Z",
+      "image_url": "https://archive.org/services/img/ALJAZ_20260924_010000/full/pct:200/0/default.jpg",
+      "replay_url": "https://archive.org/details/ALJAZ_20260924_010000",
+      "description_zh": "画面候选标签：a mountain、a river、smoke、fire、an explosion、a beach、a map、a forest、山、a horse、an airplane、a ship",
+      "description_en": "Visual candidate labels: a mountain, a river, smoke, fire, an explosion, a beach, a map, a forest, 山, a horse, an airplane, a ship",
+      "keywords": "a mountain,a river,smoke,fire,an explosion,a beach,a map,a forest,山,a horse,an airplane,a ship,flooding,a road,河流,人群,text on screen,地图,旗帜,森林",
+      "visual_labels": [
+        {
+          "label": "a mountain",
+          "score": 0.3985
+        },
+        {
+          "label": "a river",
+          "score": 0.3714
+        },
+        {
+          "label": "smoke",
+          "score": 0.3709
+        },
+        {
+          "label": "fire",
+          "score": 0.3698
+        },
+        {
+          "label": "an explosion",
+          "score": 0.3684
+        },
+        {
+          "label": "a beach",
+          "score": 0.3659
+        },
+        {
+          "label": "a map",
+          "score": 0.3625
+        },
+        {
+          "label": "a forest",
+          "score": 0.3621
+        },
+        {
+          "label": "山",
+          "score": 0.3618
+        },
+        {
+          "label": "a horse",
+          "score": 0.3591
+        },
+        {
+          "label": "an airplane",
+          "score": 0.3589
+        },
+        {
+          "label": "a ship",
+          "score": 0.3587
+        },
+        {
+          "label": "flooding",
+          "score": 0.3553
+        },
+        {
+          "label": "a road",
+          "score": 0.3513
+        },
+        {
+          "label": "河流",
+          "score": 0.3507
+        },
+        {
+          "label": "人群",
+          "score": 0.3503
+        },
+        {
+          "label": "text on screen",
+          "score": 0.349
+        },
+        {
+          "label": "地图",
+          "score": 0.3486
+        },
+        {
+          "label": "旗帜",
+          "score": 0.3484
+        },
+        {
+          "label": "森林",
+          "score": 0.3483
+        }
+      ]
+    },
+    {
+      "id": "BBCNEWS_20260924_020000_Newsday",
+      "title": "iran's president president delivers a defiant speech speech at the un general assembly, assembly, saying while he is ready ready for a diplomatic end to the the war, his country wi…",
+      "source": "BBCNEWS",
+      "date": "2026-09-24T00:00:00Z",
+      "image_url": "https://archive.org/services/img/BBCNEWS_20260924_020000_Newsday/full/pct:200/0/default.jpg",
+      "replay_url": "https://archive.org/details/BBCNEWS_20260924_020000_Newsday",
+      "description_zh": "画面候选标签：a news studio、a building、新闻演播室、a city street、text on screen、an explosion、城市街道、烟雾、fire、a protest、建筑物、爆炸",
+      "description_en": "Visual candidate labels: a news studio, a building, 新闻演播室, a city street, text on screen, an explosion, 城市街道, 烟雾, fire, a protest, 建筑物, 爆炸",
+      "keywords": "a news studio,a building,新闻演播室,a city street,text on screen,an explosion,城市街道,烟雾,fire,a protest,建筑物,爆炸,police,抗议活动,屏幕文字,a road,a flag,演讲,a river,a map",
+      "visual_labels": [
+        {
+          "label": "a news studio",
+          "score": 0.4851
+        },
+        {
+          "label": "a building",
+          "score": 0.4246
+        },
+        {
+          "label": "新闻演播室",
+          "score": 0.4236
+        },
+        {
+          "label": "a city street",
+          "score": 0.3929
+        },
+        {
+          "label": "text on screen",
+          "score": 0.3826
+        },
+        {
+          "label": "an explosion",
+          "score": 0.3814
+        },
+        {
+          "label": "城市街道",
+          "score": 0.381
+        },
+        {
+          "label": "烟雾",
+          "score": 0.3769
+        },
+        {
+          "label": "fire",
+          "score": 0.3755
+        },
+        {
+          "label": "a protest",
+          "score": 0.3734
+        },
+        {
+          "label": "建筑物",
+          "score": 0.3719
+        },
+        {
+          "label": "爆炸",
+          "score": 0.3708
+        },
+        {
+          "label": "police",
+          "score": 0.3672
+        },
+        {
+          "label": "抗议活动",
+          "score": 0.3659
+        },
+        {
+          "label": "屏幕文字",
+          "score": 0.3634
+        },
+        {
+          "label": "a road",
+          "score": 0.3574
+        },
+        {
+          "label": "a flag",
+          "score": 0.352
+        },
+        {
+          "label": "演讲",
+          "score": 0.3514
+        },
+        {
+          "label": "a river",
+          "score": 0.3512
+        },
+        {
+          "label": "a map",
+          "score": 0.3508
+        }
+      ]
+    },
+    {
+      "id": "CSPAN3_20260924_021600_Sen._Duckworth_D-IL_Speaks_on_Foreign_Relations_Ahead_of_Pres._Xis...",
+      "title": "foreign policy at a discussion held ahead of chinese president xi jinping's summit with president trump later this week in washington, d.c.",
+      "source": "CSPAN3",
+      "date": "2026-09-24T00:00:00Z",
+      "image_url": "https://archive.org/services/img/CSPAN3_20260924_021600_Sen._Duckworth_D-IL_Speaks_on_Foreign_Relations_Ahead_of_Pres._Xis.../full/pct:200/0/default.jpg",
+      "replay_url": "https://archive.org/details/CSPAN3_20260924_021600_Sen._Duckworth_D-IL_Speaks_on_Foreign_Relations_Ahead_of_Pres._Xis...",
+      "description_zh": "画面候选标签：a news studio、a protest、text on screen、a flag、flooding、an explosion、新闻演播室、a building、a speech、抗议活动、an animal、a river",
+      "description_en": "Visual candidate labels: a news studio, a protest, text on screen, a flag, flooding, an explosion, 新闻演播室, a building, a speech, 抗议活动, an animal, a river",
+      "keywords": "a news studio,a protest,text on screen,a flag,flooding,an explosion,新闻演播室,a building,a speech,抗议活动,an animal,a river,a mountain,屏幕文字,fire,a map,演讲,a city street,a crowd,a road",
+      "visual_labels": [
+        {
+          "label": "a news studio",
+          "score": 0.4101
+        },
+        {
+          "label": "a protest",
+          "score": 0.3955
+        },
+        {
+          "label": "text on screen",
+          "score": 0.3854
+        },
+        {
+          "label": "a flag",
+          "score": 0.385
+        },
+        {
+          "label": "flooding",
+          "score": 0.3779
+        },
+        {
+          "label": "an explosion",
+          "score": 0.3762
+        },
+        {
+          "label": "新闻演播室",
+          "score": 0.3699
+        },
+        {
+          "label": "a building",
+          "score": 0.3616
+        },
+        {
+          "label": "a speech",
+          "score": 0.3614
+        },
+        {
+          "label": "抗议活动",
+          "score": 0.3502
+        },
+        {
+          "label": "an animal",
+          "score": 0.3482
+        },
+        {
+          "label": "a river",
+          "score": 0.3383
+        },
+        {
+          "label": "a mountain",
+          "score": 0.338
+        },
+        {
+          "label": "屏幕文字",
+          "score": 0.3375
+        },
+        {
+          "label": "fire",
+          "score": 0.3343
+        },
+        {
+          "label": "a map",
+          "score": 0.3341
+        },
+        {
+          "label": "演讲",
+          "score": 0.3302
+        },
+        {
+          "label": "a city street",
+          "score": 0.3302
+        },
+        {
+          "label": "a crowd",
+          "score": 0.3294
+        },
+        {
+          "label": "a road",
+          "score": 0.329
+        }
+      ]
+    }
+  ]
 }
