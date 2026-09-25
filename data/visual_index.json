@@ -1,99 +1,285 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-25T00:36:40+00:00",
+  "generated_at": "2026-09-25T06:35:22+00:00",
   "model": "OFA-Sys/chinese-clip-vit-base-patch16",
-  "records": 1,
+  "records": 3,
   "items": [
     {
-      "id": "DW_20260925_000000_DW_News",
-      "title": "our top stories, us president donald trump has welcome to jim ping to the white house and held what he called the truly great friendship.",
-      "source": "DW",
+      "id": "MSNOW_20260925_000000_All_in_With_Chris_Hayes",
+      "title": "this week, simone and eugene dissect the president's press ban, and florida democratic senate nominee angie nixon joins them from the campaign trail.",
+      "source": "MSNOW",
       "date": "2026-09-25T00:00:00Z",
-      "image_url": "https://archive.org/services/img/DW_20260925_000000_DW_News/full/pct:200/0/default.jpg",
-      "replay_url": "https://archive.org/details/DW_20260925_000000_DW_News",
-      "description_zh": "画面候选标签：text on screen、a speech、a flag、fire、新闻演播室、屏幕文字、basketball、烟雾、爆炸、a news studio、an explosion、soccer",
-      "description_en": "Visual candidate labels: text on screen, a speech, a flag, fire, 新闻演播室, 屏幕文字, basketball, 烟雾, 爆炸, a news studio, an explosion, soccer",
-      "keywords": "text on screen,a speech,a flag,fire,新闻演播室,屏幕文字,basketball,烟雾,爆炸,a news studio,an explosion,soccer,a map,人群,旗帜,smoke,a building,抗议活动,a forest,police",
+      "image_url": "https://archive.org/services/img/MSNOW_20260925_000000_All_in_With_Chris_Hayes/full/pct:200/0/default.jpg",
+      "replay_url": "https://archive.org/details/MSNOW_20260925_000000_All_in_With_Chris_Hayes",
+      "description_zh": "画面候选标签：a forest、a news studio、a protest、an explosion、fire、running、the countryside、a road、police、抗议活动、smoke、a mountain",
+      "description_en": "Visual candidate labels: a forest, a news studio, a protest, an explosion, fire, running, the countryside, a road, police, 抗议活动, smoke, a mountain",
+      "keywords": "a forest,a news studio,a protest,an explosion,fire,running,the countryside,a road,police,抗议活动,smoke,a mountain,text on screen,an animal,a truck,a sports match,military,a crowd,flooding,屏幕文字",
       "visual_labels": [
         {
-          "label": "text on screen",
-          "score": 0.3823
-        },
-        {
-          "label": "a speech",
-          "score": 0.3714
-        },
-        {
-          "label": "a flag",
-          "score": 0.3691
-        },
-        {
-          "label": "fire",
-          "score": 0.3684
-        },
-        {
-          "label": "新闻演播室",
-          "score": 0.3641
-        },
-        {
-          "label": "屏幕文字",
-          "score": 0.3634
-        },
-        {
-          "label": "basketball",
-          "score": 0.3608
-        },
-        {
-          "label": "烟雾",
-          "score": 0.3577
-        },
-        {
-          "label": "爆炸",
-          "score": 0.3565
+          "label": "a forest",
+          "score": 0.4176
         },
         {
           "label": "a news studio",
-          "score": 0.3565
+          "score": 0.4076
+        },
+        {
+          "label": "a protest",
+          "score": 0.4012
         },
         {
           "label": "an explosion",
-          "score": 0.3555
+          "score": 0.3968
         },
         {
-          "label": "soccer",
-          "score": 0.3547
+          "label": "fire",
+          "score": 0.3952
         },
         {
-          "label": "a map",
-          "score": 0.353
+          "label": "running",
+          "score": 0.3919
         },
         {
-          "label": "人群",
-          "score": 0.3506
+          "label": "the countryside",
+          "score": 0.3891
         },
         {
-          "label": "旗帜",
-          "score": 0.3499
-        },
-        {
-          "label": "smoke",
-          "score": 0.3498
-        },
-        {
-          "label": "a building",
-          "score": 0.3487
-        },
-        {
-          "label": "抗议活动",
-          "score": 0.3479
-        },
-        {
-          "label": "a forest",
-          "score": 0.3476
+          "label": "a road",
+          "score": 0.3889
         },
         {
           "label": "police",
-          "score": 0.3469
+          "score": 0.3865
+        },
+        {
+          "label": "抗议活动",
+          "score": 0.3859
+        },
+        {
+          "label": "smoke",
+          "score": 0.381
+        },
+        {
+          "label": "a mountain",
+          "score": 0.3755
+        },
+        {
+          "label": "text on screen",
+          "score": 0.3754
+        },
+        {
+          "label": "an animal",
+          "score": 0.373
+        },
+        {
+          "label": "a truck",
+          "score": 0.3713
+        },
+        {
+          "label": "a sports match",
+          "score": 0.3708
+        },
+        {
+          "label": "military",
+          "score": 0.3699
+        },
+        {
+          "label": "a crowd",
+          "score": 0.3691
+        },
+        {
+          "label": "flooding",
+          "score": 0.366
+        },
+        {
+          "label": "屏幕文字",
+          "score": 0.3659
+        }
+      ]
+    },
+    {
+      "id": "MSNOW_20260925_030000_The_11th_Hour_With_Ali_Velshi",
+      "title": ">> i'm going to be following up on some of the stuff you were discussing about this on again, off again white house ban.",
+      "source": "MSNOW",
+      "date": "2026-09-25T00:00:00Z",
+      "image_url": "https://archive.org/services/img/MSNOW_20260925_030000_The_11th_Hour_With_Ali_Velshi/full/pct:200/0/default.jpg",
+      "replay_url": "https://archive.org/details/MSNOW_20260925_030000_The_11th_Hour_With_Ali_Velshi",
+      "description_zh": "画面候选标签：抗议活动、a protest、a crowd、a flag、text on screen、a news studio、an explosion、police、人群、屏幕文字、a speech、a map",
+      "description_en": "Visual candidate labels: 抗议活动, a protest, a crowd, a flag, text on screen, a news studio, an explosion, police, 人群, 屏幕文字, a speech, a map",
+      "keywords": "抗议活动,a protest,a crowd,a flag,text on screen,a news studio,an explosion,police,人群,屏幕文字,a speech,a map,a train,旗帜,a city street,fire,a road,新闻演播室,a car,soccer",
+      "visual_labels": [
+        {
+          "label": "抗议活动",
+          "score": 0.4366
+        },
+        {
+          "label": "a protest",
+          "score": 0.4289
+        },
+        {
+          "label": "a crowd",
+          "score": 0.4053
+        },
+        {
+          "label": "a flag",
+          "score": 0.4039
+        },
+        {
+          "label": "text on screen",
+          "score": 0.3941
+        },
+        {
+          "label": "a news studio",
+          "score": 0.3912
+        },
+        {
+          "label": "an explosion",
+          "score": 0.3839
+        },
+        {
+          "label": "police",
+          "score": 0.3725
+        },
+        {
+          "label": "人群",
+          "score": 0.3695
+        },
+        {
+          "label": "屏幕文字",
+          "score": 0.3669
+        },
+        {
+          "label": "a speech",
+          "score": 0.3649
+        },
+        {
+          "label": "a map",
+          "score": 0.3641
+        },
+        {
+          "label": "a train",
+          "score": 0.364
+        },
+        {
+          "label": "旗帜",
+          "score": 0.3639
+        },
+        {
+          "label": "a city street",
+          "score": 0.363
+        },
+        {
+          "label": "fire",
+          "score": 0.3622
+        },
+        {
+          "label": "a road",
+          "score": 0.3598
+        },
+        {
+          "label": "新闻演播室",
+          "score": 0.3565
+        },
+        {
+          "label": "a car",
+          "score": 0.3536
+        },
+        {
+          "label": "soccer",
+          "score": 0.3519
+        }
+      ]
+    },
+    {
+      "id": "RT_20260925_014500_Lumumbas_Africa",
+      "title": "they, in campbell county in the republic of kenya, we'll continue our conversations regarding issues affecting the mazda continent of africa.",
+      "source": "RT",
+      "date": "2026-09-25T00:00:00Z",
+      "image_url": "https://archive.org/services/img/RT_20260925_014500_Lumumbas_Africa/full/pct:200/0/default.jpg",
+      "replay_url": "https://archive.org/details/RT_20260925_014500_Lumumbas_Africa",
+      "description_zh": "画面候选标签：新闻演播室、a speech、a news studio、text on screen、a protest、smoke、屏幕文字、演讲、an explosion、抗议活动、a flag、a river",
+      "description_en": "Visual candidate labels: 新闻演播室, a speech, a news studio, text on screen, a protest, smoke, 屏幕文字, 演讲, an explosion, 抗议活动, a flag, a river",
+      "keywords": "新闻演播室,a speech,a news studio,text on screen,a protest,smoke,屏幕文字,演讲,an explosion,抗议活动,a flag,a river,fire,flooding,a building,烟雾,a road,爆炸,soccer,a sports match",
+      "visual_labels": [
+        {
+          "label": "新闻演播室",
+          "score": 0.4383
+        },
+        {
+          "label": "a speech",
+          "score": 0.4314
+        },
+        {
+          "label": "a news studio",
+          "score": 0.4265
+        },
+        {
+          "label": "text on screen",
+          "score": 0.3983
+        },
+        {
+          "label": "a protest",
+          "score": 0.3871
+        },
+        {
+          "label": "smoke",
+          "score": 0.3818
+        },
+        {
+          "label": "屏幕文字",
+          "score": 0.3796
+        },
+        {
+          "label": "演讲",
+          "score": 0.376
+        },
+        {
+          "label": "an explosion",
+          "score": 0.3662
+        },
+        {
+          "label": "抗议活动",
+          "score": 0.3557
+        },
+        {
+          "label": "a flag",
+          "score": 0.3509
+        },
+        {
+          "label": "a river",
+          "score": 0.3508
+        },
+        {
+          "label": "fire",
+          "score": 0.3478
+        },
+        {
+          "label": "flooding",
+          "score": 0.3471
+        },
+        {
+          "label": "a building",
+          "score": 0.347
+        },
+        {
+          "label": "烟雾",
+          "score": 0.3454
+        },
+        {
+          "label": "a road",
+          "score": 0.3453
+        },
+        {
+          "label": "爆炸",
+          "score": 0.3444
+        },
+        {
+          "label": "soccer",
+          "score": 0.3416
+        },
+        {
+          "label": "a sports match",
+          "score": 0.3399
         }
       ]
     }
