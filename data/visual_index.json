@@ -1,285 +1,99 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-24T17:27:47+00:00",
+  "generated_at": "2026-09-25T00:36:40+00:00",
   "model": "OFA-Sys/chinese-clip-vit-base-patch16",
-  "records": 3,
+  "records": 1,
   "items": [
     {
-      "id": "BBCNEWS_20260924_140000_Verified_Live",
-      "title": "also this hour, the palestinian palestinian president, mahmoud abbas, abbas, is about to address the un un general assembly by video feed feed for the second year running, running…",
-      "source": "BBCNEWS",
-      "date": "2026-09-24T00:00:00Z",
-      "image_url": "https://archive.org/services/img/BBCNEWS_20260924_140000_Verified_Live/full/pct:200/0/default.jpg",
-      "replay_url": "https://archive.org/details/BBCNEWS_20260924_140000_Verified_Live",
-      "description_zh": "画面候选标签：a news studio、a speech、a protest、a flag、an explosion、text on screen、新闻演播室、抗议活动、military、屏幕文字、a mountain、a building",
-      "description_en": "Visual candidate labels: a news studio, a speech, a protest, a flag, an explosion, text on screen, 新闻演播室, 抗议活动, military, 屏幕文字, a mountain, a building",
-      "keywords": "a news studio,a speech,a protest,a flag,an explosion,text on screen,新闻演播室,抗议活动,military,屏幕文字,a mountain,a building,a ship,演讲,police,a map,a road,a beach,flooding,a crowd",
+      "id": "DW_20260925_000000_DW_News",
+      "title": "our top stories, us president donald trump has welcome to jim ping to the white house and held what he called the truly great friendship.",
+      "source": "DW",
+      "date": "2026-09-25T00:00:00Z",
+      "image_url": "https://archive.org/services/img/DW_20260925_000000_DW_News/full/pct:200/0/default.jpg",
+      "replay_url": "https://archive.org/details/DW_20260925_000000_DW_News",
+      "description_zh": "画面候选标签：text on screen、a speech、a flag、fire、新闻演播室、屏幕文字、basketball、烟雾、爆炸、a news studio、an explosion、soccer",
+      "description_en": "Visual candidate labels: text on screen, a speech, a flag, fire, 新闻演播室, 屏幕文字, basketball, 烟雾, 爆炸, a news studio, an explosion, soccer",
+      "keywords": "text on screen,a speech,a flag,fire,新闻演播室,屏幕文字,basketball,烟雾,爆炸,a news studio,an explosion,soccer,a map,人群,旗帜,smoke,a building,抗议活动,a forest,police",
       "visual_labels": [
         {
-          "label": "a news studio",
-          "score": 0.4268
+          "label": "text on screen",
+          "score": 0.3823
         },
         {
           "label": "a speech",
-          "score": 0.4024
-        },
-        {
-          "label": "a protest",
-          "score": 0.3983
-        },
-        {
-          "label": "a flag",
-          "score": 0.3782
-        },
-        {
-          "label": "an explosion",
-          "score": 0.3657
-        },
-        {
-          "label": "text on screen",
-          "score": 0.3656
-        },
-        {
-          "label": "新闻演播室",
-          "score": 0.3582
-        },
-        {
-          "label": "抗议活动",
-          "score": 0.3579
-        },
-        {
-          "label": "military",
-          "score": 0.3511
-        },
-        {
-          "label": "屏幕文字",
-          "score": 0.3485
-        },
-        {
-          "label": "a mountain",
-          "score": 0.3472
-        },
-        {
-          "label": "a building",
-          "score": 0.3465
-        },
-        {
-          "label": "a ship",
-          "score": 0.3444
-        },
-        {
-          "label": "演讲",
-          "score": 0.3427
-        },
-        {
-          "label": "police",
-          "score": 0.3415
-        },
-        {
-          "label": "a map",
-          "score": 0.3375
-        },
-        {
-          "label": "a road",
-          "score": 0.3368
-        },
-        {
-          "label": "a beach",
-          "score": 0.3324
-        },
-        {
-          "label": "flooding",
-          "score": 0.3319
-        },
-        {
-          "label": "a crowd",
-          "score": 0.3298
-        }
-      ]
-    },
-    {
-      "id": "ALJAZ_20260924_010000",
-      "title": "it has more the floor between us president donald trump and china as president choosing take was on full display as the chinese president arrived here",
-      "source": "ALJAZ",
-      "date": "2026-09-24T00:00:00Z",
-      "image_url": "https://archive.org/services/img/ALJAZ_20260924_010000/full/pct:200/0/default.jpg",
-      "replay_url": "https://archive.org/details/ALJAZ_20260924_010000",
-      "description_zh": "画面候选标签：a mountain、a river、smoke、fire、an explosion、a beach、a map、a forest、山、a horse、an airplane、a ship",
-      "description_en": "Visual candidate labels: a mountain, a river, smoke, fire, an explosion, a beach, a map, a forest, 山, a horse, an airplane, a ship",
-      "keywords": "a mountain,a river,smoke,fire,an explosion,a beach,a map,a forest,山,a horse,an airplane,a ship,flooding,a road,河流,人群,text on screen,地图,旗帜,森林",
-      "visual_labels": [
-        {
-          "label": "a mountain",
-          "score": 0.3985
-        },
-        {
-          "label": "a river",
           "score": 0.3714
         },
         {
-          "label": "smoke",
-          "score": 0.3709
+          "label": "a flag",
+          "score": 0.3691
         },
         {
           "label": "fire",
-          "score": 0.3698
-        },
-        {
-          "label": "an explosion",
           "score": 0.3684
         },
         {
-          "label": "a beach",
-          "score": 0.3659
-        },
-        {
-          "label": "a map",
-          "score": 0.3625
-        },
-        {
-          "label": "a forest",
-          "score": 0.3621
-        },
-        {
-          "label": "山",
-          "score": 0.3618
-        },
-        {
-          "label": "a horse",
-          "score": 0.3591
-        },
-        {
-          "label": "an airplane",
-          "score": 0.3589
-        },
-        {
-          "label": "a ship",
-          "score": 0.3587
-        },
-        {
-          "label": "flooding",
-          "score": 0.3553
-        },
-        {
-          "label": "a road",
-          "score": 0.3513
-        },
-        {
-          "label": "河流",
-          "score": 0.3507
-        },
-        {
-          "label": "人群",
-          "score": 0.3503
-        },
-        {
-          "label": "text on screen",
-          "score": 0.349
-        },
-        {
-          "label": "地图",
-          "score": 0.3486
-        },
-        {
-          "label": "旗帜",
-          "score": 0.3484
-        },
-        {
-          "label": "森林",
-          "score": 0.3483
-        }
-      ]
-    },
-    {
-      "id": "TVPINFO_20260924_063500_Info_Poranek",
-      "title": "meanwhile, a journalistic investigation a few weeks ago revealed secret documents that were supposed to indicate that russia and china, china, which declared all along far-reaching…",
-      "source": "TVPINFO",
-      "date": "2026-09-24T00:00:00Z",
-      "image_url": "https://archive.org/services/img/TVPINFO_20260924_063500_Info_Poranek/full/pct:200/0/default.jpg",
-      "replay_url": "https://archive.org/details/TVPINFO_20260924_063500_Info_Poranek",
-      "description_zh": "画面候选标签：an airplane、an explosion、police、a news studio、a protest、抗议活动、military、text on screen、a flag、a map、a crowd、flooding",
-      "description_en": "Visual candidate labels: an airplane, an explosion, police, a news studio, a protest, 抗议活动, military, text on screen, a flag, a map, a crowd, flooding",
-      "keywords": "an airplane,an explosion,police,a news studio,a protest,抗议活动,military,text on screen,a flag,a map,a crowd,flooding,屏幕文字,警察,军队,fire,a road,飞机,新闻演播室,a truck",
-      "visual_labels": [
-        {
-          "label": "an airplane",
-          "score": 0.4229
-        },
-        {
-          "label": "an explosion",
-          "score": 0.4062
-        },
-        {
-          "label": "police",
-          "score": 0.4043
-        },
-        {
-          "label": "a news studio",
-          "score": 0.4021
-        },
-        {
-          "label": "a protest",
-          "score": 0.3966
-        },
-        {
-          "label": "抗议活动",
-          "score": 0.3953
-        },
-        {
-          "label": "military",
-          "score": 0.3797
-        },
-        {
-          "label": "text on screen",
-          "score": 0.3735
-        },
-        {
-          "label": "a flag",
-          "score": 0.3716
-        },
-        {
-          "label": "a map",
-          "score": 0.3706
-        },
-        {
-          "label": "a crowd",
-          "score": 0.3657
-        },
-        {
-          "label": "flooding",
-          "score": 0.364
+          "label": "新闻演播室",
+          "score": 0.3641
         },
         {
           "label": "屏幕文字",
           "score": 0.3634
         },
         {
-          "label": "警察",
-          "score": 0.3623
+          "label": "basketball",
+          "score": 0.3608
         },
         {
-          "label": "军队",
-          "score": 0.3599
+          "label": "烟雾",
+          "score": 0.3577
         },
         {
-          "label": "fire",
-          "score": 0.3575
+          "label": "爆炸",
+          "score": 0.3565
         },
         {
-          "label": "a road",
-          "score": 0.3554
+          "label": "a news studio",
+          "score": 0.3565
         },
         {
-          "label": "飞机",
+          "label": "an explosion",
+          "score": 0.3555
+        },
+        {
+          "label": "soccer",
+          "score": 0.3547
+        },
+        {
+          "label": "a map",
           "score": 0.353
         },
         {
-          "label": "新闻演播室",
-          "score": 0.3493
+          "label": "人群",
+          "score": 0.3506
         },
         {
-          "label": "a truck",
-          "score": 0.3491
+          "label": "旗帜",
+          "score": 0.3499
+        },
+        {
+          "label": "smoke",
+          "score": 0.3498
+        },
+        {
+          "label": "a building",
+          "score": 0.3487
+        },
+        {
+          "label": "抗议活动",
+          "score": 0.3479
+        },
+        {
+          "label": "a forest",
+          "score": 0.3476
+        },
+        {
+          "label": "police",
+          "score": 0.3469
         }
       ]
     }
