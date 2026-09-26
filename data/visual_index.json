@@ -1,7 +1,101 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-26T00:34:56+00:00",
+  "generated_at": "2026-09-26T06:33:36+00:00",
   "model": "OFA-Sys/chinese-clip-vit-base-patch16",
-  "records": 0,
-  "items": []
+  "records": 1,
+  "items": [
+    {
+      "id": "KPIX_20260926_003000_CBS_News_Bay_Area_Evening_Edition_530pm",
+      "title": ">> these negotiations are more about pure trade issues, really economic outcomes, making sure that our farmers and ranchers and others can get product to market, and making sure th…",
+      "source": "KPIX",
+      "date": "2026-09-26T00:00:00Z",
+      "image_url": "https://archive.org/services/img/KPIX_20260926_003000_CBS_News_Bay_Area_Evening_Edition_530pm/full/pct:200/0/default.jpg",
+      "replay_url": "https://archive.org/details/KPIX_20260926_003000_CBS_News_Bay_Area_Evening_Edition_530pm",
+      "description_zh": "画面候选标签：a news studio、an explosion、a flag、新闻演播室、a protest、a ship、屏幕文字、fire、text on screen、a speech、an airplane、a horse",
+      "description_en": "Visual candidate labels: a news studio, an explosion, a flag, 新闻演播室, a protest, a ship, 屏幕文字, fire, text on screen, a speech, an airplane, a horse",
+      "keywords": "a news studio,an explosion,a flag,新闻演播室,a protest,a ship,屏幕文字,fire,text on screen,a speech,an airplane,a horse,a building,演讲,an animal,人,a car,a road,flooding,抗议活动",
+      "visual_labels": [
+        {
+          "label": "a news studio",
+          "score": 0.383
+        },
+        {
+          "label": "an explosion",
+          "score": 0.3505
+        },
+        {
+          "label": "a flag",
+          "score": 0.3452
+        },
+        {
+          "label": "新闻演播室",
+          "score": 0.3389
+        },
+        {
+          "label": "a protest",
+          "score": 0.3343
+        },
+        {
+          "label": "a ship",
+          "score": 0.3276
+        },
+        {
+          "label": "屏幕文字",
+          "score": 0.3248
+        },
+        {
+          "label": "fire",
+          "score": 0.3247
+        },
+        {
+          "label": "text on screen",
+          "score": 0.3246
+        },
+        {
+          "label": "a speech",
+          "score": 0.3212
+        },
+        {
+          "label": "an airplane",
+          "score": 0.3206
+        },
+        {
+          "label": "a horse",
+          "score": 0.3169
+        },
+        {
+          "label": "a building",
+          "score": 0.3163
+        },
+        {
+          "label": "演讲",
+          "score": 0.3154
+        },
+        {
+          "label": "an animal",
+          "score": 0.3135
+        },
+        {
+          "label": "人",
+          "score": 0.3118
+        },
+        {
+          "label": "a car",
+          "score": 0.3088
+        },
+        {
+          "label": "a road",
+          "score": 0.3084
+        },
+        {
+          "label": "flooding",
+          "score": 0.3074
+        },
+        {
+          "label": "抗议活动",
+          "score": 0.3072
+        }
+      ]
+    }
+  ]
 }
